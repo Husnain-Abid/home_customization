@@ -75,8 +75,8 @@ export default function MiddleSection() {
         }
 
         // Priority 3: Default fallback - show default exterior images
-        if (productData?.defult_images?.exterior?.gallery?.length ?? 0 > 0) {
-            return productData.defult_images!.exterior!.gallery || [];
+        if (productData?.default_images?.exterior?.gallery?.length ?? 0 > 0) {
+            return productData.default_images!.exterior!.gallery || [];
         }
 
         return []
@@ -98,8 +98,8 @@ export default function MiddleSection() {
         }
 
         // Priority 2: Default fallback - show default interior images
-        if (productData?.defult_images?.interior?.gallery?.length ?? 0 > 0) {
-            return productData.defult_images!.interior!.gallery || [];
+        if (productData?.default_images?.interior?.gallery?.length ?? 0 > 0) {
+            return productData.default_images!.interior!.gallery || [];
         }
 
         return []
