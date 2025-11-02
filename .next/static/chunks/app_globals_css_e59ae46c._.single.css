@@ -2334,14 +2334,6 @@
     user-select: none;
   }
 
-  .running {
-    animation-play-state: running;
-  }
-
-  .running\! {
-    animation-play-state: running !important;
-  }
-
   @media (hover: hover) {
     .group-hover\:translate-y-0:is(:where(.group):hover *) {
       --tw-translate-y: calc(var(--spacing) * 0);
