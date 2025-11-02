@@ -1,0 +1,3 @@
+{
+  "/(client)/send-email-success/page": "app/(client)/send-email-success/page.js"
+}

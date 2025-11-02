@@ -81,8 +81,8 @@ export const getExteriorGalleryImages = (
         return filteredInteriorData.sections.exteriorGallery?.images || [];
     }
 
-    if (productData?.defult_images?.exteriorGallery?.images?.length ?? 0 > 0) {
-        return productData.defult_images.exteriorGallery.images || [];
+    if (productData?.default_images?.exteriorGallery?.images?.length ?? 0 > 0) {
+        return productData.default_images.exteriorGallery.images || [];
     }
 
     return []
@@ -110,8 +110,8 @@ export const getInteriorGalleryImages = (
         return filteredInteriorData.sections.interiorGallery?.images || [];
     }
 
-    if (productData?.defult_images?.interiorGallery?.images?.length ?? 0 > 0) {
-        return productData.defult_images.interiorGallery.images || [];
+    if (productData?.default_images?.interiorGallery?.images?.length ?? 0 > 0) {
+        return productData.default_images.interiorGallery.images || [];
     }
 
     return []

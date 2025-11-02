@@ -1,0 +1,16 @@
+{
+  "app": {
+    "[project]/app/(client)/customizations/page": [
+      "static/media/cce31dae03453930-s.p.33f50665.woff2"
+    ],
+    "[project]/app/_not-found/page": [
+      "static/media/cce31dae03453930-s.p.33f50665.woff2"
+    ],
+    "[project]/app/page": [
+      "static/media/cce31dae03453930-s.p.33f50665.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}
