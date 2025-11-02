@@ -254,6 +254,56 @@
                 }
             },
             {
+                "id": 15,
+                "category": "Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes",
+                "name": "Kitchen=No, Bathroom=No, Shower=No, Toilet=No, Sink=No, Wall=Yes",
+                "features": {
+                    "kitchen": "no",
+                    "bathroom": "no",
+                    "shower": "no",
+                    "kitchen_wall": "no",
+                    "toilet": "no",
+                    "sink": "no"
+                },
+                "sections": {
+                    "exterior": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionA_Exterior/A1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionA_Exterior/A2.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionA_Exterior/A3.jpg"
+                        ]
+                    },
+                    "interior": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior/B3.jpg"
+                        ]
+                    },
+                    "exteriorGallery": {
+                        "images": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionC_ExteriorGallery/C1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionC_ExteriorGallery/C2.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionC_ExteriorGallery/C3.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionC_ExteriorGallery/C4.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionC_ExteriorGallery/C5.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionC_ExteriorGallery/C6.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionC_ExteriorGallery/C7.jpg"
+                        ]
+                    },
+                    "interiorGallery": {
+                        "images": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionD_InteriorGallery/D1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionD_InteriorGallery/D2.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionD_InteriorGallery/D3.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionD_InteriorGallery/D4.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionD_InteriorGallery/D5.jpg"
+                        ]
+                    }
+
+                }
+            },
+            {
                 "id": 2,
                 "category": "Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes",
                 "name": "Kitchen=No, Bathroom=Yes, Shower=No, Toilet=No, Sink=No, Wall=Yes",
