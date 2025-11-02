@@ -1,0 +1,376 @@
+[
+    {
+        "id": 1,
+        "name": "Modern Home Customization",
+        "basePrice": 120000,
+        "features": {
+            "kitchen": {
+                "options": [
+                    {
+                        "value": "yes",
+                        "label": "Kitchen: Yes",
+                        "price": 300
+                    },
+                    {
+                        "value": "no",
+                        "label": "Kitchen: No",
+                        "price": 0
+                    }
+                ]
+            },
+            "kitchen_wall": {
+                "options": [
+                    {
+                        "value": "yes",
+                        "label": "Wall: Yes",
+                        "price": 150
+                    },
+                    {
+                        "value": "no",
+                        "label": "Wall: No",
+                        "price": 0
+                    }
+                ]
+            },
+            "kitchen_position": {
+                "options": [
+                    {
+                        "value": "wall3",
+                        "label": "Position 1",
+                        "price": 100
+                    },
+                    {
+                        "value": "wall4",
+                        "label": "Position 2",
+                        "price": 100
+                    }
+                ]
+            },
+            "bathroom": {
+                "options": [
+                    {
+                        "value": "yes",
+                        "label": "Full Bathroom: Yes",
+                        "price": 500
+                    },
+                    {
+                        "value": "no",
+                        "label": "Bathroom: No",
+                        "price": 0
+                    }
+                ]
+            },
+            "shower": {
+                "options": [
+                    {
+                        "value": "yes",
+                        "label": "Shower: Yes",
+                        "price": 200
+                    },
+                    {
+                        "value": "no",
+                        "label": "Shower: No",
+                        "price": 0
+                    }
+                ]
+            },
+            "sink": {
+                "options": [
+                    {
+                        "value": "yes",
+                        "label": "Sink: Yes",
+                        "price": 100
+                    },
+                    {
+                        "value": "no",
+                        "label": "Sink: No",
+                        "price": 0
+                    }
+                ]
+            },
+            "toilet": {
+                "options": [
+                    {
+                        "value": "yes",
+                        "label": "Toilet: Yes",
+                        "price": 75
+                    },
+                    {
+                        "value": "no",
+                        "label": "Toilet: No",
+                        "price": 0
+                    }
+                ]
+            },
+            "slider_door": {
+                "options": [
+                    {
+                        "value": "yes",
+                        "label": "Slider",
+                        "price": 125
+                    },
+                    {
+                        "value": "no",
+                        "label": "No Slider",
+                        "price": 0
+                    }
+                ]
+            },
+            "french_door": {
+                "options": [
+                    {
+                        "value": "yes",
+                        "label": "French Door",
+                        "price": 125
+                    },
+                    {
+                        "value": "no",
+                        "label": "No French Door",
+                        "price": 0
+                    }
+                ]
+            },
+            "stairs": {
+                "options": [
+                    {
+                        "value": "yes",
+                        "label": "Stairs: Yes",
+                        "price": 100
+                    },
+                    {
+                        "value": "no",
+                        "label": "Stairs: No",
+                        "price": 0
+                    }
+                ]
+            },
+            "railing": {
+                "options": [
+                    {
+                        "value": "yes",
+                        "label": "Railing: Yes",
+                        "price": 75
+                    },
+                    {
+                        "value": "no",
+                        "label": "Railing: No",
+                        "price": 0
+                    }
+                ]
+            },
+            "airConditioner": {
+                "options": [
+                    {
+                        "value": "yes",
+                        "label": "Air Conditioner: Yes",
+                        "price": 100
+                    },
+                    {
+                        "value": "no",
+                        "label": "Air Conditioner: No",
+                        "price": 0
+                    }
+                ]
+            },
+            "naturalGas": {
+                "options": [
+                    {
+                        "value": "yes",
+                        "label": "Natural Gas: Yes",
+                        "price": 100
+                    },
+                    {
+                        "value": "no",
+                        "label": "Natural Gas: No",
+                        "price": 0
+                    }
+                ]
+            },
+            "solarPanel": {
+                "options": [
+                    {
+                        "value": "yes",
+                        "label": "Solar Panel: Yes",
+                        "price": 100
+                    },
+                    {
+                        "value": "no",
+                        "label": "Solar Panel: No",
+                        "price": 0
+                    }
+                ]
+            }
+        },
+         "interior": [
+            {
+                "id": 1,
+                "category": "Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_No",
+                "name": "Kitchen=No, Bathroom=No, Shower=No, Toilet=No, Sink=No, Wall=No",
+                "features": {
+                    "kitchen": "no",
+                    "bathroom": "no",
+                    "shower": "no",
+                    "wall": "no",
+                    "toilet": "no",
+                    "sink": "no"
+                },
+                "sections": {
+                    "interior": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_No/SectionB_Interior/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_No/SectionB_Interior/B2.jpg"
+                        ]
+                    },
+                    "interiorGallery": {
+                        "images": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_No/SectionD_InteriorGallery/D1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_No/SectionD_InteriorGallery/D2.jpg"
+                        ]
+                    }
+                }
+            },
+            {
+                "id": 2,
+                "category": "Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes",
+                "name": "Kitchen=No, Bathroom=Yes, Shower=No, Toilet=No, Sink=No, Wall=Yes",
+                "features": {
+                    "kitchen": "no",
+                    "bathroom": "yes",
+                    "shower": "no",
+                    "wall": "yes",
+                    "toilet": "no",
+                    "sink": "no"
+                },
+                "sections": {
+                    "interior": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior/B2.jpg"
+                            ]
+                    },
+                    "interiorGallery": {
+                        "images": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionD_InteriorGallery/D1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionD_InteriorGallery/D2.jpg"
+                        ]
+                    }
+                }
+            },
+
+            {
+                "id": 3,
+                "category": "Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_No_Sink_No_Wall_Yes",
+                "name": "Kitchen=No, Bathroom=Yes, Shower=Yes, Toilet=No, Sink=No, Wall=Yes",
+                "features": {
+                    "kitchen": "no",
+                    "bathroom": "yes",
+                    "shower": "yes",
+                    "wall": "yes",
+                    "toilet": "no",
+                    "sink": "no"
+                },
+                "sections": {
+                    "interior": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior/B2.jpg"
+                        ]
+                    }
+                    "interiorGallery": {
+                        "images": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_No_Sink_No_Wall_Yes/SectionD_InteriorGallery/D1.jpg",
+                        ]
+                    }
+                }
+            },
+...
+
+            {
+                "id": 14,
+                "category": "Kitchen_Yes_Position2_Yes_Bathroom_No",
+                "name": "Kitchen=Yes, Position2=Yes, Bathroom=No",
+                "features": {
+                    "kitchen": "yes",
+                    "bathroom": "no",
+                    "shower": "no",
+                    "toilet": "no",
+                    "sink": "no",
+                    "wall": "no",
+                    "kitchen_position": "wall4"
+                },
+                "sections": {
+
+                    "interior": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_Yes_Position2_Yes_Bathroom_No/SectionB_Interior/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_Yes_Position2_Yes_Bathroom_No/SectionB_Interior/B2.jpg"
+                    },
+                 
+                    "interiorGallery": {
+                        "images": [
+                            "/images/customs_home/interior/Kitchen_Yes_Position2_Yes_Bathroom_No/SectionD_InteriorGallery/D1.jpg",
+                            "/images/customs_home/interior/Kitchen_Yes_Position2_Yes_Bathroom_No/SectionD_InteriorGallery/D2.jpg"
+                        ]
+                    }
+                }
+        
+            }
+
+
+        ],
+
+        "exterior_energySources": [
+            {
+                "id": 1,
+                "category": "Stairs_No_Railing_No_Solar_No_AC_No",
+                "name": "Stairs_No_Railing_No_Solar_No_AC_No",
+                "features": {
+                    "stairs": "no",
+                    "railing": "no",
+                    "solar": "no",
+                    "airConditioner": "no"
+                },
+                "sections": {
+                    "exterior": {
+                        "gallery": [
+                            "/images/customs_home/exterior/EXTERIOR_ENERGY/Stairs=No_Railing=No_Solar=No_AC=No_DONE/SectionA_Exterior_done/A1.jpg"
+                        ]
+                    }
+
+                }
+            },
+   ...
+            {
+                "id": 4,
+                "category": "Stairs_Yes_Railing_No_Solar_Yes_AC_Yes",
+                "name": "Stairs_Yes_Railing_No_Solar_Yes_AC_Yes",
+                "features": {
+                    "stairs": "yes",
+                    "railing": "no",
+                    "solar": "yes",
+                    "airConditioner": "yes"
+                },
+                "sections": {
+                    "exterior": {
+                        "gallery": [
+                            "/images/customs_home/exterior/EXTERIOR_ENERGY/Stairs=Yes_Railing=No_Solar=Yes_AC=Yes_DONE/SectionA_Exterior_done/A1.jpg",
+                    }
+                }
+            }
+        ],
+        "defult_images": {
+            "exterior": {
+                "gallery": [
+                    "/images/customs_home/defultImage/exterior/A1.jpg",
+                    "/images/customs_home/defultImage/exterior/A2.jpg",
+                ]
+            },
+            "interior": {
+                "gallery": [
+                    "/images/customs_home/defultImage/interior/B1.jpg",
+                ]
+            }
+        }
+    }
+]
+

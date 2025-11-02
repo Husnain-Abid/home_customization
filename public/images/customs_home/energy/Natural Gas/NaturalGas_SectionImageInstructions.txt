@@ -1,0 +1,1 @@
+Natural Gas is a Yes/No Feature, but no images in any image sections (A-D) change with yes/no changes in Natural Gas feature option.  All prior customizations retain for Sections, the only Section E and F will change.  I will provide actual text later, for now use placeholder text for E and F
