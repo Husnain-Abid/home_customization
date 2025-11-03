@@ -19,11 +19,11 @@ export default function GalleryItem({ image, alt, onClick, className = "" }: Gal
         <div className={`group overflow-hidden rounded-lg transition-all duration-300 transform hover:scale-[1.02] ${className}`}>
             <div className={`relative ${className.includes('aspect-') ? '' : 'h-48 md:h-56 lg:h-64'}`}>
                 {
-                // imageError ? (
-                //     <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
-                //         <span className="text-xs">Image not found</span>
-                //     </div>
-                // ) : (
+                imageError ? (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
+                        <span className="text-xs">Image not found</span>
+                    </div>
+                ) : (
                     <div
                         onClick={() => onClick(image)}
                         className='cursor-pointer'
@@ -46,7 +46,7 @@ export default function GalleryItem({ image, alt, onClick, className = "" }: Gal
                             </button>
                         </div>
                     </div>
-                // )
+                )
                 
                 }
             </div>
