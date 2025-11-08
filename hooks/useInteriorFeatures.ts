@@ -58,6 +58,33 @@ export const useInteriorFeatures = () => {
       handleFeatureChange('kitchen_wall', 'no');
     }
 
+
+    // 🍳 Auto-select Kitchen Position 1 when Kitchen = Yes and Bathroom = No
+    const isKitchenYes =
+      featureKey === 'kitchen' ? toggledValue === 'yes' : selectedFeatures.kitchen === 'yes';
+    const isBathroomReallyNo =
+      featureKey === 'bathroom' ? toggledValue === 'no' : selectedFeatures.bathroom === 'no';
+
+    if (isKitchenYes && isBathroomReallyNo) {
+      handleFeatureChange('kitchen_position', 'wall3'); // auto-select Position 1
+    }
+
+    // 🚫 NEW RULE: If Kitchen = No → clear kitchen_position
+    if (featureKey === 'kitchen' && toggledValue === 'no') {
+      handleFeatureChange('kitchen_position', 'no');
+    }
+
+    // 🚽 RULE: Cannot have toilet=yes without sink or kitchen
+    const isSinkNo =
+      featureKey === 'sink' ? toggledValue === 'no' : selectedFeatures.sink === 'no';
+    const isKitchenReallyNo =
+      featureKey === 'kitchen' ? toggledValue === 'no' : selectedFeatures.kitchen === 'no';
+
+    // If both sink and kitchen are "no" → toilet must also be "no"
+    if (isSinkNo && isKitchenReallyNo) {
+      handleFeatureChange('toilet', 'no');
+    }
+
     // 🚫 Do NOT reset bathroom sub-features anymore.
     // Just leave them as they are (to restore later if Bathroom becomes "Yes" again).
   };
@@ -100,10 +127,19 @@ export const useInteriorFeatures = () => {
     const currentValue = selectedFeatures[key];
     const toggledValue = currentValue === value ? (value === 'yes' ? 'no' : 'yes') : value;
 
-
-
     handleFeatureChange(key, toggledValue);
+
+    // 🚽 RULE: Toilet cannot be yes if both sink and kitchen are no
+    const isSinkNo = key === 'sink' ? toggledValue === 'no' : selectedFeatures.sink === 'no';
+    const isKitchenNo = selectedFeatures.kitchen === 'no';
+    if (isSinkNo && isKitchenNo) {
+      handleFeatureChange('toilet', 'no');
+    }
+
   };
+
+  /** Check if toilet should be disabled (no sink + no kitchen) */
+  const isToiletDisabled = () => isNo('sink') && isNo('kitchen');
 
   /** Check if bathroom has any sub-customizations */
   const hasBathroomCustomizations = () =>
@@ -124,6 +160,7 @@ export const useInteriorFeatures = () => {
     isKitchenWallSelected,
     isShowerSelected,
     shouldShowKitchenPositionOptions,
+    isToiletDisabled,
 
     // Handlers
     handleFeatureToggle,

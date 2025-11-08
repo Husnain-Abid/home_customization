@@ -764,7 +764,7 @@ function ProductProvider(param) {
             if (match(selectedFeatures.toilet, itemFeatures.toilet)) score += 5;
             if (match(selectedFeatures.sink, itemFeatures.sink)) score += 5;
             // Wall mapping fix
-            if (match(selectedFeatures.kitchen_wall, itemFeatures.wall)) score += 5;
+            if (match(selectedFeatures.kitchen_wall, itemFeatures.kitchen_wall)) score += 5;
             // Kitchen position mapping fix
             if (match(selectedFeatures.kitchen_position, itemFeatures.kitchen_position)) score += 10;
             if (score > bestScore && isValidMatch) {
@@ -772,11 +772,11 @@ function ProductProvider(param) {
                 bestMatch = item;
             }
             // --- Debug logs ---
-            console.log("🟡 Checking Item:", itemFeatures);
-            console.log("Selected:", selectedFeatures);
-            console.log("Score:", score, "Valid:", isValidMatch);
+            console.log("🟡 interior Checking Item:", itemFeatures);
+            console.log("interior Selected:", selectedFeatures);
+            console.log("interior Score:", score, "Valid:", isValidMatch);
         }
-        console.log("✅ Best Match:", (bestMatch === null || bestMatch === void 0 ? void 0 : bestMatch.features) || "None");
+        console.log("✅interior Best Match:", (bestMatch === null || bestMatch === void 0 ? void 0 : bestMatch.features) || "None");
         return bestMatch;
     };
     const getFilteredExteriorEnergyData = ()=>{
@@ -821,7 +821,7 @@ function ProductProvider(param) {
             }
             // --- Solar Panel ---
             if (isValidMatch && selectedFeatures.solarPanel) {
-                if (itemFeatures.solar === selectedFeatures.solarPanel) {
+                if (itemFeatures.solarPanel === selectedFeatures.solarPanel) {
                     score += 6;
                 }
             }
@@ -830,11 +830,12 @@ function ProductProvider(param) {
                 bestScore = score;
                 bestMatch = item;
             }
-        // --- Debug logs ---
-        // console.log("🟡 Checking Item:", itemFeatures);
-        // console.log("Selected:", selectedFeatures);
-        // console.log("Score:", score, "Valid:", isValidMatch);
+            // --- Debug logs ---
+            console.log("🟡 exterior Checking Item:", itemFeatures);
+            console.log("exterior Selected:", selectedFeatures);
+            console.log("exterior Score:", score, "Valid:", isValidMatch);
         }
+        console.log("✅exterior Best Match:", (bestMatch === null || bestMatch === void 0 ? void 0 : bestMatch.features) || "None");
         return bestMatch;
     };
     const calculateTotalPrice = ()=>{
@@ -932,7 +933,7 @@ function ProductProvider(param) {
         children: children
     }, void 0, false, {
         fileName: "[project]/contexts/ProductContext.tsx",
-        lineNumber: 374,
+        lineNumber: 372,
         columnNumber: 5
     }, this);
 }

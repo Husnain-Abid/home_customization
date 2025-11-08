@@ -109,6 +109,9 @@ export default function LeftSide() {
             <EnergySources />
           </AccordionContent>
         </AccordionItem>
+
+
+        
       </Accordion>
     </div>
   );

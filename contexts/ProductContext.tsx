@@ -140,7 +140,6 @@ export function ProductProvider({ children }: { children: ReactNode }) {
     fetchData();
   }, []);
 
-
   // console.log("productData" , productData);
   // console.log("selectedFeatures" , selectedFeatures);
 
@@ -167,7 +166,7 @@ export function ProductProvider({ children }: { children: ReactNode }) {
       if (match(selectedFeatures.sink, itemFeatures.sink)) score += 5;
 
       // Wall mapping fix
-      if (match(selectedFeatures.kitchen_wall, itemFeatures.wall)) score += 5;
+      if (match(selectedFeatures.kitchen_wall, itemFeatures.kitchen_wall)) score += 5;
 
       // Kitchen position mapping fix
       if (match(selectedFeatures.kitchen_position, itemFeatures.kitchen_position)) score += 10;
@@ -179,12 +178,12 @@ export function ProductProvider({ children }: { children: ReactNode }) {
 
 
       // --- Debug logs ---
-      console.log("🟡 Checking Item:", itemFeatures);
-      console.log("Selected:", selectedFeatures);
-      console.log("Score:", score, "Valid:", isValidMatch);
+      console.log("🟡 interior Checking Item:", itemFeatures);
+      console.log("interior Selected:", selectedFeatures);
+      console.log("interior Score:", score, "Valid:", isValidMatch);
     }
 
-    console.log("✅ Best Match:", bestMatch?.features || "None");
+    console.log("✅interior Best Match:", bestMatch?.features || "None");
 
     return bestMatch;
   };
@@ -238,7 +237,7 @@ export function ProductProvider({ children }: { children: ReactNode }) {
 
       // --- Solar Panel ---
       if (isValidMatch && selectedFeatures.solarPanel) {
-        if (itemFeatures.solar === selectedFeatures.solarPanel) {
+        if (itemFeatures.solarPanel === selectedFeatures.solarPanel) {
           score += 6;
         }
       }
@@ -250,10 +249,12 @@ export function ProductProvider({ children }: { children: ReactNode }) {
       }
 
       // --- Debug logs ---
-      // console.log("🟡 Checking Item:", itemFeatures);
-      // console.log("Selected:", selectedFeatures);
-      // console.log("Score:", score, "Valid:", isValidMatch);
+      console.log("🟡 exterior Checking Item:", itemFeatures);
+      console.log("exterior Selected:", selectedFeatures);
+      console.log("exterior Score:", score, "Valid:", isValidMatch);
     }
+
+    console.log("✅exterior Best Match:", bestMatch?.features || "None");
 
     return bestMatch;
   };
@@ -346,9 +347,6 @@ export function ProductProvider({ children }: { children: ReactNode }) {
       (key) => selectedFeatures[key] === 'yes' || selectedFeatures[key] === 'no'
     );
   };
-
-
-
 
 
 

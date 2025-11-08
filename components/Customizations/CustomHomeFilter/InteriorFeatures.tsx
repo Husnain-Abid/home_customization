@@ -12,6 +12,7 @@ export default function InteriorFeatures() {
     isBathroomSelected,
     isBathroomNoSelected,
     isShowerSelected,
+    isToiletDisabled,
     shouldShowKitchenPositionOptions,
     handleFeatureToggle,
     handleKitchenPositionToggle,
@@ -238,13 +239,12 @@ export default function InteriorFeatures() {
         </span>
 
         {/* Shower */}
-        <div className={`flex flex-col space-y-1 sm:space-y-2 mb-3 p-3 rounded-lg border transition-all duration-200 ${
-          isBathroomNoSelected() 
-            ? 'opacity-50 pointer-events-none bg-gray-100 border-gray-200' 
-            : (isFeatureSelected('shower', 'yes') || isFeatureSelected('shower', 'no')) 
-              ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-300 shadow-sm' 
-              : 'bg-gray-50 border-gray-200 hover:border-gray-300'
-        }`}>
+        <div className={`flex flex-col space-y-1 sm:space-y-2 mb-3 p-3 rounded-lg border transition-all duration-200 ${isBathroomNoSelected()
+          ? 'opacity-50 pointer-events-none bg-gray-100 border-gray-200'
+          : (isFeatureSelected('shower', 'yes') || isFeatureSelected('shower', 'no'))
+            ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-300 shadow-sm'
+            : 'bg-gray-50 border-gray-200 hover:border-gray-300'
+          }`}>
           <span className={`text-xs sm:text-sm font-semibold flex items-center gap-2 ${isBathroomNoSelected() ? 'text-gray-400' : 'text-[#4A4C56]'}`}>
             <span className={getSmallIndicatorStyling(
               isBathroomNoSelected() ? false : (isFeatureSelected('shower', 'yes') || isFeatureSelected('shower', 'no')),
@@ -287,13 +287,12 @@ export default function InteriorFeatures() {
         </div>
 
         {/* Sink */}
-        <div className={`flex flex-col space-y-1 sm:space-y-2 mb-3 p-3 rounded-lg border transition-all duration-200 ${
-          isBathroomNoSelected() 
-            ? 'opacity-50 pointer-events-none bg-gray-100 border-gray-200' 
-            : (isFeatureSelected('sink', 'yes') || isFeatureSelected('sink', 'no')) 
-              ? 'bg-gradient-to-r from-purple-50 to-violet-50 border-purple-300 shadow-sm' 
-              : 'bg-gray-50 border-gray-200 hover:border-gray-300'
-        }`}>
+        <div className={`flex flex-col space-y-1 sm:space-y-2 mb-3 p-3 rounded-lg border transition-all duration-200 ${isBathroomNoSelected()
+          ? 'opacity-50 pointer-events-none bg-gray-100 border-gray-200'
+          : (isFeatureSelected('sink', 'yes') || isFeatureSelected('sink', 'no'))
+            ? 'bg-gradient-to-r from-purple-50 to-violet-50 border-purple-300 shadow-sm'
+            : 'bg-gray-50 border-gray-200 hover:border-gray-300'
+          }`}>
           <span className={`text-xs sm:text-sm font-semibold flex items-center gap-2 ${isBathroomNoSelected() ? 'text-gray-400' : 'text-[#4A4C56]'}`}>
             <span className={getSmallIndicatorStyling(
               isBathroomNoSelected() ? false : (isFeatureSelected('sink', 'yes') || isFeatureSelected('sink', 'no')),
@@ -336,13 +335,14 @@ export default function InteriorFeatures() {
         </div>
 
         {/* Toilet */}
-        <div className={`flex flex-col space-y-1 sm:space-y-2 p-3 rounded-lg border transition-all duration-200 ${
-          isBathroomNoSelected() 
-            ? 'opacity-50 pointer-events-none bg-gray-100 border-gray-200' 
-            : (isFeatureSelected('toilet', 'yes') || isFeatureSelected('toilet', 'no')) 
-              ? 'bg-gradient-to-r from-teal-50 to-cyan-50 border-teal-300 shadow-sm' 
-              : 'bg-gray-50 border-gray-200 hover:border-gray-300'
-        }`}>
+     
+        {!isToiletDisabled() ? (
+    <div className={`flex flex-col space-y-1 sm:space-y-2 p-3 rounded-lg border transition-all duration-200 ${isBathroomNoSelected()
+          ? 'opacity-50 pointer-events-none bg-gray-100 border-gray-200'
+          : (isFeatureSelected('toilet', 'yes') || isFeatureSelected('toilet', 'no'))
+            ? 'bg-gradient-to-r from-teal-50 to-cyan-50 border-teal-300 shadow-sm'
+            : 'bg-gray-50 border-gray-200 hover:border-gray-300'
+          }`}>
           <span className={`text-xs sm:text-sm font-semibold flex items-center gap-2 ${isBathroomNoSelected() ? 'text-gray-400' : 'text-[#4A4C56]'}`}>
             <span className={getSmallIndicatorStyling(
               isBathroomNoSelected() ? false : (isFeatureSelected('toilet', 'yes') || isFeatureSelected('toilet', 'no')),
@@ -383,6 +383,45 @@ export default function InteriorFeatures() {
             </div>
           </div>
         </div>
+
+        ) : (
+          // ⚠️ Disabled state — "No" visibly selected
+          <div className="p-3 rounded-lg border transition-all duration-200 opacity-50 pointer-events-none bg-gray-100 border-gray-200">
+            <span className="text-xs sm:text-sm font-semibold block mb-2 text-gray-400">
+              Toilet:
+            </span>
+            <div className="mb-3 p-2 bg-gray-50 rounded border border-gray-200">
+              <p className="text-xs text-gray-600 italic">
+                ⚠️ Toilet cannot be enabled without a kitchen or a bathroom sink.
+              </p>
+            </div>
+
+            {/* 👇 "No" is visibly checked */}
+            <div className="flex flex-col space-y-1 sm:space-y-2">
+              <div className="flex items-center space-x-2">
+                <Checkbox disabled checked={false} />
+                <label className="text-xs sm:text-sm text-gray-400 cursor-not-allowed">Yes</label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox disabled checked={true} /> {/* ✅ No is selected */}
+                <label className="text-xs sm:text-sm text-gray-400 cursor-not-allowed">No</label>
+              </div>
+            </div>
+          </div>
+        )}
+
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
     </div>
   );
