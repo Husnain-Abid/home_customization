@@ -540,7 +540,7 @@ function Navbar() {
                 children: navLinks.map((link)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                         href: link.href,
                         className: `relative text-[14px] 2xl:text-[16px] px-1 transition-all duration-200 hover:scale-105
-                            ${pathname === link.href ? 'text-[#cbb26a]' : 'text-[#4A4C56] hover:text-[#cbb26a]'}`,
+                            ${pathname === link.href ? 'text-[#cbb26a]' : 'text-gray-800 hover:text-[#cbb26a]'}`,
                         children: [
                             link.name,
                             pathname === link.href && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -562,7 +562,7 @@ function Navbar() {
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "hidden lg:flex items-center gap-3 xl:gap-6  text-[#4A4C56] text-sm pr-5 lg:pr-10 xl:pr-24 2xl:pr-48",
+                className: "hidden lg:flex items-center gap-3 xl:gap-6  text-gray-800 text-sm pr-5 lg:pr-10 xl:pr-24 2xl:pr-48",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex items-center gap-2 transition-colors duration-200 hover:text-[#cbb26a]",
