@@ -1667,6 +1667,10 @@
     background-color: lab(92.3683% .133038 -.486815 / .25098);
   }
 
+  .bg-\[\#F3F4F6\] {
+    background-color: #f3f4f6;
+  }
+
   .bg-\[\#F8F8F8\] {
     background-color: #f8f8f8;
   }
@@ -2332,6 +2336,14 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+  }
+
+  .running {
+    animation-play-state: running;
+  }
+
+  .running\! {
+    animation-play-state: running !important;
   }
 
   @media (hover: hover) {

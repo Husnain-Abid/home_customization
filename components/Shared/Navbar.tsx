@@ -26,7 +26,7 @@ export default function Navbar() {
         const handleScroll = () => {
             const scrollY = window.scrollY
             const isScrollingUp = scrollY < lastScrollY
-            
+
             // Clear existing timeout
             if (scrollTimeout) {
                 clearTimeout(scrollTimeout)
@@ -44,12 +44,12 @@ export default function Navbar() {
                 // Hide navbar when scrolling down past 100px
                 setIsScrolled(true)
                 setIsVisible(false)
-                
+
                 // Show navbar after 1.5 seconds of no scrolling
                 const timeout = setTimeout(() => {
                     setIsVisible(true)
                 }, 1500)
-                
+
                 setScrollTimeout(timeout)
             }
 
@@ -66,11 +66,9 @@ export default function Navbar() {
     }, [scrollTimeout, lastScrollY])
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 flex items-center justify-between h-16 w-full bg-white z-50 transition-all duration-500 ease-in-out ${
-            isScrolled ? 'shadow-lg' : ''
-        } ${
-            isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
-        }`}>
+        <nav className={`fixed top-0 left-0 right-0 flex items-center justify-between h-16 w-full bg-[#F3F4F6] z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'shadow-lg' : ''
+            } ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+            }`}>
             {/* Left: Logo with angled black background */}
             <div className="relative h-full flex items-center">
                 <div
@@ -79,9 +77,11 @@ export default function Navbar() {
                         clipPath: 'polygon(0 0, calc(100% - 60px) 0, 100% 100%, 0% 100%)'
                     }}
                 >
-                    <div className="flex items-center gap-3 pl-5 sm:pl-2 lg:pl-10 xl:pl-24 2xl:pl-48">
-                        <Image width={500} height={500} src="/images/logo/logo.png" alt="logo" className='w-full h-full' />
-                    </div>
+
+                    <Link href="/" className="flex items-center gap-3 pl-5 sm:pl-2 lg:pl-10 xl:pl-24 2xl:pl-48">
+                        <Image width={500} height={500} src="/images/logo/logo.png" alt="logo" className="w-full h-full cursor-pointer" />
+                    </Link>
+
                 </div>
             </div>
 

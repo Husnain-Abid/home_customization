@@ -302,7 +302,7 @@ function Navbar() {
         lastScrollY
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-        className: `fixed top-0 left-0 right-0 flex items-center justify-between h-16 w-full bg-white z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'shadow-lg' : ''} ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`,
+        className: `fixed top-0 left-0 right-0 flex items-center justify-between h-16 w-full bg-[#F3F4F6] z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'shadow-lg' : ''} ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "relative h-full flex items-center",
@@ -311,32 +311,33 @@ function Navbar() {
                     style: {
                         clipPath: 'polygon(0 0, calc(100% - 60px) 0, 100% 100%, 0% 100%)'
                     },
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        href: "/",
                         className: "flex items-center gap-3 pl-5 sm:pl-2 lg:pl-10 xl:pl-24 2xl:pl-48",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                             width: 500,
                             height: 500,
                             src: "/images/logo/logo.png",
                             alt: "logo",
-                            className: "w-full h-full"
+                            className: "w-full h-full cursor-pointer"
                         }, void 0, false, {
                             fileName: "[project]/components/Shared/Navbar.tsx",
-                            lineNumber: 83,
+                            lineNumber: 82,
                             columnNumber: 25
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/Shared/Navbar.tsx",
-                        lineNumber: 82,
+                        lineNumber: 81,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/Shared/Navbar.tsx",
-                    lineNumber: 76,
+                    lineNumber: 74,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/Shared/Navbar.tsx",
-                lineNumber: 75,
+                lineNumber: 73,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {

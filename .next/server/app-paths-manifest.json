@@ -1,5 +1,8 @@
 {
   "/(client)/customizations/page": "app/(client)/customizations/page.js",
+  "/(client)/faq/page": "app/(client)/faq/page.js",
+  "/(client)/features-details/page": "app/(client)/features-details/page.js",
+  "/(client)/send-email-success/page": "app/(client)/send-email-success/page.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js"
 }

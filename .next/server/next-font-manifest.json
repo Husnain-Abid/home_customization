@@ -3,6 +3,15 @@
     "[project]/app/(client)/customizations/page": [
       "static/media/cce31dae03453930-s.p.33f50665.woff2"
     ],
+    "[project]/app/(client)/faq/page": [
+      "static/media/cce31dae03453930-s.p.33f50665.woff2"
+    ],
+    "[project]/app/(client)/features-details/page": [
+      "static/media/cce31dae03453930-s.p.33f50665.woff2"
+    ],
+    "[project]/app/(client)/send-email-success/page": [
+      "static/media/cce31dae03453930-s.p.33f50665.woff2"
+    ],
     "[project]/app/_not-found/page": [
       "static/media/cce31dae03453930-s.p.33f50665.woff2"
     ],
