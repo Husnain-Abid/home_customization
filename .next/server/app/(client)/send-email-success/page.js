@@ -1,14 +1,15 @@
-const CHUNK_PUBLIC_PATH = "server/app/(client)/send-email-success/page.js";
-const runtime = require("../../../chunks/ssr/[turbopack]_runtime.js");
-runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_3a9f8461._.js");
-runtime.loadChunk("server/chunks/ssr/[root-of-the-server]__72e60385._.js");
-runtime.loadChunk("server/chunks/ssr/[root-of-the-server]__258f5ed4._.js");
-runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_client_components_1c8c21fa._.js");
-runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_client_components_builtin_forbidden_651c1c6d.js");
-runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_a3bc0a28.js");
-runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_af93ecd6.js");
-runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_d100e04d._.js");
-runtime.loadChunk("server/chunks/ssr/[root-of-the-server]__c6580cc2._.js");
-runtime.getOrInstantiateRuntimeModule("[project]/.next-internal/server/app/(client)/send-email-success/page/actions.js [app-rsc] (server actions loader, ecmascript)", CHUNK_PUBLIC_PATH);
-runtime.getOrInstantiateRuntimeModule("[project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(client)/send-email-success/page { GLOBAL_ERROR_MODULE => \"[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_0 => \"[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_1 => \"[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_2 => \"[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_3 => \"[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_4 => \"[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_5 => \"[project]/app/(client)/send-email-success/page.tsx [app-rsc] (ecmascript, Next.js Server Component)\" } [app-rsc] (ecmascript)", CHUNK_PUBLIC_PATH);
-module.exports = runtime.getOrInstantiateRuntimeModule("[project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(client)/send-email-success/page { GLOBAL_ERROR_MODULE => \"[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_0 => \"[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_1 => \"[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_2 => \"[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_3 => \"[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_4 => \"[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_5 => \"[project]/app/(client)/send-email-success/page.tsx [app-rsc] (ecmascript, Next.js Server Component)\" } [app-rsc] (ecmascript)", CHUNK_PUBLIC_PATH).exports;
+var R=require("../../../chunks/ssr/[turbopack]_runtime.js")("server/app/(client)/send-email-success/page.js")
+R.c("server/chunks/ssr/[root-of-the-server]__7d9cd212._.js")
+R.c("server/chunks/ssr/d2419_next_dist_a2f3552f._.js")
+R.c("server/chunks/ssr/Documents_GitHub_home_customization_774687ac._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__e49f18b4._.js")
+R.c("server/chunks/ssr/d2419_next_dist_7646b216._.js")
+R.c("server/chunks/ssr/d2419_next_dist_24bada73._.js")
+R.c("server/chunks/ssr/d2419_next_dist_client_components_builtin_global-error_a572ba18.js")
+R.c("server/chunks/ssr/[root-of-the-server]__7a795213._.js")
+R.c("server/chunks/ssr/d2419_next_dist_client_components_8cab5875._.js")
+R.c("server/chunks/ssr/d2419_next_dist_client_components_builtin_forbidden_0e9f7777.js")
+R.c("server/chunks/ssr/d2419_next_dist_client_components_builtin_unauthorized_48954ad1.js")
+R.c("server/chunks/ssr/8e2a5__next-internal_server_app_(client)_send-email-success_page_actions_8a2bef57.js")
+R.m(30279)
+module.exports=R.m(30279).exports
