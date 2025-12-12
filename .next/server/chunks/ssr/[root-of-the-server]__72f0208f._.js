@@ -2027,7 +2027,7 @@ function InteriorFeatures() {
                 lineNumber: 29,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            isKitchenNoSelected() && isBathroomSelected() && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: getSectionStyling(isFeatureSelected('kitchen_wall', 'yes') || isFeatureSelected('kitchen_wall', 'no'), 'from-orange-50 to-amber-50 border-orange-300'),
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2038,14 +2038,14 @@ function InteriorFeatures() {
                             }, void 0, false, {
                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                 lineNumber: 73,
-                                columnNumber: 11
+                                columnNumber: 13
                             }, this),
                             "Kitchen Wall:"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                         lineNumber: 72,
-                        columnNumber: 9
+                        columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex flex-col space-y-1 sm:space-y-2",
@@ -2061,7 +2061,7 @@ function InteriorFeatures() {
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 81,
-                                        columnNumber: 13
+                                        columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                         htmlFor: "kitchen_wall-yes",
@@ -2070,13 +2070,13 @@ function InteriorFeatures() {
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 87,
-                                        columnNumber: 13
+                                        columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                 lineNumber: 80,
-                                columnNumber: 11
+                                columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex items-center space-x-2",
@@ -2089,7 +2089,7 @@ function InteriorFeatures() {
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 92,
-                                        columnNumber: 13
+                                        columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                         htmlFor: "kitchen_wall-no",
@@ -2098,25 +2098,25 @@ function InteriorFeatures() {
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 98,
-                                        columnNumber: 13
+                                        columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                 lineNumber: 91,
-                                columnNumber: 11
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                         lineNumber: 79,
-                        columnNumber: 9
+                        columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                 lineNumber: 68,
-                columnNumber: 7
+                columnNumber: 9
             }, this),
             shouldShowKitchenPositionOptions() && !isBathroomSelected() && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "bg-gray-50 p-3 rounded-lg",
@@ -2606,14 +2606,14 @@ function InteriorFeatures() {
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 347,
-                                        columnNumber: 15
+                                        columnNumber: 13
                                     }, this),
                                     "Toilet:"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                 lineNumber: 346,
-                                columnNumber: 13
+                                columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex flex-col space-y-1 sm:space-y-2",
@@ -2630,7 +2630,7 @@ function InteriorFeatures() {
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                                 lineNumber: 355,
-                                                columnNumber: 17
+                                                columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                 htmlFor: "toilet-yes",
@@ -2639,13 +2639,13 @@ function InteriorFeatures() {
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                                 lineNumber: 362,
-                                                columnNumber: 17
+                                                columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 354,
-                                        columnNumber: 15
+                                        columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex items-center space-x-2",
@@ -2659,7 +2659,7 @@ function InteriorFeatures() {
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                                 lineNumber: 370,
-                                                columnNumber: 17
+                                                columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                 htmlFor: "toilet-no",
@@ -2668,25 +2668,25 @@ function InteriorFeatures() {
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                                 lineNumber: 377,
-                                                columnNumber: 17
+                                                columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 369,
-                                        columnNumber: 15
+                                        columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                 lineNumber: 353,
-                                columnNumber: 13
+                                columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                         lineNumber: 340,
-                        columnNumber: 11
+                        columnNumber: 5
                     }, this) : // ⚠️ Disabled state — "No" visibly selected
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "p-3 rounded-lg border transition-all duration-200 opacity-50 pointer-events-none bg-gray-100 border-gray-200",
