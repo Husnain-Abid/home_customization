@@ -64,44 +64,44 @@ export default function InteriorFeatures() {
       </div>
 
       {/* Kitchen Wall Section - Only show if Kitchen = No */}
-      {isKitchenNoSelected() && isBathroomSelected() && (
-        <div className={getSectionStyling(
-          isFeatureSelected('kitchen_wall', 'yes') || isFeatureSelected('kitchen_wall', 'no'),
-          'from-orange-50 to-amber-50 border-orange-300'
-        )}>
-          <span className="text-xs sm:text-sm font-semibold text-[#4A4C56] flex items-center gap-2">
-            <span className={getSmallIndicatorStyling(
-              isFeatureSelected('kitchen_wall', 'yes') || isFeatureSelected('kitchen_wall', 'no'),
-              'bg-orange-500'
-            )}></span>
-            Kitchen Wall:
-          </span>
-          <div className="flex flex-col space-y-1 sm:space-y-2">
-            <div className="flex items-center space-x-2">
-              <Checkbox
-                id="kitchen_wall-yes"
-                checked={isFeatureSelected('kitchen_wall', 'yes')}
-                onCheckedChange={() => handleFeatureToggle('kitchen_wall', 'yes')}
-                className="scale-90 cursor-pointer sm:scale-100"
-              />
-              <label htmlFor="kitchen_wall-yes" className="text-xs sm:text-sm text-gray-600">
-                Yes
-              </label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Checkbox
-                id="kitchen_wall-no"
-                checked={isFeatureSelected('kitchen_wall', 'no')}
-                onCheckedChange={() => handleFeatureToggle('kitchen_wall', 'no')}
-                className="scale-90 cursor-pointer sm:scale-100"
-              />
-              <label htmlFor="kitchen_wall-no" className="text-xs sm:text-sm text-gray-600">
-                No
-              </label>
-            </div>
+
+      <div className={getSectionStyling(
+        isFeatureSelected('kitchen_wall', 'yes') || isFeatureSelected('kitchen_wall', 'no'),
+        'from-orange-50 to-amber-50 border-orange-300'
+      )}>
+        <span className="text-xs sm:text-sm font-semibold text-[#4A4C56] flex items-center gap-2">
+          <span className={getSmallIndicatorStyling(
+            isFeatureSelected('kitchen_wall', 'yes') || isFeatureSelected('kitchen_wall', 'no'),
+            'bg-orange-500'
+          )}></span>
+          Kitchen Wall:
+        </span>
+        <div className="flex flex-col space-y-1 sm:space-y-2">
+          <div className="flex items-center space-x-2">
+            <Checkbox
+              id="kitchen_wall-yes"
+              checked={isFeatureSelected('kitchen_wall', 'yes')}
+              onCheckedChange={() => handleFeatureToggle('kitchen_wall', 'yes')}
+              className="scale-90 cursor-pointer sm:scale-100"
+            />
+            <label htmlFor="kitchen_wall-yes" className="text-xs sm:text-sm text-gray-600">
+              Yes
+            </label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox
+              id="kitchen_wall-no"
+              checked={isFeatureSelected('kitchen_wall', 'no')}
+              onCheckedChange={() => handleFeatureToggle('kitchen_wall', 'no')}
+              className="scale-90 cursor-pointer sm:scale-100"
+            />
+            <label htmlFor="kitchen_wall-no" className="text-xs sm:text-sm text-gray-600">
+              No
+            </label>
           </div>
         </div>
-      )}
+      </div>
+
 
       {/* Kitchen Position Options - Only show if Kitchen = Yes and when bathroom yes it should be disable */}
       {shouldShowKitchenPositionOptions() && !isBathroomSelected() && (
@@ -335,54 +335,54 @@ export default function InteriorFeatures() {
         </div>
 
         {/* Toilet */}
-     
+
         {!isToiletDisabled() ? (
-    <div className={`flex flex-col space-y-1 sm:space-y-2 p-3 rounded-lg border transition-all duration-200 ${isBathroomNoSelected()
-          ? 'opacity-50 pointer-events-none bg-gray-100 border-gray-200'
-          : (isFeatureSelected('toilet', 'yes') || isFeatureSelected('toilet', 'no'))
-            ? 'bg-gradient-to-r from-teal-50 to-cyan-50 border-teal-300 shadow-sm'
-            : 'bg-gray-50 border-gray-200 hover:border-gray-300'
-          }`}>
-          <span className={`text-xs sm:text-sm font-semibold flex items-center gap-2 ${isBathroomNoSelected() ? 'text-gray-400' : 'text-[#4A4C56]'}`}>
-            <span className={getSmallIndicatorStyling(
-              isBathroomNoSelected() ? false : (isFeatureSelected('toilet', 'yes') || isFeatureSelected('toilet', 'no')),
-              'bg-teal-500'
-            )}></span>
-            Toilet:
-          </span>
-          <div className="flex flex-col space-y-1 sm:space-y-2">
-            <div className="flex items-center space-x-2">
-              <Checkbox
-                id="toilet-yes"
-                checked={isFeatureSelected('toilet', 'yes')}
-                onCheckedChange={() => handleBathroomFeatureToggle('toilet', 'yes')}
-                className={`scale-90 sm:scale-100 ${isBathroomNoSelected() ? 'cursor-not-allowed' : 'cursor-pointer'}`}
-                disabled={isBathroomNoSelected()}
-              />
-              <label
-                htmlFor="toilet-yes"
-                className={`text-xs sm:text-sm ${isBathroomNoSelected() ? 'text-gray-400 cursor-not-allowed' : 'text-gray-600 cursor-pointer'}`}
-              >
-                Yes
-              </label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Checkbox
-                id="toilet-no"
-                checked={isFeatureSelected('toilet', 'no')}
-                onCheckedChange={() => handleBathroomFeatureToggle('toilet', 'no')}
-                className={`scale-90 sm:scale-100 ${isBathroomNoSelected() ? 'cursor-not-allowed' : 'cursor-pointer'}`}
-                disabled={isBathroomNoSelected()}
-              />
-              <label
-                htmlFor="toilet-no"
-                className={`text-xs sm:text-sm ${isBathroomNoSelected() ? 'text-gray-400 cursor-not-allowed' : 'text-gray-600 cursor-pointer'}`}
-              >
-                No
-              </label>
+          <div className={`flex flex-col space-y-1 sm:space-y-2 p-3 rounded-lg border transition-all duration-200 ${isBathroomNoSelected()
+            ? 'opacity-50 pointer-events-none bg-gray-100 border-gray-200'
+            : (isFeatureSelected('toilet', 'yes') || isFeatureSelected('toilet', 'no'))
+              ? 'bg-gradient-to-r from-teal-50 to-cyan-50 border-teal-300 shadow-sm'
+              : 'bg-gray-50 border-gray-200 hover:border-gray-300'
+            }`}>
+            <span className={`text-xs sm:text-sm font-semibold flex items-center gap-2 ${isBathroomNoSelected() ? 'text-gray-400' : 'text-[#4A4C56]'}`}>
+              <span className={getSmallIndicatorStyling(
+                isBathroomNoSelected() ? false : (isFeatureSelected('toilet', 'yes') || isFeatureSelected('toilet', 'no')),
+                'bg-teal-500'
+              )}></span>
+              Toilet:
+            </span>
+            <div className="flex flex-col space-y-1 sm:space-y-2">
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="toilet-yes"
+                  checked={isFeatureSelected('toilet', 'yes')}
+                  onCheckedChange={() => handleBathroomFeatureToggle('toilet', 'yes')}
+                  className={`scale-90 sm:scale-100 ${isBathroomNoSelected() ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                  disabled={isBathroomNoSelected()}
+                />
+                <label
+                  htmlFor="toilet-yes"
+                  className={`text-xs sm:text-sm ${isBathroomNoSelected() ? 'text-gray-400 cursor-not-allowed' : 'text-gray-600 cursor-pointer'}`}
+                >
+                  Yes
+                </label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="toilet-no"
+                  checked={isFeatureSelected('toilet', 'no')}
+                  onCheckedChange={() => handleBathroomFeatureToggle('toilet', 'no')}
+                  className={`scale-90 sm:scale-100 ${isBathroomNoSelected() ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                  disabled={isBathroomNoSelected()}
+                />
+                <label
+                  htmlFor="toilet-no"
+                  className={`text-xs sm:text-sm ${isBathroomNoSelected() ? 'text-gray-400 cursor-not-allowed' : 'text-gray-600 cursor-pointer'}`}
+                >
+                  No
+                </label>
+              </div>
             </div>
           </div>
-        </div>
 
         ) : (
           // ⚠️ Disabled state — "No" visibly selected
@@ -409,15 +409,6 @@ export default function InteriorFeatures() {
             </div>
           </div>
         )}
-
-
-
-
-
-
-
-
-
 
 
 

@@ -24,34 +24,36 @@ export default function RightSide() {
         getFeatureOptions
     } = useProductContext()
 
+
+
+
     // Generate configuration items based on selected features
     const getConfigurationItems = (): ConfigurationItem[] => {
         if (!productData) return []
 
         const items: ConfigurationItem[] = []
 
-        // Add kitchen if selected
+        // Kitchen
         if (selectedFeatures.kitchen === 'yes') {
             const kitchenOption = productData.features.kitchen?.options.find(opt => opt.value === 'yes')
             if (kitchenOption) {
                 items.push({
                     name: 'Kitchen',
                     price: kitchenOption.price,
-                    description: 'The kitchen is one of the most important areas of your home, where you spend a lot of time preparing meals and gathering with family. If you\'re looking for a spacious and modern kitchen for your family, the size and design of your kitchen are crucial. It adds both functionality and style to your home. Upgrading your kitchen is an investment, but it will significantly increase the overall value of your home.'
+                    description:
+                        'Your custom kitchen delivers the full functionality of a traditional home kitchen in a compact footprint. Built in appliances, tailored cabinetry, and smart storage maximize workflow and usability. The layout includes a compact refrigerator, two burner cooktop, built in oven, and dual sinks, all set against heat resistant countertops designed for everyday durability.'
                 })
             }
         }
 
-        // Add kitchen position if selected
+        // Kitchen Position
         if (selectedFeatures.kitchen_position) {
             const positionOption = productData.features.kitchen_position?.options.find(opt => opt.value === selectedFeatures.kitchen_position)
             if (positionOption) {
-                let positionName = ''
-                if (selectedFeatures.kitchen_position === 'wall3') {
-                    positionName = 'Kitchen Position 1 (Wall 3)'
-                } else if (selectedFeatures.kitchen_position === 'wall4') {
-                    positionName = 'Kitchen Position 2 (Wall 4)'
-                }
+                let positionName = selectedFeatures.kitchen_position === 'wall3'
+                    ? 'Kitchen Position 1 (Wall 3)'
+                    : 'Kitchen Position 2 (Wall 4)'
+
                 items.push({
                     name: positionName,
                     price: positionOption.price,
@@ -60,55 +62,59 @@ export default function RightSide() {
             }
         }
 
-        // Add bathroom if selected
+        // Bathroom
         if (selectedFeatures.bathroom === 'yes') {
             const bathroomOption = productData.features.bathroom?.options.find(opt => opt.value === 'yes')
             if (bathroomOption) {
                 items.push({
                     name: 'Full Bathroom',
                     price: bathroomOption.price,
-                    description: 'A full bathroom adds convenience and value to your home. It includes all necessary fixtures for a complete bathroom experience.'
+                    description:
+                        'Your custom bathroom combines modern design with space saving efficiency. It features a 60”x 30” shower, a floating sink, and a toilet, all arranged for comfort and usability in a compact footprint. Customers save $1,000 when purchasing the complete bathroom package instead of individually.'
                 })
             }
         }
 
-        // Add shower if selected
+        // Shower
         if (selectedFeatures.shower === 'yes') {
             const showerOption = productData.features.shower?.options.find(opt => opt.value === 'yes')
             if (showerOption) {
                 items.push({
                     name: 'Shower',
                     price: showerOption.price,
-                    description: 'A modern shower installation for your bathroom convenience.'
+                    description:
+                        'Full sized shower unit designed for compact comfort, complete with enclosure and fixtures.'
                 })
             }
         }
 
-        // Add sink if selected
+        // Sink
         if (selectedFeatures.sink === 'yes') {
             const sinkOption = productData.features.sink?.options.find(opt => opt.value === 'yes')
             if (sinkOption) {
                 items.push({
                     name: 'Sink',
                     price: sinkOption.price,
-                    description: 'Bathroom sink installation for your convenience.'
+                    description:
+                        'Floating sink with modern design, includes all hardware and plumbing connections.'
                 })
             }
         }
 
-        // Add toilet if selected
+        // Toilet
         if (selectedFeatures.toilet === 'yes') {
             const toiletOption = productData.features.toilet?.options.find(opt => opt.value === 'yes')
             if (toiletOption) {
                 items.push({
                     name: 'Toilet',
                     price: toiletOption.price,
-                    description: 'Toilet installation for your bathroom.'
+                    description:
+                        'Space saving floating toilet, adaptable for use with a standard residential waste system or a disposable/portable setup similar to camping solutions.'
                 })
             }
         }
 
-        // Add kitchen wall if selected
+        // Kitchen Wall
         if (selectedFeatures.kitchen_wall === 'yes') {
             const wallOption = productData.features.kitchen_wall?.options.find(opt => opt.value === 'yes')
             if (wallOption) {
@@ -120,7 +126,7 @@ export default function RightSide() {
             }
         }
 
-        // Add slider door if selected
+        // Slider Door
         if (selectedFeatures.slider_door === 'yes') {
             const sliderOption = productData.features.slider_door?.options.find(opt => opt.value === 'yes')
             if (sliderOption) {
@@ -132,7 +138,7 @@ export default function RightSide() {
             }
         }
 
-        // Add french door if selected
+        // French Door
         if (selectedFeatures.french_door === 'yes') {
             const frenchOption = productData.features.french_door?.options.find(opt => opt.value === 'yes')
             if (frenchOption) {
@@ -144,62 +150,67 @@ export default function RightSide() {
             }
         }
 
-        // Add stairs if selected
+        // Stairs
         if (selectedFeatures.stairs === 'yes') {
             const stairsOption = productData.features.stairs?.options.find(opt => opt.value === 'yes')
             if (stairsOption) {
                 items.push({
                     name: 'Stairs',
                     price: stairsOption.price,
-                    description: 'Stair installation for multi-level access.'
+                    description:
+                        'Rooftop stairs provide safe and easy access to the full 8′×20′ rooftop. Crafted from solid wood, they combine strength, stability, and a natural finish that complements the home’s design. Compact yet sturdy, the stairs are built for long term durability and everyday use, offering secure access for solar maintenance, outdoor living, or rooftop storage.'
                 })
             }
         }
 
-        // Add railing if selected
+        // Roof Railing
         if (selectedFeatures.railing === 'yes') {
             const railingOption = productData.features.railing?.options.find(opt => opt.value === 'yes')
             if (railingOption) {
                 items.push({
-                    name: 'Railing',
+                    name: 'Roof Railing',
                     price: railingOption.price,
-                    description: 'Safety railing installation for stairs.'
+                    description:
+                        'Rooftop railing provides secure protection around the full 8′×20′ rooftop. Crafted from durable wood, it is engineered for stability and long term use while complementing the natural finish of the stairs. The railing ensures safe access for outdoor living or rooftop storage.'
                 })
             }
         }
 
-        // Add air conditioner if selected
+        // Air Conditioner
         if (selectedFeatures.airConditioner === 'yes') {
             const acOption = productData.features.airConditioner?.options.find(opt => opt.value === 'yes')
             if (acOption) {
                 items.push({
-                    name: 'Air Conditioner',
+                    name: 'Air Conditioning',
                     price: acOption.price,
-                    description: 'Air conditioning system for climate control.'
+                    description:
+                        'Air Conditioning is equipped with a mini split air conditioning system, delivering efficient cooling, and heating in a compact design. Quiet, energy saving, and easy to control, the system keeps your space comfortable year round without bulky ductwork.'
                 })
             }
         }
 
-        // Add natural gas if selected
+        // Natural Gas
         if (selectedFeatures.naturalGas === 'yes') {
             const gasOption = productData.features.naturalGas?.options.find(opt => opt.value === 'yes')
             if (gasOption) {
                 items.push({
-                    name: 'Natural Gas',
+                    name: 'Gas',
                     price: gasOption.price,
-                    description: 'Natural gas connection for heating and cooking.'
+                    description:
+                        'If you’d like to have natural gas as an energy source, we’d be glad to install the piping that leads to the Kitchen.'
                 })
             }
         }
 
-        // Add solar panel if selected
+        // Solar Panel
         if (selectedFeatures.solarPanel === 'yes') {
             const solarOption = productData.features.solarPanel?.options.find(opt => opt.value === 'yes')
             if (solarOption) {
                 items.push({
-                    name: 'Solar Panel',
+                    name: 'Solar',
                     price: solarOption.price,
-                    description: 'Solar panel installation with battery for renewable energy.'
+                    description:
+                        'This system will surely keep you off grid and self sufficient. With a full roof array, inverter, and battery storage, your home generates and stores its own electricity—powering lights, appliances, and everyday living without reliance on external utilities.'
                 })
             }
         }
@@ -208,8 +219,9 @@ export default function RightSide() {
     }
 
 
+
     const configurationItems = getConfigurationItems()
-    const basePrice = productData?.basePrice || 120000
+    const basePrice = productData?.basePrice || 21990
 
     if (!productData) {
         return <RightSideSkeleton />
@@ -256,6 +268,7 @@ export default function RightSide() {
                     </div>
 
                 </div>
+
 
 
 

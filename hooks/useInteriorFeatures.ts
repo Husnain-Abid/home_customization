@@ -31,8 +31,6 @@ export const useInteriorFeatures = () => {
 
     // 🧹 Kitchen reset & default logic
 
-
-
     // 🛁 Bathroom logic — when Bathroom = No → all sub-features = "no"
     if (featureKey === 'bathroom') {
       if (toggledValue === 'no') {
@@ -135,6 +133,17 @@ export const useInteriorFeatures = () => {
     if (isSinkNo && isKitchenNo) {
       handleFeatureChange('toilet', 'no');
     }
+
+  // If shower, sink, toilet all become "no", Bathroom → "no"
+  const allBathroomOff =
+    (key === 'shower' ? toggledValue === 'no' : selectedFeatures.shower === 'no') &&
+    (key === 'sink' ? toggledValue === 'no' : selectedFeatures.sink === 'no') &&
+    (key === 'toilet' ? toggledValue === 'no' : selectedFeatures.toilet === 'no');
+
+  if (allBathroomOff) {
+    handleFeatureChange('bathroom', 'no');
+  }
+
 
   };
 

@@ -40,18 +40,34 @@ function Home() {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-[#4A4C56] text-center md:text-left",
-                            children: "At Freepoint Homes, we believe that a home should be more than just a place to live—it should be a space that reflects your style, meets your needs, and enhances your lifestyle. We are dedicated to providing innovative, high-quality modular homes that give you the freedom to customize your living space, all while staying within your budget."
+                            children: "In just two weeks, you can have a fully functioning, customizable home delivered to your property—no permits required."
                         }, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 14,
+                            lineNumber: 15,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-[#4A4C56] text-center md:text-left",
-                            children: "Founded with a vision to revolutionize the way homes are built and designed, Freepoint Homes offers a modern, flexible approach to home construction. We specialize in modular homes that allow for customization at every step. Whether you're looking for a sustainable design, an open-concept layout, or modern finishes, we work with you to bring your dream home to life."
+                            children: "Built from indestructible steel and designed to last a lifetime, each unit comes complete with finished interiors, modern amenities, and the flexibility to fit your lifestyle.  This home is about true independence and self reliance. It can serve as a guest house in your yard, an Airbnb rental, or a private retreat."
                         }, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 18,
+                            lineNumber: 20,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-[#4A4C56] text-center md:text-left",
+                            children: "With off grid solar capability, you can live sustainably without reliance on external utilities. And with the option to make it mobile by placing it on a trailer, your home can move with you wherever life takes you. More than a tiny home, it’s a versatile, durable solution that empowers you to create your own space, generate your own power, and enjoy the freedom of living on your own terms."
+                        }, void 0, false, {
+                            fileName: "[project]/app/page.tsx",
+                            lineNumber: 24,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-[#4A4C56] text-center md:text-left",
+                            children: "Customize your unit today, explore pricing, and start a conversation with us to design a home that fits your exact needs and requirements."
+                        }, void 0, false, {
+                            fileName: "[project]/app/page.tsx",
+                            lineNumber: 28,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
@@ -62,12 +78,12 @@ function Home() {
                                 children: "Customize Now"
                             }, void 0, false, {
                                 fileName: "[project]/app/page.tsx",
-                                lineNumber: 23,
+                                lineNumber: 34,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 22,
+                            lineNumber: 33,
                             columnNumber: 11
                         }, this)
                     ]
@@ -87,7 +103,7 @@ function Home() {
                             className: "w-full md:max-w-[25vw] max-h-[45vh] md:max-h-[25vh] object-cover rounded-xl mx-auto"
                         }, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 32,
+                            lineNumber: 43,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
@@ -98,13 +114,13 @@ function Home() {
                             className: "w-full md:max-w-[25vw] max-h-[45vh] md:max-h-[25vh] object-cover rounded-xl mx-auto"
                         }, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 39,
+                            lineNumber: 50,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 30,
+                    lineNumber: 41,
                     columnNumber: 9
                 }, this)
             ]

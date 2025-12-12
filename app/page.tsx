@@ -11,13 +11,24 @@ export default function Home() {
           <h1 className="text-xl sm:text-3xl md:text-4xl text-center md:text-left font-sans font-semibold">
             About Us
           </h1>
+
           <p className="text-[#4A4C56] text-center md:text-left">
-            At Freepoint Homes, we believe that a home should be more than just a place to live—it should be a space that reflects your style, meets your needs, and enhances your lifestyle. We are dedicated to providing innovative, high-quality modular homes that give you the freedom to customize your living space, all while staying within your budget.
+            In just two weeks, you can have a fully functioning, customizable home delivered to your property—no permits required.
+
           </p>
 
           <p className="text-[#4A4C56] text-center md:text-left">
-            Founded with a vision to revolutionize the way homes are built and designed, Freepoint Homes offers a modern, flexible approach to home construction. We specialize in modular homes that allow for customization at every step. Whether you're looking for a sustainable design, an open-concept layout, or modern finishes, we work with you to bring your dream home to life.
+            Built from indestructible steel and designed to last a lifetime, each unit comes complete with finished interiors, modern amenities, and the flexibility to fit your lifestyle.  This home is about true independence and self reliance. It can serve as a guest house in your yard, an Airbnb rental, or a private retreat.
           </p>
+
+          <p className="text-[#4A4C56] text-center md:text-left">
+            With off grid solar capability, you can live sustainably without reliance on external utilities. And with the option to make it mobile by placing it on a trailer, your home can move with you wherever life takes you. More than a tiny home, it’s a versatile, durable solution that empowers you to create your own space, generate your own power, and enjoy the freedom of living on your own terms.
+          </p>
+
+          <p className="text-[#4A4C56] text-center md:text-left">
+            Customize your unit today, explore pricing, and start a conversation with us to design a home that fits your exact needs and requirements.
+          </p>
+
 
           <Link href="/customizations" className="w-fit mx-auto md:mx-0">
             <button className="bg-[#C2A45C] hover:bg-[#C2A45C]/80 transition-all duration-300 text-white px-6 py-2 rounded-md cursor-pointer">

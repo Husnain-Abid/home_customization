@@ -2,14 +2,14 @@
     {
         "id": 1,
         "name": "Modern Home Customization",
-        "basePrice": 120000,
+        "basePrice": 21990,
         "features": {
             "kitchen": {
                 "options": [
                     {
                         "value": "yes",
                         "label": "Kitchen: Yes",
-                        "price": 300
+                        "price": 6000
                     },
                     {
                         "value": "no",
@@ -51,7 +51,7 @@
                     {
                         "value": "yes",
                         "label": "Full Bathroom: Yes",
-                        "price": 500
+                        "price": 4000
                     },
                     {
                         "value": "no",
@@ -65,7 +65,7 @@
                     {
                         "value": "yes",
                         "label": "Shower: Yes",
-                        "price": 200
+                        "price": 2500
                     },
                     {
                         "value": "no",
@@ -79,7 +79,7 @@
                     {
                         "value": "yes",
                         "label": "Sink: Yes",
-                        "price": 100
+                        "price": 750
                     },
                     {
                         "value": "no",
@@ -93,7 +93,7 @@
                     {
                         "value": "yes",
                         "label": "Toilet: Yes",
-                        "price": 75
+                        "price": 750
                     },
                     {
                         "value": "no",
@@ -135,7 +135,7 @@
                     {
                         "value": "yes",
                         "label": "Stairs: Yes",
-                        "price": 100
+                        "price": 3000
                     },
                     {
                         "value": "no",
@@ -149,7 +149,7 @@
                     {
                         "value": "yes",
                         "label": "Railing: Yes",
-                        "price": 75
+                        "price": 1800
                     },
                     {
                         "value": "no",
@@ -163,7 +163,7 @@
                     {
                         "value": "yes",
                         "label": "Air Conditioner: Yes",
-                        "price": 100
+                        "price": 3000
                     },
                     {
                         "value": "no",
@@ -177,7 +177,7 @@
                     {
                         "value": "yes",
                         "label": "Natural Gas: Yes",
-                        "price": 100
+                        "price": 1000
                     },
                     {
                         "value": "no",
@@ -191,7 +191,7 @@
                     {
                         "value": "yes",
                         "label": "Solar Panel: Yes",
-                        "price": 100
+                        "price": 8900
                     },
                     {
                         "value": "no",
@@ -284,9 +284,7 @@
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_No/SectionC_ExteriorGallery/C2.jpg",
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_No/SectionC_ExteriorGallery/C3.jpg",
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_No/SectionC_ExteriorGallery/C4.jpg",
-                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_No/SectionC_ExteriorGallery/C5.jpg",
-                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_No/SectionC_ExteriorGallery/C6.jpg",
-                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_No/SectionC_ExteriorGallery/C7.jpg"
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_No/SectionC_ExteriorGallery/C5.jpg"
                         ]
                     },
                     "interiorGallery": {
@@ -295,8 +293,7 @@
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_No/SectionD_InteriorGallery/D2.jpg",
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_No/SectionD_InteriorGallery/D3.jpg",
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_No/SectionD_InteriorGallery/D4.jpg",
-                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_No/SectionD_InteriorGallery/D5.jpg",
-                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_No/SectionD_InteriorGallery/D6.jpg"
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_No/SectionD_InteriorGallery/D5.jpg"
                         ]
                     }
                 }
@@ -695,7 +692,6 @@
                     }
                 }
             },
-
             {
                 "id": 11,
                 "category": "Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes",
@@ -745,7 +741,6 @@
                     }
                 }
             },
-
             {
                 "id": 12,
                 "category": "Kitchen_Yes_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_Yes",
@@ -795,7 +790,6 @@
                     }
                 }
             },
-
             {
                 "id": 13,
                 "category": "Kitchen_Yes_Bathroom_Yes_Shower_No_Toilet_Yes_Sink_No_Wall_Yes",
@@ -1206,7 +1200,8 @@
                     "shower": "yes",
                     "toilet": "yes",
                     "sink": "yes",
-                    "kitchen_wall": "no"                },
+                    "kitchen_wall": "no"
+                },
                 "sections": {
                     "exterior": {
                         "gallery": [
@@ -1254,7 +1249,8 @@
                     "shower": "no",
                     "toilet": "no",
                     "sink": "no",
-                    "kitchen_wall": "no"                },
+                    "kitchen_wall": "no"
+                },
                 "sections": {
                     "exterior": {
                         "gallery": [
@@ -1292,7 +1288,6 @@
                     }
                 }
             }
-            
         ],
         "exterior_energySources": [
             {
@@ -1472,7 +1467,7 @@
                         "images": [
                             "/images/customs_home/exterior/EXTERIOR_ENERGY/Stairs=Yes_Railing=Yes_Solar=No_AC=No_DONE/SectionC_ExteriorGallery_done/C1.jpg",
                             "/images/customs_home/exterior/EXTERIOR_ENERGY/Stairs=Yes_Railing=Yes_Solar=No_AC=No_DONE/SectionC_ExteriorGallery_done/C2.jpg",
-                            "/images/customs_home/exterior/EXTERIOR_ENERGY/Stairs=Yes_Railing=Yes,_Solar=No_AC=No_DONE/SectionC_ExteriorGallery_done/C3.jpg",
+                            "/images/customs_home/exterior/EXTERIOR_ENERGY/Stairs=Yes_Railing=Yes_Solar=No_AC=No_DONE/SectionC_ExteriorGallery_done/C3.jpg",
                             "/images/customs_home/exterior/EXTERIOR_ENERGY/Stairs=Yes_Railing=Yes_Solar=No_AC=No_DONE/SectionC_ExteriorGallery_done/C4.jpg",
                             "/images/customs_home/exterior/EXTERIOR_ENERGY/Stairs=Yes_Railing=Yes_Solar=No_AC=No_DONE/SectionC_ExteriorGallery_done/C5.jpg",
                             "/images/customs_home/exterior/EXTERIOR_ENERGY/Stairs=Yes_Railing=Yes_Solar=No_AC=No_DONE/SectionC_ExteriorGallery_done/C6.jpg"
@@ -1661,13 +1656,10 @@
                             "/images/customs_home/exterior/EXTERIOR_ENERGY/Stairs=Yes_Railing=No_Solar=Yes_AC=No/SectionC_ExteriorGallery_done/C4.jpg",
                             "/images/customs_home/exterior/EXTERIOR_ENERGY/Stairs=Yes_Railing=No_Solar=Yes_AC=No/SectionC_ExteriorGallery_done/C5.jpg",
                             "/images/customs_home/exterior/EXTERIOR_ENERGY/Stairs=Yes_Railing=No_Solar=Yes_AC=No/SectionC_ExteriorGallery_done/C6.jpg"
-                                                ]
+                        ]
                     }
                 }
             }
-
-
-
         ],
         "default_images": {
             "exterior": {

@@ -377,21 +377,12 @@ function GalleryItem({ image, alt, onClick, className = "" }) {
         className: `group overflow-hidden rounded-lg transition-all duration-300 transform hover:scale-[1.02] ${className}`,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: `relative ${className.includes('aspect-') ? '' : 'h-48 md:h-56 lg:h-64'}`,
-            children: imageError ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "w-full h-full flex items-center justify-center bg-gray-200 text-gray-500",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                    className: "text-xs",
-                    children: "Image not found"
-                }, void 0, false, {
-                    fileName: "[project]/components/Customizations/GalleryItem.tsx",
-                    lineNumber: 24,
-                    columnNumber: 25
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/components/Customizations/GalleryItem.tsx",
-                lineNumber: 23,
-                columnNumber: 21
-            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            children: // imageError ? (
+            //     <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
+            //         <span className="text-xs">Image not found</span>
+            //     </div>
+            // ) : (
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 onClick: ()=>onClick(image),
                 className: "cursor-pointer",
                 children: [
@@ -1405,6 +1396,11 @@ const useInteriorFeatures = ()=>{
         if (isSinkNo && isKitchenNo) {
             handleFeatureChange('toilet', 'no');
         }
+        // If shower, sink, toilet all become "no", Bathroom → "no"
+        const allBathroomOff = (key === 'shower' ? toggledValue === 'no' : selectedFeatures.shower === 'no') && (key === 'sink' ? toggledValue === 'no' : selectedFeatures.sink === 'no') && (key === 'toilet' ? toggledValue === 'no' : selectedFeatures.toilet === 'no');
+        if (allBathroomOff) {
+            handleFeatureChange('bathroom', 'no');
+        }
     };
     /** Check if toilet should be disabled (no sink + no kitchen) */ const isToiletDisabled = ()=>isNo('sink') && isNo('kitchen');
     /** Check if bathroom has any sub-customizations */ const hasBathroomCustomizations = ()=>[
@@ -2031,7 +2027,7 @@ function InteriorFeatures() {
                 lineNumber: 29,
                 columnNumber: 7
             }, this),
-            isKitchenNoSelected() && isBathroomSelected() && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: getSectionStyling(isFeatureSelected('kitchen_wall', 'yes') || isFeatureSelected('kitchen_wall', 'no'), 'from-orange-50 to-amber-50 border-orange-300'),
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2042,14 +2038,14 @@ function InteriorFeatures() {
                             }, void 0, false, {
                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                 lineNumber: 73,
-                                columnNumber: 13
+                                columnNumber: 11
                             }, this),
                             "Kitchen Wall:"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                         lineNumber: 72,
-                        columnNumber: 11
+                        columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex flex-col space-y-1 sm:space-y-2",
@@ -2065,7 +2061,7 @@ function InteriorFeatures() {
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 81,
-                                        columnNumber: 15
+                                        columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                         htmlFor: "kitchen_wall-yes",
@@ -2074,13 +2070,13 @@ function InteriorFeatures() {
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 87,
-                                        columnNumber: 15
+                                        columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                 lineNumber: 80,
-                                columnNumber: 13
+                                columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex items-center space-x-2",
@@ -2093,7 +2089,7 @@ function InteriorFeatures() {
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 92,
-                                        columnNumber: 15
+                                        columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                         htmlFor: "kitchen_wall-no",
@@ -2102,25 +2098,25 @@ function InteriorFeatures() {
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 98,
-                                        columnNumber: 15
+                                        columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                 lineNumber: 91,
-                                columnNumber: 13
+                                columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                         lineNumber: 79,
-                        columnNumber: 11
+                        columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                 lineNumber: 68,
-                columnNumber: 9
+                columnNumber: 7
             }, this),
             shouldShowKitchenPositionOptions() && !isBathroomSelected() && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "bg-gray-50 p-3 rounded-lg",
@@ -2610,14 +2606,14 @@ function InteriorFeatures() {
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 347,
-                                        columnNumber: 13
+                                        columnNumber: 15
                                     }, this),
                                     "Toilet:"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                 lineNumber: 346,
-                                columnNumber: 11
+                                columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex flex-col space-y-1 sm:space-y-2",
@@ -2634,7 +2630,7 @@ function InteriorFeatures() {
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                                 lineNumber: 355,
-                                                columnNumber: 15
+                                                columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                 htmlFor: "toilet-yes",
@@ -2643,13 +2639,13 @@ function InteriorFeatures() {
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                                 lineNumber: 362,
-                                                columnNumber: 15
+                                                columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 354,
-                                        columnNumber: 13
+                                        columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex items-center space-x-2",
@@ -2663,7 +2659,7 @@ function InteriorFeatures() {
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                                 lineNumber: 370,
-                                                columnNumber: 15
+                                                columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                 htmlFor: "toilet-no",
@@ -2672,25 +2668,25 @@ function InteriorFeatures() {
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                                 lineNumber: 377,
-                                                columnNumber: 15
+                                                columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                         lineNumber: 369,
-                                        columnNumber: 13
+                                        columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                                 lineNumber: 353,
-                                columnNumber: 11
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/Customizations/CustomHomeFilter/InteriorFeatures.tsx",
                         lineNumber: 340,
-                        columnNumber: 5
+                        columnNumber: 11
                     }, this) : // ⚠️ Disabled state — "No" visibly selected
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "p-3 rounded-lg border transition-all duration-200 opacity-50 pointer-events-none bg-gray-100 border-gray-200",
@@ -3496,6 +3492,7 @@ function LeftSide() {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$accordion$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Accordion"], {
                 type: "single",
+                collapsible: true,
                 className: "space-y-3 sm:space-y-4",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$accordion$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AccordionItem"], {
@@ -3826,7 +3823,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevron-right.js [app-ssr] (ecmascript) <export default as ChevronRight>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Customizations$2f$MiddleSectionSkeleton$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/Customizations/MiddleSectionSkeleton.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$contexts$2f$ProductContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/contexts/ProductContext.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$useImageModal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/hooks/useImageModal.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Customizations$2f$ImageModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/Customizations/ImageModal.tsx [app-ssr] (ecmascript)");
 "use client";
+;
+;
 ;
 ;
 ;
@@ -3835,8 +3836,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$contexts$2f$ProductContext$2
 ;
 function MiddleSection() {
     const { productData, selectedFeatures, filteredInteriorData, filteredExteriorEnergyData } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$contexts$2f$ProductContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useProductContext"])();
-    const [exteriorEmblaRef, exteriorEmblaApi] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$embla$2d$carousel$2d$react$2f$esm$2f$embla$2d$carousel$2d$react$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])();
-    const [interiorEmblaRef, interiorEmblaApi] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$embla$2d$carousel$2d$react$2f$esm$2f$embla$2d$carousel$2d$react$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])();
+    const { selectedImage, isModalOpen, openModal, closeModal, nextImage, prevImage, currentImageIndex, totalImages, sectionTitle } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$useImageModal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useImageModal"])();
+    const [exteriorEmblaRef, exteriorEmblaApi] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$embla$2d$carousel$2d$react$2f$esm$2f$embla$2d$carousel$2d$react$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])({
+        loop: true
+    });
+    const [interiorEmblaRef, interiorEmblaApi] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$embla$2d$carousel$2d$react$2f$esm$2f$embla$2d$carousel$2d$react$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])({
+        loop: true
+    });
     const [imageErrors, setImageErrors] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({});
     const scrollPrev = (api)=>{
         if (api) api.scrollPrev();
@@ -3853,7 +3859,7 @@ function MiddleSection() {
     if (!productData) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Customizations$2f$MiddleSectionSkeleton$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
             fileName: "[project]/components/Customizations/MiddleSection.tsx",
-            lineNumber: 39,
+            lineNumber: 60,
             columnNumber: 16
         }, this);
     }
@@ -3905,260 +3911,278 @@ function MiddleSection() {
     const interiorImages = getInteriorImages();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: " px-4 py-4 xl:py-0 h-full overflow-y-auto",
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "space-y-4 sm:space-y-6 lg:space-y-8",
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: " p-4 sm:p-6",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-center text-gray-800",
-                            children: "Interior Design :"
-                        }, void 0, false, {
-                            fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                            lineNumber: 120,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "relative",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "overflow-hidden rounded-lg",
-                                    ref: interiorEmblaRef,
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex",
-                                        children: interiorImages.length > 0 ? interiorImages.map((image, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "space-y-4 sm:space-y-6 lg:space-y-8",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: " p-4 sm:p-6",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-center text-gray-800",
+                                children: "Interior Design :"
+                            }, void 0, false, {
+                                fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                lineNumber: 141,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "relative",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "overflow-hidden rounded-lg",
+                                        ref: interiorEmblaRef,
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex",
+                                            children: interiorImages.length > 0 ? interiorImages.map((image, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex-[0_0_100%] min-w-0",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "aspect-video bg-gray-200 rounded-lg flex items-center justify-center",
+                                                        children: // imageErrors[image] ? (
+                                                        //     <div className="flex items-center justify-center h-full text-gray-500">
+                                                        //         <span>Image not found</span>
+                                                        //     </div>
+                                                        // ) : (
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                            src: image,
+                                                            alt: `Interior design ${index + 1}`,
+                                                            className: "w-full h-full object-cover rounded-lg",
+                                                            onError: ()=>handleImageError(image),
+                                                            onClick: ()=>openModal(image, interiorImages, "Interior")
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                                            lineNumber: 157,
+                                                            columnNumber: 61
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                                        lineNumber: 149,
+                                                        columnNumber: 49
+                                                    }, this)
+                                                }, index, false, {
+                                                    fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                                    lineNumber: 148,
+                                                    columnNumber: 45
+                                                }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex-[0_0_100%] min-w-0",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "aspect-video bg-gray-200 rounded-lg flex items-center justify-center",
-                                                    children: // imageErrors[image] ? (
-                                                    //     <div className="flex items-center justify-center h-full text-gray-500">
-                                                    //         <span>Image not found</span>
-                                                    //     </div>
-                                                    // ) : (
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                        src: image,
-                                                        alt: `Interior design ${index + 1}`,
-                                                        className: "w-full h-full object-cover rounded-lg",
-                                                        onError: ()=>handleImageError(image)
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-gray-500",
+                                                        children: "No interior images available"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                                        lineNumber: 137,
-                                                        columnNumber: 53
+                                                        lineNumber: 175,
+                                                        columnNumber: 49
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                                    lineNumber: 128,
-                                                    columnNumber: 45
-                                                }, this)
-                                            }, index, false, {
-                                                fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                                lineNumber: 127,
-                                                columnNumber: 41
-                                            }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex-[0_0_100%] min-w-0",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "aspect-video bg-gray-200 rounded-lg flex items-center justify-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-gray-500",
-                                                    children: "No interior images available"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                                    lineNumber: 153,
+                                                    lineNumber: 174,
                                                     columnNumber: 45
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                                lineNumber: 152,
+                                                lineNumber: 173,
                                                 columnNumber: 41
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                            lineNumber: 151,
-                                            columnNumber: 37
+                                            lineNumber: 144,
+                                            columnNumber: 29
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                        lineNumber: 123,
-                                        columnNumber: 29
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                    lineNumber: 122,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    className: "absolute cursor-pointer left-1 sm:left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1.5 sm:p-2 rounded-full shadow-md transition-all",
-                                    onClick: ()=>scrollPrev(interiorEmblaApi),
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronLeft$3e$__["ChevronLeft"], {
-                                        className: "w-4 h-4 sm:w-5 sm:h-5"
+                                        lineNumber: 143,
+                                        columnNumber: 25
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        className: "absolute cursor-pointer left-1 sm:left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1.5 sm:p-2 rounded-full shadow-md transition-all",
+                                        onClick: ()=>scrollPrev(interiorEmblaApi),
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronLeft$3e$__["ChevronLeft"], {
+                                            className: "w-4 h-4 sm:w-5 sm:h-5"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                            lineNumber: 187,
+                                            columnNumber: 29
+                                        }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                        lineNumber: 165,
-                                        columnNumber: 29
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                    lineNumber: 161,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    className: "absolute cursor-pointer right-1 sm:right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1.5 sm:p-2 rounded-full shadow-md transition-all",
-                                    onClick: ()=>scrollNext(interiorEmblaApi),
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__["ChevronRight"], {
-                                        className: "w-4 h-4 sm:w-5 sm:h-5"
+                                        lineNumber: 183,
+                                        columnNumber: 25
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        className: "absolute cursor-pointer right-1 sm:right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1.5 sm:p-2 rounded-full shadow-md transition-all",
+                                        onClick: ()=>scrollNext(interiorEmblaApi),
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__["ChevronRight"], {
+                                            className: "w-4 h-4 sm:w-5 sm:h-5"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                            lineNumber: 193,
+                                            columnNumber: 29
+                                        }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                        lineNumber: 171,
-                                        columnNumber: 29
+                                        lineNumber: 189,
+                                        columnNumber: 25
                                     }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                    lineNumber: 167,
-                                    columnNumber: 25
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                            lineNumber: 121,
-                            columnNumber: 21
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                    lineNumber: 119,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "  px-4 sm:px-6",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-center text-gray-800",
-                            children: "Exterior Design :"
-                        }, void 0, false, {
-                            fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                            lineNumber: 178,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "relative",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "overflow-hidden rounded-lg",
-                                    ref: exteriorEmblaRef,
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex",
-                                        children: exteriorImages.length > 0 ? exteriorImages.map((image, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex-[0_0_100%] min-w-0",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "aspect-video bg-gray-200 rounded-lg flex items-center justify-center",
-                                                    children: // imageErrors[image] ? (
-                                                    //     <div className="flex items-center justify-center h-full text-gray-500">
-                                                    //         <span>Image not found</span>
-                                                    //     </div>
-                                                    // ) : (
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                        src: image,
-                                                        alt: `Exterior design ${index + 1}`,
-                                                        className: "w-full h-full object-cover rounded-lg",
-                                                        onError: ()=>handleImageError(image)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                lineNumber: 142,
+                                columnNumber: 21
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                        lineNumber: 140,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "  px-4 sm:px-6",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-center text-gray-800",
+                                children: "Exterior Design :"
+                            }, void 0, false, {
+                                fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                lineNumber: 200,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "relative",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "overflow-hidden rounded-lg",
+                                        ref: exteriorEmblaRef,
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex",
+                                            children: exteriorImages.length > 0 ? exteriorImages.map((image, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex-[0_0_100%] min-w-0",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "aspect-video bg-gray-200 rounded-lg flex items-center justify-center",
+                                                        children: // imageErrors[image] ? (
+                                                        //     <div className="flex items-center justify-center h-full text-gray-500">
+                                                        //         <span>Image not found</span>
+                                                        //     </div>
+                                                        // ) : (
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                            src: image,
+                                                            alt: `Exterior design ${index + 1}`,
+                                                            className: "w-full h-full object-cover rounded-lg",
+                                                            onError: ()=>handleImageError(image),
+                                                            onClick: ()=>openModal(image, exteriorImages, "Exterior")
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                                            lineNumber: 214,
+                                                            columnNumber: 57
+                                                        }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                                        lineNumber: 192,
-                                                        columnNumber: 53
+                                                        lineNumber: 207,
+                                                        columnNumber: 45
                                                     }, this)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                                    lineNumber: 185,
-                                                    columnNumber: 45
-                                                }, this)
-                                            }, index, false, {
-                                                fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                                lineNumber: 184,
-                                                columnNumber: 41
-                                            }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex-[0_0_100%] min-w-0",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "aspect-video bg-gray-200 rounded-lg flex items-center justify-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-gray-500",
-                                                    children: "No exterior images available"
-                                                }, void 0, false, {
+                                                }, index, false, {
                                                     fileName: "[project]/components/Customizations/MiddleSection.tsx",
                                                     lineNumber: 206,
-                                                    columnNumber: 45
+                                                    columnNumber: 41
+                                                }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex-[0_0_100%] min-w-0",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "aspect-video bg-gray-200 rounded-lg flex items-center justify-center",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-gray-500",
+                                                        children: "No exterior images available"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                                        lineNumber: 230,
+                                                        columnNumber: 45
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                                    lineNumber: 229,
+                                                    columnNumber: 41
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                                lineNumber: 205,
-                                                columnNumber: 41
+                                                lineNumber: 228,
+                                                columnNumber: 37
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                            lineNumber: 204,
-                                            columnNumber: 37
+                                            lineNumber: 203,
+                                            columnNumber: 29
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                        lineNumber: 181,
-                                        columnNumber: 29
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                    lineNumber: 180,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    className: "absolute cursor-pointer left-1 sm:left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1.5 sm:p-2 rounded-full shadow-md transition-all",
-                                    onClick: ()=>scrollPrev(exteriorEmblaApi),
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronLeft$3e$__["ChevronLeft"], {
-                                        className: "w-4 h-4 sm:w-5 sm:h-5"
+                                        lineNumber: 202,
+                                        columnNumber: 25
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        className: "absolute cursor-pointer left-1 sm:left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1.5 sm:p-2 rounded-full shadow-md transition-all",
+                                        onClick: ()=>scrollPrev(exteriorEmblaApi),
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronLeft$3e$__["ChevronLeft"], {
+                                            className: "w-4 h-4 sm:w-5 sm:h-5"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                            lineNumber: 242,
+                                            columnNumber: 29
+                                        }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                        lineNumber: 218,
-                                        columnNumber: 29
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                    lineNumber: 214,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    className: "absolute cursor-pointer right-1 sm:right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1.5 sm:p-2 rounded-full shadow-md transition-all",
-                                    onClick: ()=>scrollNext(exteriorEmblaApi),
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__["ChevronRight"], {
-                                        className: "w-4 h-4 sm:w-5 sm:h-5"
+                                        lineNumber: 238,
+                                        columnNumber: 25
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        className: "absolute cursor-pointer right-1 sm:right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1.5 sm:p-2 rounded-full shadow-md transition-all",
+                                        onClick: ()=>scrollNext(exteriorEmblaApi),
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__["ChevronRight"], {
+                                            className: "w-4 h-4 sm:w-5 sm:h-5"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                            lineNumber: 248,
+                                            columnNumber: 29
+                                        }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                        lineNumber: 224,
-                                        columnNumber: 29
+                                        lineNumber: 244,
+                                        columnNumber: 25
                                     }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                                    lineNumber: 220,
-                                    columnNumber: 25
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                            lineNumber: 179,
-                            columnNumber: 21
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/components/Customizations/MiddleSection.tsx",
-                    lineNumber: 177,
-                    columnNumber: 17
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "[project]/components/Customizations/MiddleSection.tsx",
-            lineNumber: 117,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                                lineNumber: 201,
+                                columnNumber: 21
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                        lineNumber: 199,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                lineNumber: 138,
+                columnNumber: 13
+            }, this),
+            selectedImage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Customizations$2f$ImageModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                imageSrc: selectedImage,
+                isOpen: isModalOpen,
+                onClose: closeModal,
+                onNext: nextImage,
+                onPrev: prevImage,
+                currentIndex: currentImageIndex,
+                totalImages: totalImages,
+                sectionTitle: sectionTitle
+            }, void 0, false, {
+                fileName: "[project]/components/Customizations/MiddleSection.tsx",
+                lineNumber: 258,
+                columnNumber: 17
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "[project]/components/Customizations/MiddleSection.tsx",
-        lineNumber: 116,
+        lineNumber: 137,
         columnNumber: 9
     }, this);
 }
@@ -4392,27 +4416,22 @@ function RightSide() {
     const getConfigurationItems = ()=>{
         if (!productData) return [];
         const items = [];
-        // Add kitchen if selected
+        // Kitchen
         if (selectedFeatures.kitchen === 'yes') {
             const kitchenOption = productData.features.kitchen?.options.find((opt)=>opt.value === 'yes');
             if (kitchenOption) {
                 items.push({
                     name: 'Kitchen',
                     price: kitchenOption.price,
-                    description: 'The kitchen is one of the most important areas of your home, where you spend a lot of time preparing meals and gathering with family. If you\'re looking for a spacious and modern kitchen for your family, the size and design of your kitchen are crucial. It adds both functionality and style to your home. Upgrading your kitchen is an investment, but it will significantly increase the overall value of your home.'
+                    description: 'Your custom kitchen delivers the full functionality of a traditional home kitchen in a compact footprint. Built in appliances, tailored cabinetry, and smart storage maximize workflow and usability. The layout includes a compact refrigerator, two burner cooktop, built in oven, and dual sinks, all set against heat resistant countertops designed for everyday durability.'
                 });
             }
         }
-        // Add kitchen position if selected
+        // Kitchen Position
         if (selectedFeatures.kitchen_position) {
             const positionOption = productData.features.kitchen_position?.options.find((opt)=>opt.value === selectedFeatures.kitchen_position);
             if (positionOption) {
-                let positionName = '';
-                if (selectedFeatures.kitchen_position === 'wall3') {
-                    positionName = 'Kitchen Position 1 (Wall 3)';
-                } else if (selectedFeatures.kitchen_position === 'wall4') {
-                    positionName = 'Kitchen Position 2 (Wall 4)';
-                }
+                let positionName = selectedFeatures.kitchen_position === 'wall3' ? 'Kitchen Position 1 (Wall 3)' : 'Kitchen Position 2 (Wall 4)';
                 items.push({
                     name: positionName,
                     price: positionOption.price,
@@ -4420,51 +4439,51 @@ function RightSide() {
                 });
             }
         }
-        // Add bathroom if selected
+        // Bathroom
         if (selectedFeatures.bathroom === 'yes') {
             const bathroomOption = productData.features.bathroom?.options.find((opt)=>opt.value === 'yes');
             if (bathroomOption) {
                 items.push({
                     name: 'Full Bathroom',
                     price: bathroomOption.price,
-                    description: 'A full bathroom adds convenience and value to your home. It includes all necessary fixtures for a complete bathroom experience.'
+                    description: 'Your custom bathroom combines modern design with space saving efficiency. It features a 60”x 30” shower, a floating sink, and a toilet, all arranged for comfort and usability in a compact footprint. Customers save $1,000 when purchasing the complete bathroom package instead of individually.'
                 });
             }
         }
-        // Add shower if selected
+        // Shower
         if (selectedFeatures.shower === 'yes') {
             const showerOption = productData.features.shower?.options.find((opt)=>opt.value === 'yes');
             if (showerOption) {
                 items.push({
                     name: 'Shower',
                     price: showerOption.price,
-                    description: 'A modern shower installation for your bathroom convenience.'
+                    description: 'Full sized shower unit designed for compact comfort, complete with enclosure and fixtures.'
                 });
             }
         }
-        // Add sink if selected
+        // Sink
         if (selectedFeatures.sink === 'yes') {
             const sinkOption = productData.features.sink?.options.find((opt)=>opt.value === 'yes');
             if (sinkOption) {
                 items.push({
                     name: 'Sink',
                     price: sinkOption.price,
-                    description: 'Bathroom sink installation for your convenience.'
+                    description: 'Floating sink with modern design, includes all hardware and plumbing connections.'
                 });
             }
         }
-        // Add toilet if selected
+        // Toilet
         if (selectedFeatures.toilet === 'yes') {
             const toiletOption = productData.features.toilet?.options.find((opt)=>opt.value === 'yes');
             if (toiletOption) {
                 items.push({
                     name: 'Toilet',
                     price: toiletOption.price,
-                    description: 'Toilet installation for your bathroom.'
+                    description: 'Space saving floating toilet, adaptable for use with a standard residential waste system or a disposable/portable setup similar to camping solutions.'
                 });
             }
         }
-        // Add kitchen wall if selected
+        // Kitchen Wall
         if (selectedFeatures.kitchen_wall === 'yes') {
             const wallOption = productData.features.kitchen_wall?.options.find((opt)=>opt.value === 'yes');
             if (wallOption) {
@@ -4475,7 +4494,7 @@ function RightSide() {
                 });
             }
         }
-        // Add slider door if selected
+        // Slider Door
         if (selectedFeatures.slider_door === 'yes') {
             const sliderOption = productData.features.slider_door?.options.find((opt)=>opt.value === 'yes');
             if (sliderOption) {
@@ -4486,7 +4505,7 @@ function RightSide() {
                 });
             }
         }
-        // Add french door if selected
+        // French Door
         if (selectedFeatures.french_door === 'yes') {
             const frenchOption = productData.features.french_door?.options.find((opt)=>opt.value === 'yes');
             if (frenchOption) {
@@ -4497,69 +4516,69 @@ function RightSide() {
                 });
             }
         }
-        // Add stairs if selected
+        // Stairs
         if (selectedFeatures.stairs === 'yes') {
             const stairsOption = productData.features.stairs?.options.find((opt)=>opt.value === 'yes');
             if (stairsOption) {
                 items.push({
                     name: 'Stairs',
                     price: stairsOption.price,
-                    description: 'Stair installation for multi-level access.'
+                    description: 'Rooftop stairs provide safe and easy access to the full 8′×20′ rooftop. Crafted from solid wood, they combine strength, stability, and a natural finish that complements the home’s design. Compact yet sturdy, the stairs are built for long term durability and everyday use, offering secure access for solar maintenance, outdoor living, or rooftop storage.'
                 });
             }
         }
-        // Add railing if selected
+        // Roof Railing
         if (selectedFeatures.railing === 'yes') {
             const railingOption = productData.features.railing?.options.find((opt)=>opt.value === 'yes');
             if (railingOption) {
                 items.push({
-                    name: 'Railing',
+                    name: 'Roof Railing',
                     price: railingOption.price,
-                    description: 'Safety railing installation for stairs.'
+                    description: 'Rooftop railing provides secure protection around the full 8′×20′ rooftop. Crafted from durable wood, it is engineered for stability and long term use while complementing the natural finish of the stairs. The railing ensures safe access for outdoor living or rooftop storage.'
                 });
             }
         }
-        // Add air conditioner if selected
+        // Air Conditioner
         if (selectedFeatures.airConditioner === 'yes') {
             const acOption = productData.features.airConditioner?.options.find((opt)=>opt.value === 'yes');
             if (acOption) {
                 items.push({
-                    name: 'Air Conditioner',
+                    name: 'Air Conditioning',
                     price: acOption.price,
-                    description: 'Air conditioning system for climate control.'
+                    description: 'Air Conditioning is equipped with a mini split air conditioning system, delivering efficient cooling, and heating in a compact design. Quiet, energy saving, and easy to control, the system keeps your space comfortable year round without bulky ductwork.'
                 });
             }
         }
-        // Add natural gas if selected
+        // Natural Gas
         if (selectedFeatures.naturalGas === 'yes') {
             const gasOption = productData.features.naturalGas?.options.find((opt)=>opt.value === 'yes');
             if (gasOption) {
                 items.push({
-                    name: 'Natural Gas',
+                    name: 'Gas',
                     price: gasOption.price,
-                    description: 'Natural gas connection for heating and cooking.'
+                    description: 'If you’d like to have natural gas as an energy source, we’d be glad to install the piping that leads to the Kitchen.'
                 });
             }
         }
-        // Add solar panel if selected
+        // Solar Panel
         if (selectedFeatures.solarPanel === 'yes') {
             const solarOption = productData.features.solarPanel?.options.find((opt)=>opt.value === 'yes');
             if (solarOption) {
                 items.push({
-                    name: 'Solar Panel',
+                    name: 'Solar',
                     price: solarOption.price,
-                    description: 'Solar panel installation with battery for renewable energy.'
+                    description: 'This system will surely keep you off grid and self sufficient. With a full roof array, inverter, and battery storage, your home generates and stores its own electricity—powering lights, appliances, and everyday living without reliance on external utilities.'
                 });
             }
         }
         return items;
     };
     const configurationItems = getConfigurationItems();
-    const basePrice = productData?.basePrice || 120000;
+    const basePrice = productData?.basePrice || 21990;
     if (!productData) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Customizations$2f$RightSideSkeleton$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
             fileName: "[project]/components/Customizations/RightSide.tsx",
-            lineNumber: 215,
+            lineNumber: 227,
             columnNumber: 16
         }, this);
     }
@@ -4571,7 +4590,7 @@ function RightSide() {
                 children: "Your Configuration"
             }, void 0, false, {
                 fileName: "[project]/components/Customizations/RightSide.tsx",
-                lineNumber: 220,
+                lineNumber: 232,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4588,7 +4607,7 @@ function RightSide() {
                                             children: item.name
                                         }, void 0, false, {
                                             fileName: "[project]/components/Customizations/RightSide.tsx",
-                                            lineNumber: 227,
+                                            lineNumber: 239,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4599,13 +4618,13 @@ function RightSide() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/Customizations/RightSide.tsx",
-                                            lineNumber: 228,
+                                            lineNumber: 240,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/Customizations/RightSide.tsx",
-                                    lineNumber: 226,
+                                    lineNumber: 238,
                                     columnNumber: 25
                                 }, this),
                                 item.description && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4613,13 +4632,13 @@ function RightSide() {
                                     children: item.description
                                 }, void 0, false, {
                                     fileName: "[project]/components/Customizations/RightSide.tsx",
-                                    lineNumber: 231,
+                                    lineNumber: 243,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, index, true, {
                             fileName: "[project]/components/Customizations/RightSide.tsx",
-                            lineNumber: 225,
+                            lineNumber: 237,
                             columnNumber: 21
                         }, this)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4633,7 +4652,7 @@ function RightSide() {
                                         children: "Base Home:"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Customizations/RightSide.tsx",
-                                        lineNumber: 239,
+                                        lineNumber: 251,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4644,13 +4663,13 @@ function RightSide() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/Customizations/RightSide.tsx",
-                                        lineNumber: 240,
+                                        lineNumber: 252,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/Customizations/RightSide.tsx",
-                                lineNumber: 238,
+                                lineNumber: 250,
                                 columnNumber: 21
                             }, this),
                             configurationItems.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4664,7 +4683,7 @@ function RightSide() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/Customizations/RightSide.tsx",
-                                            lineNumber: 246,
+                                            lineNumber: 258,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4675,13 +4694,13 @@ function RightSide() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/Customizations/RightSide.tsx",
-                                            lineNumber: 247,
+                                            lineNumber: 259,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, index, true, {
                                     fileName: "[project]/components/Customizations/RightSide.tsx",
-                                    lineNumber: 245,
+                                    lineNumber: 257,
                                     columnNumber: 25
                                 }, this)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4694,7 +4713,7 @@ function RightSide() {
                                             children: "Total Estimate:"
                                         }, void 0, false, {
                                             fileName: "[project]/components/Customizations/RightSide.tsx",
-                                            lineNumber: 253,
+                                            lineNumber: 265,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4705,36 +4724,36 @@ function RightSide() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/Customizations/RightSide.tsx",
-                                            lineNumber: 254,
+                                            lineNumber: 266,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/Customizations/RightSide.tsx",
-                                    lineNumber: 252,
+                                    lineNumber: 264,
                                     columnNumber: 25
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/Customizations/RightSide.tsx",
-                                lineNumber: 251,
+                                lineNumber: 263,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/Customizations/RightSide.tsx",
-                        lineNumber: 237,
+                        lineNumber: 249,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/Customizations/RightSide.tsx",
-                lineNumber: 222,
+                lineNumber: 234,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/Customizations/RightSide.tsx",
-        lineNumber: 219,
+        lineNumber: 231,
         columnNumber: 9
     }, this);
 }

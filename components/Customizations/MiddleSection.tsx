@@ -5,6 +5,8 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import MiddleSectionSkeleton from './MiddleSectionSkeleton'
 import { useProductContext } from '../../contexts/ProductContext'
+import { useImageModal } from '../../hooks/useImageModal'
+import ImageModal from './ImageModal'
 
 
 export default function MiddleSection() {
@@ -15,9 +17,25 @@ export default function MiddleSection() {
         filteredExteriorEnergyData
     } = useProductContext()
 
+    const {
+        selectedImage,
+        isModalOpen,
+        openModal,
+        closeModal,
+        nextImage,
+        prevImage,
+        currentImageIndex,
+        totalImages,
+        sectionTitle
+    } = useImageModal();
 
-    const [exteriorEmblaRef, exteriorEmblaApi] = useEmblaCarousel()
-    const [interiorEmblaRef, interiorEmblaApi] = useEmblaCarousel()
+
+
+
+
+    const [exteriorEmblaRef, exteriorEmblaApi] = useEmblaCarousel({ loop: true })
+    const [interiorEmblaRef, interiorEmblaApi] = useEmblaCarousel({ loop: true })
+
     const [imageErrors, setImageErrors] = useState<{ [key: string]: boolean }>({})
 
     const scrollPrev = (api: any) => {
@@ -34,6 +52,9 @@ export default function MiddleSection() {
             [imageSrc]: true
         }))
     }
+
+
+
 
     if (!productData) {
         return <MiddleSectionSkeleton />
@@ -122,38 +143,39 @@ export default function MiddleSection() {
                         <div className="overflow-hidden rounded-lg" ref={interiorEmblaRef}>
                             <div className="flex">
                                 {
-                                interiorImages.length > 0 ? (
-                                    interiorImages.map((image, index) => (
-                                        <div key={index} className="flex-[0_0_100%] min-w-0">
+                                    interiorImages.length > 0 ? (
+                                        interiorImages.map((image, index) => (
+                                            <div key={index} className="flex-[0_0_100%] min-w-0">
+                                                <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
+                                                    {
+
+                                                        // imageErrors[image] ? (
+                                                        //     <div className="flex items-center justify-center h-full text-gray-500">
+                                                        //         <span>Image not found</span>
+                                                        //     </div>
+                                                        // ) : (
+                                                            <img
+                                                                src={image}
+                                                                alt={`Interior design ${index + 1}`}
+                                                                className="w-full h-full object-cover rounded-lg"
+                                                                onError={() => handleImageError(image)}
+                                                                onClick={() => openModal(image, interiorImages, "Interior")}
+
+                                                            />
+                                                        // )
+
+
+                                                    }
+                                                </div>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <div className="flex-[0_0_100%] min-w-0">
                                             <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
-                                                {
-                                                
-                                                
-                                                // imageErrors[image] ? (
-                                                //     <div className="flex items-center justify-center h-full text-gray-500">
-                                                //         <span>Image not found</span>
-                                                //     </div>
-                                                // ) : (
-                                                    <img
-                                                        src={image}
-                                                        alt={`Interior design ${index + 1}`}
-                                                        className="w-full h-full object-cover rounded-lg"
-                                                        onError={() => handleImageError(image)}
-                                                    />
-                                                // )
-                                                
-                                                
-                                                }
+                                                <span className="text-gray-500">No interior images available</span>
                                             </div>
                                         </div>
-                                    ))
-                                ) : (
-                                    <div className="flex-[0_0_100%] min-w-0">
-                                        <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
-                                            <span className="text-gray-500">No interior images available</span>
-                                        </div>
-                                    </div>
-                                )}
+                                    )}
                             </div>
                         </div>
 
@@ -184,18 +206,20 @@ export default function MiddleSection() {
                                         <div key={index} className="flex-[0_0_100%] min-w-0">
                                             <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
                                                 {
-                                                // imageErrors[image] ? (
-                                                //     <div className="flex items-center justify-center h-full text-gray-500">
-                                                //         <span>Image not found</span>
-                                                //     </div>
-                                                // ) : (
-                                                    <img
-                                                        src={image}
-                                                        alt={`Exterior design ${index + 1}`}
-                                                        className="w-full h-full object-cover rounded-lg"
-                                                        onError={() => handleImageError(image)}
-                                                    />
-                                                // )
+                                                    // imageErrors[image] ? (
+                                                    //     <div className="flex items-center justify-center h-full text-gray-500">
+                                                    //         <span>Image not found</span>
+                                                    //     </div>
+                                                    // ) : (
+                                                        <img
+                                                            src={image}
+                                                            alt={`Exterior design ${index + 1}`}
+                                                            className="w-full h-full object-cover rounded-lg"
+                                                            onError={() => handleImageError(image)}
+                                                            onClick={() => openModal(image, exteriorImages, "Exterior")}
+
+                                                        />
+                                                    // )
                                                 }
                                             </div>
                                         </div>
@@ -226,6 +250,24 @@ export default function MiddleSection() {
                     </div>
                 </div>
             </div>
+
+
+            {/* ---------------- MODAL (Zoom Image) ---------------- */}
+
+            {selectedImage && (
+                <ImageModal
+                    imageSrc={selectedImage}
+                    isOpen={isModalOpen}
+                    onClose={closeModal}
+                    onNext={nextImage}
+                    onPrev={prevImage}
+                    currentIndex={currentImageIndex}
+                    totalImages={totalImages}
+                    sectionTitle={sectionTitle}
+                />
+            )}
+
+
         </div>
     )
 }
