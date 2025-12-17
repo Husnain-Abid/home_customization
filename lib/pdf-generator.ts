@@ -81,10 +81,13 @@ export const generateCustomizedHomePDF = async (
     const margin = 20
     const contentWidth = pageWidth - margin * 2
 
-    const primaryColor = [194, 164, 92]
-    const darkColor = [51, 51, 51]
-    const grayColor = [120, 120, 120]
-    const lightGray = [248, 248, 248]
+    
+    // Color tuples
+    const primaryColor: [number, number, number] = [194, 164, 92]
+    const darkColor: [number, number, number] = [51, 51, 51]
+    const grayColor: [number, number, number] = [120, 120, 120]
+    const lightGray: [number, number, number] = [248, 248, 248]
+
 
     let y = margin
 
@@ -106,6 +109,9 @@ export const generateCustomizedHomePDF = async (
       align: "center",
     })
     y += 14
+
+
+
 
     pdf.setFontSize(10)
     pdf.setTextColor(...grayColor)

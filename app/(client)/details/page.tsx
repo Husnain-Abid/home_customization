@@ -87,7 +87,9 @@ export default function DetailsPage() {
       {/* Accordion */}
       <Accordion type="multiple" className="space-y-6">
         {detailsData.map((section, i) => (
-          <AccordionItem key={i} value={`section-${i}`} className="border rounded-lg px-6">
+          <AccordionItem key={i} value={`section-${i}`}
+            className="border border-gray-200 rounded-lg px-6 mb-6 last:mb-0 last:!border-b">
+
             <AccordionTrigger className="text-lg font-semibold text-[#4A4C56]">
               {section.title}
             </AccordionTrigger>
