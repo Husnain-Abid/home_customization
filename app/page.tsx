@@ -13,22 +13,29 @@ export default function Home() {
           </h1>
 
           <p className="text-[#4A4C56] text-center md:text-left">
-            In just two weeks, you can have a fully functioning, customizable home delivered to your property—no permits required.
+            The Strongest Home You Can Buy, Built In Two Weeks.
 
           </p>
 
           <p className="text-[#4A4C56] text-center md:text-left">
-            Built from indestructible steel and designed to last a lifetime, each unit comes complete with finished interiors, modern amenities, and the flexibility to fit your lifestyle.  This home is about true independence and self reliance. It can serve as a guest house in your yard, an Airbnb rental, or a private retreat.
+            A Freepoint Home is a steel house engineered to be permanent,
+            indestructible, and flexible enough to move whenever you need.
+            Built from steel and cement with a full 8'6"+ interior width and a
+            9'6" high ceiling, it delivers more livable volume than any other
+            single-piece home in its class.
           </p>
 
           <p className="text-[#4A4C56] text-center md:text-left">
-            With off grid solar capability, you can live sustainably without reliance on external utilities. And with the option to make it mobile by placing it on a trailer, your home can move with you wherever life takes you. More than a tiny home, it’s a versatile, durable solution that empowers you to create your own space, generate your own power, and enjoy the freedom of living on your own terms.
+            It arrives fully finished, requires <strong>NO PERMITS</strong>, and
+            can be placed almost anywhere. Just plug it into a standard outlet,
+            connect a garden hose, and it’s ready to live in.
           </p>
 
           <p className="text-[#4A4C56] text-center md:text-left">
-            Customize your unit today, explore pricing, and start a conversation with us to design a home that fits your exact needs and requirements.
+            With white-glove delivery and the ability to relocate it anytime,
+            you get the durability of a permanent structure with the freedom
+            of mobility.
           </p>
-
 
           <Link href="/customizations" className="w-fit mx-auto md:mx-0">
             <button className="bg-[#C2A45C] hover:bg-[#C2A45C]/80 transition-all duration-300 text-white px-6 py-2 rounded-md cursor-pointer">

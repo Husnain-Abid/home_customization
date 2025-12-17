@@ -37,12 +37,12 @@
                     {
                         "value": "wall3",
                         "label": "Position 1",
-                        "price": 100
+                        "price": 0
                     },
                     {
                         "value": "wall4",
                         "label": "Position 2",
-                        "price": 100
+                        "price": 0
                     }
                 ]
             },
@@ -50,7 +50,7 @@
                 "options": [
                     {
                         "value": "yes",
-                        "label": "Full Bathroom: Yes",
+                        "label": "Bathroom: Yes",
                         "price": 4000
                     },
                     {

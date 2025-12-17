@@ -178,12 +178,12 @@ export function ProductProvider({ children }: { children: ReactNode }) {
 
 
       // --- Debug logs ---
-      console.log("🟡 interior Checking Item:", itemFeatures);
-      console.log("interior Selected:", selectedFeatures);
-      console.log("interior Score:", score, "Valid:", isValidMatch);
+      // console.log("🟡 interior Checking Item:", itemFeatures);
+      // console.log("interior Selected:", selectedFeatures);
+      // console.log("interior Score:", score, "Valid:", isValidMatch);
     }
 
-    console.log("✅interior Best Match:", bestMatch?.features || "None");
+    // console.log("✅interior Best Match:", bestMatch?.features || "None");
 
     return bestMatch;
   };
@@ -249,12 +249,11 @@ export function ProductProvider({ children }: { children: ReactNode }) {
       }
 
       // --- Debug logs ---
-      console.log("🟡 exterior Checking Item:", itemFeatures);
-      console.log("exterior Selected:", selectedFeatures);
-      console.log("exterior Score:", score, "Valid:", isValidMatch);
+      // console.log("🟡 exterior Checking Item:", itemFeatures);
+      // console.log("exterior Selected:", selectedFeatures);
+      // console.log("exterior Score:", score, "Valid:", isValidMatch);
     }
 
-    console.log("✅exterior Best Match:", bestMatch?.features || "None");
 
     return bestMatch;
   };
