@@ -264,37 +264,43 @@ export function ProductProvider({ children }: { children: ReactNode }) {
 
     let total = productData.basePrice;
 
-    Object.entries(selectedFeatures).forEach(([featureKey, value]) => {
-      if (value === 'yes') {
-        const feature = productData.features[featureKey];
-        if (feature) {
-          const option = feature.options.find(opt => opt.value === value);
-          if (option) {
-            total += option.price;
-          }
-        }
-      }
+ Object.entries(selectedFeatures).forEach(([featureKey, value]) => {
+  
+  if (featureKey === 'bathroom') return;
 
-      if (featureKey === 'kitchen_position' && value) {
-        const feature = productData.features.kitchen_position;
-        if (feature) {
-          const option = feature.options.find(opt => opt.value === value);
-          if (option) {
-            total += option.price;
-          }
-        }
+  if (value === 'yes') {
+    const feature = productData.features[featureKey];
+    if (feature) {
+      const option = feature.options.find(opt => opt.value === value);
+      if (option) {
+        total += option.price;
       }
+    }
+  }
 
-      if (featureKey === 'railing' && value && selectedFeatures.stairs === 'yes') {
-        const feature = productData.features[featureKey];
-        if (feature) {
-          const option = feature.options.find(opt => opt.value === value);
-          if (option) {
-            total += option.price;
-          }
-        }
+  // kitchen position (unchanged)
+  if (featureKey === 'kitchen_position' && value) {
+    const feature = productData.features.kitchen_position;
+    if (feature) {
+      const option = feature.options.find(opt => opt.value === value);
+      if (option) {
+        total += option.price;
       }
-    });
+    }
+  }
+
+  // railing depends on stairs
+  if (featureKey === 'railing' && value && selectedFeatures.stairs === 'yes') {
+    const feature = productData.features[featureKey];
+    if (feature) {
+      const option = feature.options.find(opt => opt.value === value);
+      if (option) {
+        total += option.price;
+      }
+    }
+  }
+});
+
 
     return total;
   };

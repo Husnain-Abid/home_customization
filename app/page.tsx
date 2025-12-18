@@ -12,36 +12,37 @@ export default function Home() {
             About Us
           </h1>
 
-          <p className="text-[#4A4C56] text-center md:text-left">
-            The Strongest Home You Can Buy, Built In Two Weeks.
-
+          <p className="text-[#4A4C56] font-bold text-center md:text-left">
+            The Strongest Home You Can Buy. Custom Built in 10 Days.
           </p>
 
           <p className="text-[#4A4C56] text-center md:text-left">
             A Freepoint Home is a steel house engineered to be permanent,
             indestructible, and flexible enough to move whenever you need.
-            Built from steel and cement with a full 8'6"+ interior width and a
-            9'6" high ceiling, it delivers more livable volume than any other
-            single-piece home in its class.
+            Built from <strong> best-in-class steel construction and cement</strong>, with a
+            full <strong> 8'6"+ interior width </strong> and a <strong>9'6" high ceiling</strong>,
+            it delivers more livable volume than any other single piece
+            home in its class.
           </p>
 
           <p className="text-[#4A4C56] text-center md:text-left">
-            It arrives fully finished, requires <strong>NO PERMITS</strong>, and
-            can be placed almost anywhere. Just plug it into a standard outlet,
-            connect a garden hose, and it’s ready to live in.
+            It arrives <strong> fully finished, requires no permits</strong>, and can be placed
+            almost anywhere. Just plug it into a standard outlet, connect a garden
+            hose, and it’s ready to live in. It’s fully self sufficient from day one
+            but also built to connect to standard utilities when used as an ADU. Every unit
+            is <strong> fully customizable</strong>, and with <strong> white glove delivery </strong> and the ability to relocate it anytime,
+            you get the durability of a permanent structure with the freedom of
+            mobility — all <strong> custom built in just 10 days</strong>.
           </p>
 
-          <p className="text-[#4A4C56] text-center md:text-left">
-            With white-glove delivery and the ability to relocate it anytime,
-            you get the durability of a permanent structure with the freedom
-            of mobility.
-          </p>
+          <div className="flex justify-center">
+            <Link href="/customizations">
+              <button className="bg-[#C2A45C] hover:bg-[#C2A45C]/80 transition-all duration-300 text-white px-6 py-2 rounded-md cursor-pointer">
+                Customize Now
+              </button>
+            </Link>
+          </div>
 
-          <Link href="/customizations" className="w-fit mx-auto md:mx-0">
-            <button className="bg-[#C2A45C] hover:bg-[#C2A45C]/80 transition-all duration-300 text-white px-6 py-2 rounded-md cursor-pointer">
-              Customize Now
-            </button>
-          </Link>
         </div>
 
         {/* Image Section */}

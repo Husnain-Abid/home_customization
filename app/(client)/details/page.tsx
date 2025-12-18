@@ -1,6 +1,9 @@
 "use client"
 
-import React from "react"
+import React, { useEffect, useState } from "react"
+import { useSearchParams } from "next/navigation"
+
+
 import {
   Accordion,
   AccordionContent,
@@ -10,6 +13,7 @@ import {
 
 const detailsData = [
   {
+    key: "structure",
     title: "STRUCTURE & ENGINEERING",
     items: [
       {
@@ -27,6 +31,7 @@ const detailsData = [
     ]
   },
   {
+    key: "interior",
     title: "INTERIOR FEATURES",
     items: [
       { name: "Kitchen", desc: "Compact, efficient, fully electric kitchen with modern appliances and a clean, functional layout." },
@@ -38,6 +43,7 @@ const detailsData = [
     ]
   },
   {
+    key: "exterior",
     title: "EXTERIOR FEATURES",
     items: [
       { name: "Stairs", desc: "Compact steel stair system designed for safe, easy access to the entry." },
@@ -46,6 +52,7 @@ const detailsData = [
     ]
   },
   {
+    key: "energy",
     title: "ENERGY & SYSTEMS",
     items: [
       { name: "Air Conditioner", desc: "High efficiency cooling system included, sized for the home’s volume and insulation rating." },
@@ -54,6 +61,7 @@ const detailsData = [
     ]
   },
   {
+    key: "utilities",
     title: "UTILITIES & SETUP",
     items: [
       { name: "Fully Electric", desc: "Runs on standard household power with its own breaker box — plug it into a 120V outlet and go." },
@@ -62,6 +70,7 @@ const detailsData = [
     ]
   },
   {
+    key: "delivery",
     title: "DELIVERY & MOBILITY",
     items: [
       { name: "Built in 10 Days", desc: "A complete, finished steel home — engineered, assembled, and ready faster than anything else on the market." },
@@ -72,6 +81,19 @@ const detailsData = [
 ]
 
 export default function DetailsPage() {
+
+  const searchParams = useSearchParams()
+  const sectionParam = searchParams.get("section") // interior, energy, etc
+
+  const [openSections, setOpenSections] = useState<string[]>([])
+
+  useEffect(() => {
+    if (sectionParam) {
+      setOpenSections([sectionParam])
+    }
+  }, [sectionParam])
+
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-16">
       {/* Intro */}
@@ -85,14 +107,22 @@ export default function DetailsPage() {
       </div>
 
       {/* Accordion */}
-      <Accordion type="multiple" className="space-y-6">
-        {detailsData.map((section, i) => (
-          <AccordionItem key={i} value={`section-${i}`}
-            className="border border-gray-200 rounded-lg px-6 mb-6 last:mb-0 last:!border-b">
-
+      <Accordion
+        type="multiple"
+        value={openSections}
+        onValueChange={setOpenSections}
+        className="space-y-6"
+      >
+        {detailsData.map((section) => (
+          <AccordionItem
+            key={section.key}
+            value={section.key}
+            className="border border-gray-200 rounded-lg px-6 mb-6 last:mb-0 last:!border-b   "
+          >
             <AccordionTrigger className="text-lg font-semibold text-[#4A4C56]">
               {section.title}
             </AccordionTrigger>
+
             <AccordionContent className="pt-4 space-y-4">
               {section.items.map((item, idx) => (
                 <div key={idx}>
@@ -104,6 +134,24 @@ export default function DetailsPage() {
           </AccordionItem>
         ))}
       </Accordion>
+
+
+
+
+
+
+      {/* CTA */}
+      <div className="text-center mt-16">
+        <p className="text-gray-600 mb-6">
+          Ready to see what your Freepoint Home can become?
+        </p>
+        <a href="/customizations">
+          <button className="bg-[#C2A45C] hover:bg-[#C2A45C]/80 transition-all duration-300 text-white px-10 py-4 rounded-md font-semibold">
+            Customize Your Home
+          </button>
+        </a>
+      </div>
+
     </div>
   )
 }

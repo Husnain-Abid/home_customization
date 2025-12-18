@@ -55,12 +55,11 @@ export default function SendEmailSuccess() {
   const items = [
     { name: "Kitchen", price: getPrice("kitchen") },
     { name: "Bathroom", price: bathroomTotal },
-    { name: "Kitchen Wall", price: getPrice("kitchen_wall") },
-    { name: "Gas", price: getPrice("naturalGas") },
-    { name: "Solar", price: getPrice("solarPanel") },
+    { name: "Air Conditioning", price: getPrice("airConditioner") },
     { name: "Stairs", price: getPrice("stairs") },
     { name: "Roof Railing", price: getPrice("railing") },
-    { name: "Air Conditioning", price: getPrice("airConditioner") },
+    { name: "Solar", price: getPrice("solarPanel") },
+    { name: "Gas", price: getPrice("naturalGas") },
   ]
 
   const bathroomBreakdown = [

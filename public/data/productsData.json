@@ -23,7 +23,7 @@
                     {
                         "value": "yes",
                         "label": "Wall: Yes",
-                        "price": 150
+                        "price": 0
                     },
                     {
                         "value": "no",

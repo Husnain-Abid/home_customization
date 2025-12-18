@@ -1,29 +1,34 @@
 "use client"
 
 import React, { useState } from "react"
+import Link from "next/link"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 import { useProductContext } from "../../contexts/ProductContext"
 import RightSideSkeleton from "./RightSideSkeleton"
-import { ChevronDown, ChevronUp } from "lucide-react"
 
 interface ConfigurationItem {
   name: string
   price: number
   description: string
+  detailsUrl: string
   isChild?: boolean
+  parent?: string
 }
 
+
 export default function RightSide() {
+
+
+
   const { productData, selectedFeatures, totalPrice } = useProductContext()
-  const [openSections, setOpenSections] = useState<Record<string, boolean>>({})
+  const [openItems, setOpenItems] = useState<string[]>([])
 
   if (!productData) return <RightSideSkeleton />
-
-  const toggleSection = (key: string) => {
-    setOpenSections(prev => ({
-      ...prev,
-      [key]: !prev[key],
-    }))
-  }
 
   const getPrice = (featureKey: keyof typeof selectedFeatures) => {
     const option = productData.features[featureKey]?.options.find(
@@ -35,9 +40,13 @@ export default function RightSide() {
   }
 
   const bathroomTotal =
-    (selectedFeatures.bathroom === "yes"
+    selectedFeatures.bathroom === "yes"
       ? getPrice("shower") + getPrice("sink") + getPrice("toilet")
-      : 0)
+      : 0
+
+  const isBathroomOpen = openItems.includes("Bathroom")
+
+
 
   const items: ConfigurationItem[] = [
     {
@@ -45,100 +54,86 @@ export default function RightSide() {
       price: getPrice("kitchen"),
       description:
         "Your custom kitchen delivers the full functionality of a traditional home. Built in appliances, tailored cabinetry, and smart storage maximize workflow and usability. The appliances include a refrigerator, two burner cooktop, and built in oven. Dual undermount sinks are set under heat resistant countertops designed for everyday durability.",
+      detailsUrl: "/details?section=interior"
     },
+
     {
       name: "Bathroom",
       price: bathroomTotal,
       description:
         "A fully functioning shower, a floating sink, and toilet are all arranged for comfort and usability in a compact footprint. A locking door provides privacy and there is still lots of room for storage.",
+      detailsUrl: "/details?section=interior"
     },
     {
       name: "Shower",
-      price: selectedFeatures.bathroom === "yes" ? getPrice("shower") : 0,
+      price: getPrice("shower"),
       description:
         "Full sized 60’x30’ shower designed for compact comfort, complete with enclosure and fixtures.",
+      detailsUrl: "/details?section=interior",
       isChild: true,
+      parent: "Bathroom",
     },
     {
       name: "Sink",
-      price: selectedFeatures.bathroom === "yes" ? getPrice("sink") : 0,
+      price: getPrice("sink"),
       description:
         "Floating sink with modern design, includes all hardware and plumbing connections.",
+      detailsUrl: "/details?section=interior",
       isChild: true,
+      parent: "Bathroom",
     },
     {
       name: "Toilet",
-      price: selectedFeatures.bathroom === "yes" ? getPrice("toilet") : 0,
+      price: getPrice("toilet"),
       description:
         "Space saving floating toilet, adaptable for use with a standard residential waste system or a disposable/portable setup.",
+      detailsUrl: "/details?section=interior",
       isChild: true,
-    },
-    {
-      name: "Kitchen Wall",
-      price: getPrice("kitchen_wall"),
-      description:
-        "",
-    },
-
-    {
-      name: "Gas",
-      price: getPrice("naturalGas"),
-      description:
-        "If you’d like to have natural gas as an energy source, we’d be glad to install the piping that leads to the Kitchen.",
-    },
-    {
-      name: "Solar",
-      price: getPrice("solarPanel"),
-      description:
-        "With a full roof solar array, inverter, and battery storage, your home generates and stores its own electricity—powering everyday living without reliance on external utilities.",
-    },
-    {
-      name: "Stairs",
-      price: getPrice("stairs"),
-      description:
-        "Rooftop stairs provide safe and easy access to the full 8′×20′ rooftop. Crafted from solid wood for long term durability.",
-    },
-    {
-      name: "Roof Railing",
-      price: getPrice("railing"),
-      description:
-        "Rooftop railing provides secure protection around the full rooftop and complements the stair design.",
+      parent: "Bathroom",
     },
     {
       name: "Air Conditioning",
       price: getPrice("airConditioner"),
       description:
         "Mini split air conditioning system delivering efficient cooling and heating year round.",
+      detailsUrl: "/details?section=energy",
+    },
+    {
+      name: "Stairs",
+      price: getPrice("stairs"),
+      description:
+        "Rooftop stairs provide safe and easy access to the full 8′×20′ rooftop. Crafted from solid wood for long term durability.",
+      detailsUrl: "/details?section=exterior",
+    },
+    {
+      name: "Roof Railing",
+      price: getPrice("railing"),
+      description:
+        "Rooftop railing provides secure protection around the full rooftop and complements the stair design.",
+      detailsUrl: "/details?section=exterior",
+    },
+    {
+      name: "Solar",
+      price: getPrice("solarPanel"),
+      description:
+        "With a full roof solar array, inverter, and battery storage, your home generates and stores its own electricity—powering everyday living without reliance on external utilities.",
+      detailsUrl: "/details?section=energy",
+    },
+    {
+      name: "Gas",
+      price: getPrice("naturalGas"),
+      description:
+        "If you’d like to have natural gas as an energy source, we’d be glad to install the piping that leads to the Kitchen.",
+      detailsUrl: "/details?section=energy",
     },
   ]
 
   const basePrice = productData.basePrice || 21990
 
   const bathroomBreakdown = [
-    {
-      name: "Shower",
-      price:
-        selectedFeatures.bathroom === "yes" &&
-          selectedFeatures.shower === "yes"
-          ? getPrice("shower")
-          : 0,
-    },
-    {
-      name: "Sink",
-      price:
-        selectedFeatures.bathroom === "yes" &&
-          selectedFeatures.sink === "yes"
-          ? getPrice("sink")
-          : 0,
-    },
-    {
-      name: "Toilet",
-      price:
-        selectedFeatures.bathroom === "yes" &&
-          selectedFeatures.toilet === "yes"
-          ? getPrice("toilet")
-          : 0,
-    },
+    { name: "Shower", price: getPrice("shower") },
+    { name: "Sink", price: getPrice("sink") },
+    { name: "Toilet", price: getPrice("toilet") },
   ]
 
   return (
@@ -147,54 +142,57 @@ export default function RightSide() {
         Your Configuration
       </h2>
 
-      <div className="space-y-4">
+      {/* Configuration List */}
+
+
+      <Accordion
+        type="multiple"
+        value={openItems}
+        onValueChange={setOpenItems}
+        className="space-y-3"
+      >
         {items.map((item, index) => {
-          const isOpen = openSections[item.name]
-          const isZero = item.price === 0
+          // 🔒 Hide children if bathroom is closed
+          if (item.isChild && !isBathroomOpen) return null
 
           return (
-            <div
+            <AccordionItem
               key={index}
-              className={`border rounded-lg ${item.isChild ? "ml-6" : ""
-                } ${isZero ? "bg-gray-50 opacity-60" : "bg-gray-100"}`}
+              value={item.name}
+              className={`rounded-lg border ${item.isChild ? "ml-6" : ""
+                } bg-gray-100`}
             >
-              <button
-                onClick={() => toggleSection(item.name)}
-                className="w-full flex justify-between items-center p-3"
-              >
-                <div>
-                  <h3 className="font-semibold text-sm text-gray-800">
+              <AccordionTrigger className="px-3 py-3 text-sm font-semibold text-gray-800 hover:no-underline">
+                <div className="flex w-full justify-between">
+                  <span>
                     {item.isChild ? "— " : ""}
                     {item.name}
-                  </h3>
-                  <span className="text-xs text-gray-600">
-                    ${item.price.toLocaleString()}
                   </span>
+                  <span>${item.price.toLocaleString()}</span>
                 </div>
-                {isOpen ? (
-                  <ChevronUp className="w-4 h-4" />
-                ) : (
-                  <ChevronDown className="w-4 h-4" />
-                )}
-              </button>
+              </AccordionTrigger>
 
-              {isOpen && (
-                <div className="px-3 pb-3 text-xs text-gray-600 leading-relaxed">
-                  {item.description}
-                </div>
-              )}
-            </div>
+              <AccordionContent className="px-3 pb-3 text-xs text-gray-600">
+                {item.description}
+                <br />
+                <Link
+                  href={item.detailsUrl}
+                  className="mt-2 inline-block text-xs font-semibold text-gray-600 hover:text-blue-800 underline"
+                >
+                  More Details…
+                </Link>
+
+              </AccordionContent>
+            </AccordionItem>
           )
         })}
-      </div>
-
+      </Accordion>
 
 
 
 
       {/* Cost Summary */}
       <div className="mt-6 border-t pt-4 space-y-2">
-        {/* Base Price */}
         <div className="flex justify-between text-sm">
           <span className="text-gray-600">Base Home</span>
           <span className="font-semibold">
@@ -202,7 +200,6 @@ export default function RightSide() {
           </span>
         </div>
 
-        {/* Main Items */}
         {items
           .filter(item => !item.isChild)
           .map((item, index) => (
@@ -214,7 +211,6 @@ export default function RightSide() {
                 </span>
               </div>
 
-              {/* Bathroom Breakdown */}
               {item.name === "Bathroom" &&
                 bathroomBreakdown.map((sub, i) => (
                   <div
@@ -228,16 +224,15 @@ export default function RightSide() {
             </React.Fragment>
           ))}
 
-        {/* Total */}
         <div className="border-t pt-3 flex justify-between">
-          <span className="font-bold text-gray-800">Total Estimate</span>
+          <span className="font-bold text-gray-800">
+            Total Estimate
+          </span>
           <span className="font-bold text-lg">
             ${totalPrice.toLocaleString()}
           </span>
         </div>
       </div>
-
-
     </div>
   )
 }
