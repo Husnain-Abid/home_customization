@@ -1,6 +1,7 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useEffect, useState, Suspense } from "react"
+import { useSearchParams } from "next/navigation"
 
 
 import {
@@ -79,13 +80,50 @@ const detailsData = [
   }
 ]
 
-export default function DetailsPage() {
-
+function DetailsContent() {
+  const searchParams = useSearchParams()
+  const sectionParam = searchParams.get("section") // interior, energy, etc
 
   const [openSections, setOpenSections] = useState<string[]>([])
 
+  useEffect(() => {
+    if (sectionParam) {
+      setOpenSections([sectionParam])
+    }
+  }, [sectionParam])
 
+  return (
+    <Accordion
+      type="multiple"
+      value={openSections}
+      onValueChange={setOpenSections}
+      className="space-y-6"
+    >
+      {detailsData.map((section) => (
+        <AccordionItem
+          key={section.key}
+          value={section.key}
+          className="border border-gray-200 rounded-lg px-6 mb-6 last:mb-0 last:!border-b   "
+        >
+          <AccordionTrigger className="text-lg font-semibold text-[#4A4C56]">
+            {section.title}
+          </AccordionTrigger>
 
+          <AccordionContent className="pt-4 space-y-4">
+            {section.items.map((item, idx) => (
+              <div key={idx}>
+                <h4 className="font-semibold">{item.name}</h4>
+                <p className="text-gray-600 text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  )
+}
+
+export default function DetailsPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-16">
       {/* Intro */}
@@ -94,38 +132,13 @@ export default function DetailsPage() {
           DETAILS
         </h1>
         <p className="text-gray-600">
-          There’s a lot of detail here — and we know it inside and out. This section walks through every part of how your Freepoint Home is built and what it includes.
+          There's a lot of detail here — and we know it inside and out. This section walks through every part of how your Freepoint Home is built and what it includes.
         </p>
       </div>
 
-      {/* Accordion */}
-      <Accordion
-        type="multiple"
-        value={openSections}
-        onValueChange={setOpenSections}
-        className="space-y-6"
-      >
-        {detailsData.map((section) => (
-          <AccordionItem
-            key={section.key}
-            value={section.key}
-            className="border border-gray-200 rounded-lg px-6 mb-6 last:mb-0 last:!border-b   "
-          >
-            <AccordionTrigger className="text-lg font-semibold text-[#4A4C56]">
-              {section.title}
-            </AccordionTrigger>
-
-            <AccordionContent className="pt-4 space-y-4">
-              {section.items.map((item, idx) => (
-                <div key={idx}>
-                  <h4 className="font-semibold">{item.name}</h4>
-                  <p className="text-gray-600 text-sm">{item.desc}</p>
-                </div>
-              ))}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+      <Suspense fallback={<div>Loading...</div>}>
+        <DetailsContent />
+      </Suspense>
 
 
 
