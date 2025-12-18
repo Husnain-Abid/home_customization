@@ -117,6 +117,7 @@ export default function DetailsPage() {
           <AccordionItem
             key={section.key}
             value={section.key}
+              id={section.key}
             className="border border-gray-200 rounded-lg px-6 mb-6 last:mb-0 last:!border-b   "
           >
             <AccordionTrigger className="text-lg font-semibold text-[#4A4C56]">
