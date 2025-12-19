@@ -16,6 +16,7 @@ interface ConfigurationItem {
   price: number
   description: string
   detailsUrl: string
+  placeholderPrice: number
   isChild?: boolean
   parent?: string
 }
@@ -39,6 +40,7 @@ export default function RightSide() {
       : 0
   }
 
+
   const bathroomTotal =
     selectedFeatures.bathroom === "yes"
       ? getPrice("shower") + getPrice("sink") + getPrice("toilet")
@@ -52,6 +54,7 @@ export default function RightSide() {
     {
       name: "Kitchen",
       price: getPrice("kitchen"),
+      placeholderPrice: 6000,
       description:
         "Your custom kitchen delivers the full functionality of a traditional home. Built in appliances, tailored cabinetry, and smart storage maximize workflow and usability. The appliances include a refrigerator, two burner cooktop, and built in oven. Dual undermount sinks are set under heat resistant countertops designed for everyday durability.",
       detailsUrl: "/details?section=interior"
@@ -60,13 +63,16 @@ export default function RightSide() {
     {
       name: "Bathroom",
       price: bathroomTotal,
+      placeholderPrice: 4000,
       description:
         "A fully functioning shower, a floating sink, and toilet are all arranged for comfort and usability in a compact footprint. A locking door provides privacy and there is still lots of room for storage.",
       detailsUrl: "/details?section=interior"
+
     },
     {
       name: "Shower",
       price: getPrice("shower"),
+      placeholderPrice: 2500,
       description:
         "Full sized 60’x30’ shower designed for compact comfort, complete with enclosure and fixtures.",
       detailsUrl: "/details?section=interior",
@@ -76,6 +82,7 @@ export default function RightSide() {
     {
       name: "Sink",
       price: getPrice("sink"),
+      placeholderPrice: 750,
       description:
         "Floating sink with modern design, includes all hardware and plumbing connections.",
       detailsUrl: "/details?section=interior",
@@ -85,6 +92,7 @@ export default function RightSide() {
     {
       name: "Toilet",
       price: getPrice("toilet"),
+      placeholderPrice: 750,
       description:
         "Space saving floating toilet, adaptable for use with a standard residential waste system or a disposable/portable setup.",
       detailsUrl: "/details?section=interior",
@@ -94,6 +102,7 @@ export default function RightSide() {
     {
       name: "Air Conditioning",
       price: getPrice("airConditioner"),
+      placeholderPrice: 3000,
       description:
         "Mini split air conditioning system delivering efficient cooling and heating year round.",
       detailsUrl: "/details?section=energy",
@@ -101,6 +110,7 @@ export default function RightSide() {
     {
       name: "Stairs",
       price: getPrice("stairs"),
+      placeholderPrice: 3000,
       description:
         "Rooftop stairs provide safe and easy access to the full 8′×20′ rooftop. Crafted from solid wood for long term durability.",
       detailsUrl: "/details?section=exterior",
@@ -108,6 +118,7 @@ export default function RightSide() {
     {
       name: "Roof Railing",
       price: getPrice("railing"),
+      placeholderPrice: 1800,
       description:
         "Rooftop railing provides secure protection around the full rooftop and complements the stair design.",
       detailsUrl: "/details?section=exterior",
@@ -115,6 +126,7 @@ export default function RightSide() {
     {
       name: "Solar",
       price: getPrice("solarPanel"),
+      placeholderPrice: 8900,
       description:
         "With a full roof solar array, inverter, and battery storage, your home generates and stores its own electricity—powering everyday living without reliance on external utilities.",
       detailsUrl: "/details?section=energy",
@@ -122,6 +134,7 @@ export default function RightSide() {
     {
       name: "Gas",
       price: getPrice("naturalGas"),
+      placeholderPrice: 1000,
       description:
         "If you’d like to have natural gas as an energy source, we’d be glad to install the piping that leads to the Kitchen.",
       detailsUrl: "/details?section=energy",
@@ -159,16 +172,20 @@ export default function RightSide() {
             <AccordionItem
               key={index}
               value={item.name}
-              className={`rounded-lg border ${item.isChild ? "ml-6" : ""
-                } bg-gray-100`}
+              className={`rounded-lg 
+                border border-blue-300
+                bg-gradient-to-r from-blue-50 to-indigo-50
+                shadow-md
+                transition-all duration-200    last:mb-0 last:!border-b   ${item.isChild ? "ml-6" : ""
+                } `}
             >
-              <AccordionTrigger className="px-3 py-3 text-sm font-semibold text-gray-800 hover:no-underline">
+              <AccordionTrigger className="px-3 py-3 text-sm font-bold text-gray-800 hover:no-underline">
                 <div className="flex w-full justify-between">
                   <span>
                     {item.isChild ? "— " : ""}
                     {item.name}
                   </span>
-                  <span>${item.price.toLocaleString()}</span>
+                  <span>${item.placeholderPrice.toLocaleString()}</span>
                 </div>
               </AccordionTrigger>
 
