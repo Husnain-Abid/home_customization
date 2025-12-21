@@ -260,11 +260,11 @@ export default function MiddleSection() {
                                         <div key={index} className="flex-[0_0_100%] min-w-0">
                                             <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
                                                 {
-                                                    // imageErrors[image] ? (
-                                                    //     <div className="flex items-center justify-center h-full text-gray-500">
-                                                    //         <span>Image not found</span>
-                                                    //     </div>
-                                                    // ) : (
+                                                    imageErrors[image] ? (
+                                                        <div className="flex items-center justify-center h-full text-gray-500">
+                                                            <span>Image not found</span>
+                                                        </div>
+                                                    ) : (
                                                     <img
                                                         src={image}
                                                         alt={`Exterior design ${index + 1}`}
@@ -273,7 +273,7 @@ export default function MiddleSection() {
                                                         onClick={() => openModal(image, exteriorImages, "Exterior")}
 
                                                     />
-                                                    // )
+                                                    )
                                                 }
                                             </div>
                                         </div>
