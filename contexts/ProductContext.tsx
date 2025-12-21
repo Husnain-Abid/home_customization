@@ -25,6 +25,8 @@ export interface ProductData {
       [key: string]: string;
     };
     sections: {
+      interiorGallery_NoAC: any;
+      interior_NoAC: any;
       exterior: {
         gallery: string[];
       };
@@ -124,7 +126,7 @@ export function ProductProvider({ children }: { children: ReactNode }) {
           railing: 'no',
 
           // Energy defaults
-          airConditioner: 'yes',
+          airConditioner: 'no',
           solarPanel: 'no',
           naturalGas: 'no',
         });
@@ -264,42 +266,42 @@ export function ProductProvider({ children }: { children: ReactNode }) {
 
     let total = productData.basePrice;
 
- Object.entries(selectedFeatures).forEach(([featureKey, value]) => {
-  
-  if (featureKey === 'bathroom') return;
+    Object.entries(selectedFeatures).forEach(([featureKey, value]) => {
 
-  if (value === 'yes') {
-    const feature = productData.features[featureKey];
-    if (feature) {
-      const option = feature.options.find(opt => opt.value === value);
-      if (option) {
-        total += option.price;
-      }
-    }
-  }
+      if (featureKey === 'bathroom') return;
 
-  // kitchen position (unchanged)
-  if (featureKey === 'kitchen_position' && value) {
-    const feature = productData.features.kitchen_position;
-    if (feature) {
-      const option = feature.options.find(opt => opt.value === value);
-      if (option) {
-        total += option.price;
+      if (value === 'yes') {
+        const feature = productData.features[featureKey];
+        if (feature) {
+          const option = feature.options.find(opt => opt.value === value);
+          if (option) {
+            total += option.price;
+          }
+        }
       }
-    }
-  }
 
-  // railing depends on stairs
-  if (featureKey === 'railing' && value && selectedFeatures.stairs === 'yes') {
-    const feature = productData.features[featureKey];
-    if (feature) {
-      const option = feature.options.find(opt => opt.value === value);
-      if (option) {
-        total += option.price;
+      // kitchen position (unchanged)
+      if (featureKey === 'kitchen_position' && value) {
+        const feature = productData.features.kitchen_position;
+        if (feature) {
+          const option = feature.options.find(opt => opt.value === value);
+          if (option) {
+            total += option.price;
+          }
+        }
       }
-    }
-  }
-});
+
+      // railing depends on stairs
+      if (featureKey === 'railing' && value && selectedFeatures.stairs === 'yes') {
+        const feature = productData.features[featureKey];
+        if (feature) {
+          const option = feature.options.find(opt => opt.value === value);
+          if (option) {
+            total += option.price;
+          }
+        }
+      }
+    });
 
 
     return total;
@@ -335,7 +337,7 @@ export function ProductProvider({ children }: { children: ReactNode }) {
       railing: 'no',
 
       // Energy defaults
-      airConditioner: 'yes',
+      airConditioner: 'no',
       solarPanel: 'no',
       naturalGas: 'no',
     });

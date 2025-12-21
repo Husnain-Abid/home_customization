@@ -22,8 +22,6 @@ export default function ImageGallery() {
     const interiorImages = getInteriorGalleryImages(selectedFeatures, filteredInteriorData, productData)
 
 
-    // console.log("interiorImages", interiorImages);
-    // console.log("exteriorImages", exteriorImages);
 
 
 

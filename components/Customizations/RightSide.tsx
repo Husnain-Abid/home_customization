@@ -19,6 +19,7 @@ interface ConfigurationItem {
   placeholderPrice: number
   isChild?: boolean
   parent?: string
+  boxColors: string
 }
 
 
@@ -57,7 +58,8 @@ export default function RightSide() {
       placeholderPrice: 6000,
       description:
         "Your custom kitchen delivers the full functionality of a traditional home. Built in appliances, tailored cabinetry, and smart storage maximize workflow and usability. The appliances include a refrigerator, two burner cooktop, and built in oven. Dual undermount sinks are set under heat resistant countertops designed for everyday durability.",
-      detailsUrl: "/details?section=interior"
+      detailsUrl: "/details?section=interior",
+      boxColors: "bg-gradient-to-r from-green-50 to-emerald-50 border-green-300",
     },
 
     {
@@ -66,8 +68,8 @@ export default function RightSide() {
       placeholderPrice: 4000,
       description:
         "A fully functioning shower, a floating sink, and toilet are all arranged for comfort and usability in a compact footprint. A locking door provides privacy and there is still lots of room for storage.",
-      detailsUrl: "/details?section=interior"
-
+      detailsUrl: "/details?section=interior",
+      boxColors: "bg-gradient-to-r from-purple-50 to-violet-50 border-purple-300"
     },
     {
       name: "Shower",
@@ -78,6 +80,7 @@ export default function RightSide() {
       detailsUrl: "/details?section=interior",
       isChild: true,
       parent: "Bathroom",
+      boxColors: "bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-300"
     },
     {
       name: "Sink",
@@ -88,6 +91,7 @@ export default function RightSide() {
       detailsUrl: "/details?section=interior",
       isChild: true,
       parent: "Bathroom",
+      boxColors: "bg-gradient-to-r from-purple-50 to-violet-50 border-purple-300"
     },
     {
       name: "Toilet",
@@ -98,14 +102,7 @@ export default function RightSide() {
       detailsUrl: "/details?section=interior",
       isChild: true,
       parent: "Bathroom",
-    },
-    {
-      name: "Air Conditioning",
-      price: getPrice("airConditioner"),
-      placeholderPrice: 3000,
-      description:
-        "Mini split air conditioning system delivering efficient cooling and heating year round.",
-      detailsUrl: "/details?section=energy",
+      boxColors: "bg-gradient-to-r from-teal-50 to-cyan-50 border-teal-300"
     },
     {
       name: "Stairs",
@@ -114,6 +111,7 @@ export default function RightSide() {
       description:
         "Rooftop stairs provide safe and easy access to the full 8′×20′ rooftop. Crafted from solid wood for long term durability.",
       detailsUrl: "/details?section=exterior",
+      boxColors: "bg-gradient-to-r from-emerald-50 to-green-50 border-emerald-300"
     },
     {
       name: "Roof Railing",
@@ -122,6 +120,16 @@ export default function RightSide() {
       description:
         "Rooftop railing provides secure protection around the full rooftop and complements the stair design.",
       detailsUrl: "/details?section=exterior",
+      boxColors: "bg-gradient-to-r from-lime-50 to-green-50 border-lime-300"
+    },
+    {
+      name: "Air Conditioning",
+      price: getPrice("airConditioner"),
+      placeholderPrice: 3000,
+      description:
+        "Mini split air conditioning system delivering efficient cooling and heating year round.",
+      detailsUrl: "/details?section=energy",
+      boxColors: "bg-gradient-to-r from-sky-50 to-blue-50 border-sky-300"
     },
     {
       name: "Solar",
@@ -130,6 +138,7 @@ export default function RightSide() {
       description:
         "With a full roof solar array, inverter, and battery storage, your home generates and stores its own electricity—powering everyday living without reliance on external utilities.",
       detailsUrl: "/details?section=energy",
+      boxColors: "bg-gradient-to-r from-amber-50 to-orange-50 border-amber-300 "
     },
     {
       name: "Gas",
@@ -138,6 +147,7 @@ export default function RightSide() {
       description:
         "If you’d like to have natural gas as an energy source, we’d be glad to install the piping that leads to the Kitchen.",
       detailsUrl: "/details?section=energy",
+      boxColors: "bg-gradient-to-r from-emerald-50 to-green-50 border-emerald-300"
     },
   ]
 
@@ -173,8 +183,9 @@ export default function RightSide() {
               key={index}
               value={item.name}
               className={`rounded-lg 
-                border border-blue-300
-                bg-gradient-to-r from-blue-50 to-indigo-50
+                border 
+                
+                ${item.boxColors}
                 shadow-md
                 transition-all duration-200    last:mb-0 last:!border-b   ${item.isChild ? "ml-6" : ""
                 } `}

@@ -36,9 +36,9 @@ export const getPriceSummary = (
     items: [
       { name: "Kitchen", price: getPrice(productData, selectedFeatures, "kitchen") },
       { name: "Bathroom", price: bathroomTotal },
-      { name: "Air Conditioning", price: getPrice(productData, selectedFeatures, "airConditioner") },
       { name: "Stairs", price: getPrice(productData, selectedFeatures, "stairs") },
       { name: "Roof Railing", price: getPrice(productData, selectedFeatures, "railing") },
+      { name: "Air Conditioning", price: getPrice(productData, selectedFeatures, "airConditioner") },
       { name: "Solar", price: getPrice(productData, selectedFeatures, "solarPanel") },
       { name: "Gas", price: getPrice(productData, selectedFeatures, "naturalGas") },
     ],

@@ -11,6 +11,7 @@ interface ProductFeatures {
 
 interface ProductData {
     sections: {
+        interiorGallery_NoAC: any
         exterior?: {
             images?: string[]
             gallery?: string[]
@@ -88,31 +89,47 @@ export const getExteriorGalleryImages = (
     return []
 }
 
+
+
 export const getInteriorGalleryImages = (
     selectedFeatures: ProductFeatures,
     filteredInteriorData: ProductData | null,
     productData?: any
 ): string[] => {
+
+    if (!filteredInteriorData) return [];
+
     const hasInteriorFeatures = Object.entries(selectedFeatures).some(([key, value]) => {
-        if (key === 'kitchen' || key === 'bathroom') {
-            return value === 'yes';
-        }
-        if (key === 'kitchen_position' || key === 'kitchen_wall') {
-            return value && value !== '';
-        }
-        if (key === 'shower' || key === 'sink' || key === 'toilet') {
-            return value === 'yes';
-        }
+        if (key === 'kitchen' || key === 'bathroom') return value === 'yes';
+        if (key === 'kitchen_position' || key === 'kitchen_wall') return value && value !== '';
+        if (key === 'shower' || key === 'sink' || key === 'toilet') return value === 'yes';
         return false;
     });
 
-    if (hasInteriorFeatures && filteredInteriorData && (filteredInteriorData.sections.interiorGallery?.images?.length ?? 0) > 0) {
-        return filteredInteriorData.sections.interiorGallery?.images || [];
+    if (hasInteriorFeatures) {
+
+        const interiorNoAC = filteredInteriorData.sections.interiorGallery_NoAC;
+        if (
+            selectedFeatures.airConditioner === 'no' &&
+            interiorNoAC?.images &&
+            interiorNoAC.images.length > 0
+        ) {
+            return interiorNoAC.images;
+        }
+
+        const interiorGallery = filteredInteriorData.sections.interiorGallery;
+        if (
+            interiorGallery?.images &&
+            interiorGallery.images.length > 0
+        ) {
+            return interiorGallery.images;
+        }
     }
 
-    if (productData?.default_images?.interiorGallery?.images?.length ?? 0 > 0) {
-        return productData.default_images.interiorGallery.images || [];
+    const fallback = productData?.default_images?.interiorGallery;
+    if (fallback?.images && fallback.images.length > 0) {
+        return fallback.images;
     }
 
-    return []
-}
+    return [];
+};

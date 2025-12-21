@@ -61,29 +61,54 @@ export default function MiddleSection() {
     }
 
     // Get images from filtered data with default fallback
+    // Get images from filtered data with default fallback
     const getExteriorImages = () => {
-        if (filteredExteriorEnergyData && (selectedFeatures.stairs !== undefined || selectedFeatures.railing !== undefined || selectedFeatures.airConditioner !== undefined || selectedFeatures.solarPanel !== undefined)) {
-            // Check if kitchen is selected to determine which exterior images to show
-            if (selectedFeatures.kitchen === 'no') {
-                // Kitchen = No: display images from exterior_NoKitchen.gallery (for MiddleSection)
-                if (filteredExteriorEnergyData.sections?.exterior_NoKitchen?.gallery?.length ?? 0 > 0) {
-                    return filteredExteriorEnergyData.sections?.exterior_NoKitchen?.gallery || [];
-                }
-            } else {
-                // Kitchen = Yes: display regular exterior.gallery images (for MiddleSection)
-                if (filteredExteriorEnergyData.sections?.exterior?.gallery?.length ?? 0 > 0) {
-                    return filteredExteriorEnergyData.sections?.exterior?.gallery || [];
+        if (
+            filteredExteriorEnergyData &&
+            (
+                selectedFeatures.stairs !== undefined ||
+                selectedFeatures.railing !== undefined ||
+                selectedFeatures.airConditioner !== undefined ||
+                selectedFeatures.solarPanel !== undefined
+            )
+        ) {
+
+            // 🔹 Priority 1: Kitchen Wall = No
+            if (selectedFeatures.kitchen_wall === 'no') {
+                if (
+                    filteredExteriorEnergyData.sections?.exterior_NoKitchenWall?.gallery?.length ?? 0 > 0
+                ) {
+                    return filteredExteriorEnergyData.sections.exterior_NoKitchenWall.gallery || [];
                 }
             }
 
-            // Fallback to exterior gallery images if main sections don't have images
-            if (filteredExteriorEnergyData.sections?.exteriorGallery?.images?.length ?? 0 > 0) {
-                return filteredExteriorEnergyData.sections?.exteriorGallery?.images || [];
+            // 🔹 Priority 2: Kitchen = No
+            if (selectedFeatures.kitchen === 'no') {
+                if (
+                    filteredExteriorEnergyData.sections?.exterior_NoKitchen?.gallery?.length ?? 0 > 0
+                ) {
+                    return filteredExteriorEnergyData.sections.exterior_NoKitchen.gallery || [];
+                }
+            }
+
+            // 🔹 Priority 3: Kitchen = Yes (default exterior)
+            if (
+                filteredExteriorEnergyData.sections?.exterior?.gallery?.length ?? 0 > 0
+            ) {
+                return filteredExteriorEnergyData.sections.exterior.gallery || [];
+            }
+
+            // 🔹 Fallback: exteriorGallery images
+            if (
+                filteredExteriorEnergyData.sections?.exteriorGallery?.images?.length ?? 0 > 0
+            ) {
+                return filteredExteriorEnergyData.sections.exteriorGallery.images || [];
             }
         }
 
-        // Priority 2: If interior features are selected, check interior data for exterior gallery images
-        const hasInteriorFeatures = selectedFeatures.kitchen === 'yes' ||
+        // 🔹 Priority 4: Interior features selected → exterior images from interior data
+        const hasInteriorFeatures =
+            selectedFeatures.kitchen === 'yes' ||
             selectedFeatures.bathroom === 'yes' ||
             selectedFeatures.shower === 'yes' ||
             selectedFeatures.sink === 'yes' ||
@@ -91,23 +116,28 @@ export default function MiddleSection() {
             selectedFeatures.kitchen_wall === 'yes' ||
             (selectedFeatures.kitchen_position && selectedFeatures.kitchen_position !== '');
 
-        if (hasInteriorFeatures && filteredInteriorData && (filteredInteriorData.sections.exterior.gallery?.length ?? 0) > 0) {
+        if (
+            hasInteriorFeatures &&
+            filteredInteriorData &&
+            (filteredInteriorData.sections?.exterior?.gallery?.length ?? 0) > 0
+        ) {
             return filteredInteriorData.sections.exterior.gallery || [];
         }
 
-        // Priority 3: Default fallback - show default exterior images
-        if (productData?.default_images?.exterior?.gallery?.length ?? 0 > 0) {
-            return productData.default_images!.exterior!.gallery || [];
+        // 🔹 Priority 5: Default fallback
+        if (
+            productData?.default_images?.exterior?.gallery?.length ?? 0 > 0
+        ) {
+            return productData?.default_images?.exterior?.gallery || [];
         }
 
-        return []
-    }
-
+        return [];
+    };
 
 
     const getInteriorImages = () => {
-        // Check if any interior-specific features are selected (EXCLUDING exterior features) - more strict
-        const hasInteriorFeatures = selectedFeatures.kitchen === 'yes' ||
+        const hasInteriorFeatures =
+            selectedFeatures.kitchen === 'yes' ||
             selectedFeatures.bathroom === 'yes' ||
             selectedFeatures.shower === 'yes' ||
             selectedFeatures.sink === 'yes' ||
@@ -115,18 +145,40 @@ export default function MiddleSection() {
             selectedFeatures.kitchen_wall === 'yes' ||
             (selectedFeatures.kitchen_position && selectedFeatures.kitchen_position !== '');
 
-        // Priority 1: If interior features are selected, check interior data
-        if (hasInteriorFeatures && filteredInteriorData && (filteredInteriorData.sections.interior.gallery?.length ?? 0) > 0) {
-            return filteredInteriorData.sections.interior.gallery || [];
+        if (hasInteriorFeatures && filteredInteriorData) {
+
+            // 🔹 PRIORITY 1: AC = NO → interior_NoAC
+            if (
+                selectedFeatures.airConditioner === 'no' &&
+                (filteredInteriorData.sections?.interior_NoAC?.gallery?.length ?? 0) > 0
+            ) {
+                return filteredInteriorData.sections.interior_NoAC.gallery;
+            }
+
+            // 🔹 PRIORITY 1: AC = NO → interior_NoAC
+            if (
+                selectedFeatures.airConditioner === 'no' &&
+                (filteredInteriorData.sections?.interior_NoAC?.gallery?.length ?? 0) > 0
+            ) {
+                return filteredInteriorData.sections.interior_NoAC.gallery;
+            }
+
+            // 🔹 PRIORITY 2: Normal interior
+            if (
+                (filteredInteriorData.sections?.interior?.gallery?.length ?? 0) > 0
+            ) {
+                return filteredInteriorData.sections.interior.gallery;
+            }
         }
 
-        // Priority 2: Default fallback - show default interior images
-        if (productData?.default_images?.interior?.gallery?.length ?? 0 > 0) {
-            return productData.default_images!.interior!.gallery || [];
+        // 🔹 PRIORITY 3: Default fallback
+        if ((productData?.default_images?.interior?.gallery?.length ?? 0) > 0) {
+            return productData.default_images!.interior!.gallery;
         }
 
-        return []
-    }
+        return [];
+    };
+
 
     const exteriorImages = getExteriorImages()
     const interiorImages = getInteriorImages()
@@ -146,7 +198,7 @@ export default function MiddleSection() {
                             <div className="flex">
                                 {
                                     interiorImages.length > 0 ? (
-                                        interiorImages.map((image, index) => (
+                                        interiorImages.map((image: string, index: number) => (
                                             <div key={index} className="flex-[0_0_100%] min-w-0">
                                                 <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
                                                     {
@@ -208,20 +260,20 @@ export default function MiddleSection() {
                                         <div key={index} className="flex-[0_0_100%] min-w-0">
                                             <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
                                                 {
-                                                    imageErrors[image] ? (
-                                                        <div className="flex items-center justify-center h-full text-gray-500">
-                                                            <span>Image not found</span>
-                                                        </div>
-                                                    ) : (
-                                                        <img
-                                                            src={image}
-                                                            alt={`Exterior design ${index + 1}`}
-                                                            className="w-full h-full object-cover rounded-lg"
-                                                            onError={() => handleImageError(image)}
-                                                            onClick={() => openModal(image, exteriorImages, "Exterior")}
+                                                    // imageErrors[image] ? (
+                                                    //     <div className="flex items-center justify-center h-full text-gray-500">
+                                                    //         <span>Image not found</span>
+                                                    //     </div>
+                                                    // ) : (
+                                                    <img
+                                                        src={image}
+                                                        alt={`Exterior design ${index + 1}`}
+                                                        className="w-full h-full object-cover rounded-lg"
+                                                        onError={() => handleImageError(image)}
+                                                        onClick={() => openModal(image, exteriorImages, "Exterior")}
 
-                                                        />
-                                                    )
+                                                    />
+                                                    // )
                                                 }
                                             </div>
                                         </div>
