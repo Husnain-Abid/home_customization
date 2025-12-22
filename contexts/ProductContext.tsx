@@ -25,6 +25,9 @@ export interface ProductData {
       [key: string]: string;
     };
     sections: {
+      interior_NoAC_NoStairs: any;
+      interior_NoStairs: any;
+      interior_NoStair: any;
       interiorGallery_NoAC: any;
       interior_NoAC: any;
       exterior: {

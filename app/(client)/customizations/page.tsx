@@ -10,13 +10,15 @@ export default function CustomizationsPage() {
         <div className='px-4'>
 
             <div className='flex flex-col justify-center items-center max-w-3xl mx-auto mb-8 gap-4 px-4'>
-                <h1 className='text-xl sm:text-2xl md:text-4xl font-bold text-center'>Customize Every Corner of <br /> Your Future Home</h1>
 
-                <p className='text-gray-500 text-center'>
+                <h1 className='text-xl sm:text-3xl md:text-4xl font-bold text-center whitespace-nowrap'>
+                    Customize Every Corner of Your Future Home
+                </h1>
+
+                <p className='text-gray-500 text-center max-w-2xl leading-relaxed'>
                     Design every detail to fit your lifestyle, then send your customized home plan by email to yourself
-                    and directly to us so we can bring it to life.
+                    and directly to us so we can bring it to life in 10 days!
                 </p>
-
 
             </div>
 

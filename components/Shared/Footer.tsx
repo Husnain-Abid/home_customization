@@ -9,7 +9,7 @@ export default function Footer() {
         { name: 'Home', href: '/' },
         { name: 'Customizations', href: '/customizations' },
         { name: 'Details', href: '/details' },
-        { name: 'Anywhere Living', href: '/anywhere-living' },
+        { name: 'Live Anywhere', href: '/anywhere-living' },
     ]
 
     return (

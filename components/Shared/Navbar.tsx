@@ -10,7 +10,7 @@ const navLinks = [
     { name: 'About', href: '/' },
     { name: 'Customizations', href: '/customizations' },
     { name: 'Details', href: '/details' },
-    { name: 'Anywhere Living', href: '/anywhere-living' },
+    { name: 'Live Anywhere', href: '/anywhere-living' },
 ]
 
 export default function Navbar() {
