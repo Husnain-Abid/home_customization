@@ -12,8 +12,14 @@ interface ProductFeatures {
 interface ProductData {
     sections: {
 
-   
+
         interiorGallery_NoAC?: {
+            images?: string[]
+        }
+        interiorGallery_NoStairs?: {
+            images?: string[]
+        }
+        interiorGallery_NoAC_NoStairs?: {
             images?: string[]
         }
         interior?: {
@@ -108,6 +114,24 @@ export const getInteriorGalleryImages = (
 
     if (hasInteriorFeatures) {
 
+        // 🔥 PRIORITY 1: NO AC + NO STAIRS
+        const noACNoStairs = filteredInteriorData.sections.interiorGallery_NoAC_NoStairs;
+        if (
+            selectedFeatures.airConditioner === 'no' &&
+            selectedFeatures.stairs === 'no' &&
+            noACNoStairs?.images?.length
+        ) {
+            return noACNoStairs.images;
+        }
+
+        // 🔥 PRIORITY 2:  NO STAIRS
+        const noStairs = filteredInteriorData.sections.interiorGallery_NoStairs;
+        if (
+            selectedFeatures.stairs === 'no' &&
+            noStairs?.images?.length
+        ) {
+            return noStairs.images;
+        }
 
         // 🔹 PRIORITY 3: NO AC
         const interiorNoAC = filteredInteriorData.sections.interiorGallery_NoAC;
