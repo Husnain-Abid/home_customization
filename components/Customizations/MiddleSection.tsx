@@ -156,12 +156,12 @@ export default function MiddleSection() {
             }
 
             // 🔹 PRIORITY 2: STAIRS = NO → interior_NoStairs
-            if (
-                selectedFeatures.stairs === 'no' &&
-                (filteredInteriorData.sections?.interior_NoStairs?.gallery?.length ?? 0) > 0
-            ) {
-                return filteredInteriorData.sections.interior_NoStairs.gallery;
-            }
+            // if (
+            //     selectedFeatures.stairs === 'no' &&
+            //     (filteredInteriorData.sections?.interior_NoStairs?.gallery?.length ?? 0) > 0
+            // ) {
+            //     return filteredInteriorData.sections.interior_NoStairs.gallery;
+            // }
 
             // 🔹 PRIORITY 3: AC = NO → interior_NoAC
             if (
