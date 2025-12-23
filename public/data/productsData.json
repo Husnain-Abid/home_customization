@@ -236,6 +236,20 @@
                             "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_No/SectionB_Interior_NoAC/B3.jpg"
                         ]
                     },
+                    "interior_NoAC_NoStairs": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_No/SectionB_Interior_NoAC_NoStair/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_No/SectionB_Interior_NoAC_NoStair/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_No/SectionB_Interior_NoAC_NoStair/B3.jpg"
+                        ]
+                    },
+                    "interior_NoStairs": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_No/SectionB_Interior_NoStair/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_No/SectionB_Interior_NoStair/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_No/SectionB_Interior_NoStair/B3.jpg"
+                        ]
+                    },
                     "exteriorGallery": {
                         "images": [
                             "/images/customs_home/interior/Kitchen_No_Bathroom_No_Shower_No_Toilet_No_Sink_No_Wall_No/SectionC_ExteriorGallery/C1.jpg",
@@ -364,6 +378,13 @@
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_Yes/SectionB_Interior_NoAC/B3.jpg"
                         ]
                     },
+                    "interior_NoAC_NoStairs": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_Yes/SectionB_Interior_NoAC_NoStair/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_Yes/SectionB_Interior_NoAC_NoStair/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_Yes/SectionB_Interior_NoAC_NoStair/B3.jpg"
+                        ]
+                    },
                     "exteriorGallery": {
                         "images": [
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_Yes_Wall_Yes/SectionC_ExteriorGallery/C1.jpg",
@@ -427,6 +448,13 @@
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_Yes_Sink_Yes_Wall_No/SectionB_Interior_NoAC/B1.jpg",
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_Yes_Sink_Yes_Wall_No/SectionB_Interior_NoAC/B2.jpg",
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_Yes_Sink_Yes_Wall_No/SectionB_Interior_NoAC/B3.jpg"
+                        ]
+                    },
+                    "interior_NoAC_NoStairs": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_Yes_Sink_Yes_Wall_No/SectionB_Interior_NoAC_NoStair/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_Yes_Sink_Yes_Wall_No/SectionB_Interior_NoAC_NoStair/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_Yes_Sink_Yes_Wall_No/SectionB_Interior_NoAC_NoStair/B3.jpg"
                         ]
                     },
                     "exteriorGallery": {
@@ -691,6 +719,13 @@
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_No_Sink_Yes_Wall_No/SectionB_Interior_NoAC/B3.jpg"
                         ]
                     },
+                    "interior_NoAC_NoStairs": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_No_Sink_Yes_Wall_No/SectionB_Interior_NoAC_NoStair/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_No_Sink_Yes_Wall_No/SectionB_Interior_NoAC_NoStair/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_No_Sink_Yes_Wall_No/SectionB_Interior_NoAC_NoStair/B3.jpg"
+                        ]
+                    },
                     "exteriorGallery": {
                         "images": [
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_No_Sink_Yes_Wall_No/SectionC_ExteriorGallery/C1.jpg",
@@ -823,6 +858,13 @@
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_Yes_Sink_Yes_Wall_Yes/SectionB_Interior_NoAC/B3.jpg"
                         ]
                     },
+                    "interior_NoAC_NoStairs": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_Yes_Sink_Yes_Wall_Yes/SectionB_Interior_NoAC_NoStair/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_Yes_Sink_Yes_Wall_Yes/SectionB_Interior_NoAC_NoStair/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_Yes_Sink_Yes_Wall_Yes/SectionB_Interior_NoAC_NoStair/B3.jpg"
+                        ]
+                    },
                     "exteriorGallery": {
                         "images": [
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_Yes_Toilet_Yes_Sink_Yes_Wall_Yes/SectionC_ExteriorGallery/C1.jpg",
@@ -886,6 +928,20 @@
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior_NoAC/B1.jpg",
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior_NoAC/B2.jpg",
                             "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior_NoAC/B3.jpg"
+                        ]
+                    },
+                    "interior_NoAC_NoStairs": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior_NoAC_NoStair/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior_NoAC_NoStair/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior_NoAC_NoStair/B3.jpg"
+                        ]
+                    },
+                    "interior_NoStairs": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior_NoStair/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior_NoStair/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_No_Bathroom_Yes_Shower_No_Toilet_No_Sink_No_Wall_Yes/SectionB_Interior_NoStair/B3.jpg"
                         ]
                     },
                     "exteriorGallery": {
@@ -1349,6 +1405,13 @@
                             "/images/customs_home/interior/Kitchen_Yes_Bathroom_Yes_Shower_Yes_Toilet_Yes_Sink_Yes_Wall_Yes/SectionB_Interior_NoAC/B3.jpg"
                         ]
                     },
+                    "interior_NoAC_NoStairs": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_Yes_Bathroom_Yes_Shower_Yes_Toilet_Yes_Sink_Yes_Wall_Yes/SectionB_Interior_NoAC_NoStair/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_Yes_Bathroom_Yes_Shower_Yes_Toilet_Yes_Sink_Yes_Wall_Yes/SectionB_Interior_NoAC_NoStair/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_Yes_Bathroom_Yes_Shower_Yes_Toilet_Yes_Sink_Yes_Wall_Yes/SectionB_Interior_NoAC_NoStair/B3.jpg"
+                        ]
+                    },
                     "exteriorGallery": {
                         "images": [
                             "/images/customs_home/interior/Kitchen_Yes_Bathroom_Yes_Shower_Yes_Toilet_Yes_Sink_Yes_Wall_Yes/SectionC_ExteriorGallery/C1.jpg",
@@ -1417,6 +1480,20 @@
                             "/images/customs_home/interior/Kitchen_Yes_Position1_Yes_Bathroom_No/SectionB_Interior_NoAC/B3.jpg"
                         ]
                     },
+                    "interior_NoAC_NoStairs": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_Yes_Position1_Yes_Bathroom_No/SectionB_Interior_NoAC_NoStair/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_Yes_Position1_Yes_Bathroom_No/SectionB_Interior_NoAC_NoStair/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_Yes_Position1_Yes_Bathroom_No/SectionB_Interior_NoAC_NoStair/B3.jpg"
+                        ]
+                    },
+                    "interior_NoStairs": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_Yes_Position1_Yes_Bathroom_No/SectionB_Interior_NoStair/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_Yes_Position1_Yes_Bathroom_No/SectionB_Interior_NoStair/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_Yes_Position1_Yes_Bathroom_No/SectionB_Interior_NoStair/B3.jpg"
+                        ]
+                    },
                     "exteriorGallery": {
                         "images": [
                             "/images/customs_home/interior/Kitchen_Yes_Position1_Yes_Bathroom_No/SectionC_ExteriorGallery/C1.jpg",
@@ -1483,6 +1560,20 @@
                             "/images/customs_home/interior/Kitchen_Yes_Position2_Yes_Bathroom_No/SectionB_Interior_NoAC/B1.jpg",
                             "/images/customs_home/interior/Kitchen_Yes_Position2_Yes_Bathroom_No/SectionB_Interior_NoAC/B2.jpg",
                             "/images/customs_home/interior/Kitchen_Yes_Position2_Yes_Bathroom_No/SectionB_Interior_NoAC/B3.jpg"
+                        ]
+                    },
+                    "interior_NoAC_NoStairs": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_Yes_Position2_Yes_Bathroom_No/SectionB_Interior_NoAC_NoStair/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_Yes_Position2_Yes_Bathroom_No/SectionB_Interior_NoAC_NoStair/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_Yes_Position2_Yes_Bathroom_No/SectionB_Interior_NoAC_NoStair/B3.jpg"
+                        ]
+                    },
+                    "interior_NoStairs": {
+                        "gallery": [
+                            "/images/customs_home/interior/Kitchen_Yes_Position2_Yes_Bathroom_No/SectionB_Interior_NoStair/B1.jpg",
+                            "/images/customs_home/interior/Kitchen_Yes_Position2_Yes_Bathroom_No/SectionB_Interior_NoStair/B2.jpg",
+                            "/images/customs_home/interior/Kitchen_Yes_Position2_Yes_Bathroom_No/SectionB_Interior_NoStair/B3.jpg"
                         ]
                     },
                     "exteriorGallery": {
