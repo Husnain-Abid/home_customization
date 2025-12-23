@@ -54,6 +54,8 @@ export default function MiddleSection() {
     }
 
 
+
+
     if (!productData) {
         return <MiddleSectionSkeleton />
     }
@@ -132,7 +134,8 @@ export default function MiddleSection() {
         return [];
     };
 
-    const getInteriorImages = (): string[] => {
+
+    const getInteriorImages = () => {
         const hasInteriorFeatures =
             selectedFeatures.kitchen === 'yes' ||
             selectedFeatures.bathroom === 'yes' ||
@@ -144,24 +147,7 @@ export default function MiddleSection() {
 
         if (hasInteriorFeatures && filteredInteriorData) {
 
-            // 🔥 PRIORITY 1: AC = NO AND STAIRS = NO → interior_NoAC_NoStairs
-            if (
-                selectedFeatures.airConditioner === 'no' &&
-                selectedFeatures.stairs === 'no' &&
-                (filteredInteriorData.sections?.interior_NoAC_NoStairs?.gallery?.length ?? 0) > 0
-            ) {
-                return filteredInteriorData.sections.interior_NoAC_NoStairs.gallery;
-            }
-
-            // 🔹 PRIORITY 2: STAIRS = NO → interior_NoStairs
-            if (
-                selectedFeatures.stairs === 'no' &&
-                (filteredInteriorData.sections?.interior_NoStairs?.gallery?.length ?? 0) > 0
-            ) {
-                return filteredInteriorData.sections.interior_NoStairs.gallery;
-            }
-
-            // 🔹 PRIORITY 3: AC = NO → interior_NoAC
+            // 🔹 PRIORITY 1: AC = NO → interior_NoAC
             if (
                 selectedFeatures.airConditioner === 'no' &&
                 (filteredInteriorData.sections?.interior_NoAC?.gallery?.length ?? 0) > 0
@@ -169,7 +155,15 @@ export default function MiddleSection() {
                 return filteredInteriorData.sections.interior_NoAC.gallery;
             }
 
-            // 🔹 PRIORITY 4: Normal interior
+            // 🔹 PRIORITY 1: AC = NO → interior_NoAC
+            if (
+                selectedFeatures.airConditioner === 'no' &&
+                (filteredInteriorData.sections?.interior_NoAC?.gallery?.length ?? 0) > 0
+            ) {
+                return filteredInteriorData.sections.interior_NoAC.gallery;
+            }
+
+            // 🔹 PRIORITY 2: Normal interior
             if (
                 (filteredInteriorData.sections?.interior?.gallery?.length ?? 0) > 0
             ) {
@@ -177,16 +171,13 @@ export default function MiddleSection() {
             }
         }
 
-        // 🔹 PRIORITY 5: Default fallback
-        if (
-            (productData?.default_images?.interior?.gallery?.length ?? 0) > 0
-        ) {
-            return productData.default_images!.interior!.gallery || [];
+        // 🔹 PRIORITY 3: Default fallback
+        if ((productData?.default_images?.interior?.gallery?.length ?? 0) > 0) {
+            return productData.default_images!.interior!.gallery;
         }
 
         return [];
     };
-
 
 
     const exteriorImages = getExteriorImages()
@@ -274,21 +265,22 @@ export default function MiddleSection() {
                                                             <span>Image not found</span>
                                                         </div>
                                                     ) : (
-                                                        <img
-                                                            src={image}
-                                                            alt={`Exterior design ${index + 1}`}
-                                                            className="w-full h-full object-cover rounded-lg"
-                                                            onError={() => handleImageError(image)}
-                                                            onClick={() => openModal(image, exteriorImages, "Exterior")}
+                                                    <img
+                                                        src={image}
+                                                        alt={`Exterior design ${index + 1}`}
+                                                        className="w-full h-full object-cover rounded-lg"
+                                                        onError={() => handleImageError(image)}
+                                                        onClick={() => openModal(image, exteriorImages, "Exterior")}
 
-                                                        />
+                                                    />
                                                     )
-                                                }
-                                            </div>
-                                        </div>
-                                    ))
-                                ) : (
-                                    <div className="flex-[0_0_100%] min-w-0">
+}
+                                                        onClick={() => openModal(image, exteriorImages, "Exterior")}
+
+                                                    />
+                                                    // )
+>>>>>>> parent of 8d5fa1c (images)
+0_100%] min-w-0">
                                         <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
                                             <span className="text-gray-500">No exterior images available</span>
                                         </div>
