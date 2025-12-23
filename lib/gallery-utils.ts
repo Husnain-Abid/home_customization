@@ -11,10 +11,15 @@ interface ProductFeatures {
 
 interface ProductData {
     sections: {
-        interiorGallery_NoAC: any
-        exterior?: {
+
+        interiorGallery_NoAC_NoStairs?: {
             images?: string[]
-            gallery?: string[]
+        }
+        interiorGallery_NoAC?: {
+            images?: string[]
+        }
+        interiorGallery_NoStairs?: {
+            images?: string[]
         }
         interior?: {
             images?: string[]
@@ -108,26 +113,44 @@ export const getInteriorGalleryImages = (
 
     if (hasInteriorFeatures) {
 
+        // 🔥 PRIORITY 1: NO AC + NO STAIRS
+        const noACNoStairs = filteredInteriorData.sections.interiorGallery_NoAC_NoStairs;
+        if (
+            selectedFeatures.airConditioner === 'no' &&
+            selectedFeatures.stairs === 'no' &&
+            noACNoStairs?.images?.length
+        ) {
+            return noACNoStairs.images;
+        }
+
+        // 🔥 PRIORITY 2:  NO STAIRS
+        const noStairs = filteredInteriorData.sections.interiorGallery_NoStairs;
+        if (
+            selectedFeatures.stairs === 'no' &&
+            noStairs?.images?.length
+        ) {
+            return noStairs.images;
+        }
+
+        // 🔹 PRIORITY 3: NO AC
         const interiorNoAC = filteredInteriorData.sections.interiorGallery_NoAC;
         if (
             selectedFeatures.airConditioner === 'no' &&
-            interiorNoAC?.images &&
-            interiorNoAC.images.length > 0
+            interiorNoAC?.images?.length
         ) {
             return interiorNoAC.images;
         }
 
+        // 🔹 PRIORITY 3: NORMAL INTERIOR
         const interiorGallery = filteredInteriorData.sections.interiorGallery;
-        if (
-            interiorGallery?.images &&
-            interiorGallery.images.length > 0
-        ) {
+        if (interiorGallery?.images?.length) {
             return interiorGallery.images;
         }
     }
 
+    // 🔹 PRIORITY 4: DEFAULT FALLBACK
     const fallback = productData?.default_images?.interiorGallery;
-    if (fallback?.images && fallback.images.length > 0) {
+    if (fallback?.images?.length) {
         return fallback.images;
     }
 

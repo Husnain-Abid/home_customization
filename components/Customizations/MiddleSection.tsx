@@ -54,8 +54,6 @@ export default function MiddleSection() {
     }
 
 
-
-
     if (!productData) {
         return <MiddleSectionSkeleton />
     }
@@ -147,21 +145,21 @@ export default function MiddleSection() {
         if (hasInteriorFeatures && filteredInteriorData) {
 
             // 🔥 PRIORITY 1: AC = NO AND STAIRS = NO → interior_NoAC_NoStairs
-            // if (
-            //     selectedFeatures.airConditioner === 'no' &&
-            //     selectedFeatures.stairs === 'no' &&
-            //     (filteredInteriorData.sections?.interior_NoAC_NoStairs?.gallery?.length ?? 0) > 0
-            // ) {
-            //     return filteredInteriorData.sections.interior_NoAC_NoStairs.gallery;
-            // }
+            if (
+                selectedFeatures.airConditioner === 'no' &&
+                selectedFeatures.stairs === 'no' &&
+                (filteredInteriorData.sections?.interior_NoAC_NoStairs?.gallery?.length ?? 0) > 0
+            ) {
+                return filteredInteriorData.sections.interior_NoAC_NoStairs.gallery;
+            }
 
             // 🔹 PRIORITY 2: STAIRS = NO → interior_NoStairs
-            // if (
-            //     selectedFeatures.stairs === 'no' &&
-            //     (filteredInteriorData.sections?.interior_NoStairs?.gallery?.length ?? 0) > 0
-            // ) {
-            //     return filteredInteriorData.sections.interior_NoStairs.gallery;
-            // }
+            if (
+                selectedFeatures.stairs === 'no' &&
+                (filteredInteriorData.sections?.interior_NoStairs?.gallery?.length ?? 0) > 0
+            ) {
+                return filteredInteriorData.sections.interior_NoStairs.gallery;
+            }
 
             // 🔹 PRIORITY 3: AC = NO → interior_NoAC
             if (
