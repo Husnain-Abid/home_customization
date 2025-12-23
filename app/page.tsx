@@ -24,7 +24,7 @@ export default function Home() {
           <p className="text-[#4A4C56] text-center text-lg md:text-left">
             It <strong> arrives fully finished, requires no permits</strong>, and can be placed
             almost anywhere. Just <strong> plug it into a standard outlet, connect a garden
-            hose</strong>, and it’s ready to live in. It’s fully self sufficient from day one
+              hose</strong>, and it’s ready to live in. It’s fully self sufficient from day one
             but also built to connect to standard utilities when used as an ADU. Every unit
             is fully customizable, and with <strong> white glove delivery </strong> and the ability to relocate it anytime,
             you get the durability of a permanent structure with the freedom of
@@ -56,13 +56,17 @@ export default function Home() {
 
       </div>
 
-          <div className="flex justify-center mt-10">
-            <Link href="/customizations">
-              <button className="bg-[#C2A45C] hover:bg-[#C2A45C]/80 transition-all duration-300 text-white px-6 py-2 rounded-md cursor-pointer">
-                Customize Now
-              </button>
-            </Link>
-          </div>
+
+
+
+      {/* CTA */}
+      <div className="text-center mt-16">
+        <a href="/customizations">
+          <button className="bg-[#C2A45C] hover:bg-[#C2A45C]/80 transition-all duration-300 text-white px-10 py-4 rounded-md font-semibold">
+            Customize Now
+          </button>
+        </a>
+      </div>
 
 
     </div>

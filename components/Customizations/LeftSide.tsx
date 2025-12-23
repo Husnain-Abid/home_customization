@@ -61,7 +61,7 @@ export default function LeftSide() {
         )}
       </div>
 
-      <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
+      <Accordion type="multiple"  className="space-y-3 sm:space-y-4">
         {/* Interior Features */}
         <AccordionItem
           value="interior"
