@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useProductContext } from '../contexts/ProductContext';
 
 export const useExteriorFeatures = () => {
@@ -5,6 +6,27 @@ export const useExteriorFeatures = () => {
 
   // Door features (mutually exclusive)
   const doorFeatures = ['slider_door', 'french_door'];
+  const isYes = (key: string) => selectedFeatures[key] === 'yes';
+  const isNo = (key: string) => selectedFeatures[key] === 'no';
+
+
+console.log("selectedFeatures",selectedFeatures);
+
+
+
+  const isStairsYes = () => isYes('stairs');
+  const isSolarYes = () => isYes('solarPanel');
+
+  const isRailingDisabled = () => {
+    return !isStairsYes() || isSolarYes();
+  };
+
+ // 🔥 HARD ENFORCEMENT (THIS FIXES YOUR BUG)
+  useEffect(() => {
+    if (isRailingDisabled() && selectedFeatures.railing !== 'no') {
+      handleFeatureChange('railing', 'no');
+    }
+  }, [selectedFeatures.stairs, selectedFeatures.solarPanel]);
 
   /** ✅ Handle mutually exclusive door selection */
   const handleDoorChange = (selectedDoorType: string) => {
@@ -29,18 +51,29 @@ export const useExteriorFeatures = () => {
   };
 
   /** ✅ Toggle any feature with Yes↔No flipping (never empty) */
-  const handleFeatureToggle = (featureKey: string, value: string) => {
-    const currentValue = selectedFeatures[featureKey];
 
-    // If same value clicked again → toggle to the opposite
-    const toggledValue = currentValue === value ? (value === 'yes' ? 'no' : 'yes') : value;
-    handleFeatureChange(featureKey, toggledValue);
 
-    // 🚫 Railing should be "no" if stairs = "no"
-    if (featureKey === 'stairs' && toggledValue === 'no') {
-      handleFeatureChange('railing', 'no');
-    }
-  };
+const handleFeatureToggle = (featureKey: string, value: string) => {
+  const currentValue = selectedFeatures[featureKey];
+  const toggledValue =
+    currentValue === value ? (value === 'yes' ? 'no' : 'yes') : value;
+
+  handleFeatureChange(featureKey, toggledValue);
+
+  // 🔒 HARD RULE: railing only allowed when stairs=yes AND solarPanel=no
+  const nextStairs =
+    featureKey === 'stairs' ? toggledValue : selectedFeatures.stairs;
+
+  const nextSolar =
+    featureKey === 'solarPanel' ? toggledValue : selectedFeatures.solarPanel;
+
+  if (nextStairs !== 'yes' || nextSolar === 'yes') {
+    handleFeatureChange('railing', 'no');
+  }
+};
+
+
+
 
   return {
     selectedFeatures,
@@ -48,5 +81,9 @@ export const useExteriorFeatures = () => {
     handleFeatureToggle,
     handleDoorChange,
     getSelectedDoorType,
+    isRailingDisabled,
   };
+
+
+
 };

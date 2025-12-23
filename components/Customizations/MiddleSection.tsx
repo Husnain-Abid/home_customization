@@ -30,9 +30,6 @@ export default function MiddleSection() {
     } = useImageModal();
 
 
-
-
-
     const [exteriorEmblaRef, exteriorEmblaApi] = useEmblaCarousel({ loop: true })
     const [interiorEmblaRef, interiorEmblaApi] = useEmblaCarousel({ loop: true })
 

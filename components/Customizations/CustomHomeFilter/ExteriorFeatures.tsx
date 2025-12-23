@@ -10,9 +10,14 @@ export default function ExteriorFeatures() {
         handleFeatureToggle,
         handleDoorChange,
         getSelectedDoorType,
+        isRailingDisabled
     } = useExteriorFeatures();
 
     const { getSectionStyling, getSmallIndicatorStyling } = useFeatureUI();
+
+
+console.log("isRailingDisabled:", isRailingDisabled());
+
 
     return (
         <div className="space-y-2 sm:space-y-3">
@@ -54,131 +59,70 @@ export default function ExteriorFeatures() {
                 </div>
             </div>
 
-            {/* Railing Section - Only enabled when Stairs = Yes and Railing disabled when Solar = Yes */}
-            {/* <div className={`flex flex-col space-y-1 sm:space-y-2 p-3 rounded-lg border transition-all duration-200 ${(isFeatureSelected('railing', 'yes') || isFeatureSelected('railing', 'no'))
-                    ? 'bg-gradient-to-r from-lime-50 to-green-50 border-lime-300 shadow-sm'
-                    : isFeatureSelected('stairs', 'yes')
-                        ? 'bg-gray-50 border-gray-200 hover:border-gray-300'
-                        : 'bg-gray-100 border-gray-200'
-                } ${!isFeatureSelected('stairs', 'yes') ? 'opacity-60' : ''}`}>
-                <span className={`text-xs sm:text-sm font-semibold flex items-center gap-2 ${isFeatureSelected('stairs', 'yes') ? 'text-[#4A4C56]' : 'text-gray-400'}`}>
-                    <span className={`w-1.5 h-1.5 rounded-full ${(isFeatureSelected('railing', 'yes') || isFeatureSelected('railing', 'no'))
-                            ? 'bg-lime-500'
-                            : isFeatureSelected('stairs', 'yes')
-                                ? 'bg-gray-400'
-                                : 'bg-gray-300'
-                        }`}></span>
-                    Railing:
-                </span>
-                <div className="flex flex-col space-y-1 sm:space-y-2">
-                    <div className="flex items-center space-x-2">
-                        <Checkbox
-                            id="railing-yes"
-                            checked={isFeatureSelected('railing', 'yes')}
-                            onCheckedChange={() => handleFeatureToggle('railing', 'yes')}
-                            className={`scale-90 sm:scale-100 ${isFeatureSelected('stairs', 'yes') ? 'cursor-pointer' : 'cursor-not-allowed'}`}
-                            disabled={!isFeatureSelected('stairs', 'yes')}
-                        />
-                        <label
-                            htmlFor="railing-yes"
-                            className={`text-xs sm:text-sm ${isFeatureSelected('stairs', 'yes') ? 'text-gray-600 cursor-pointer' : 'text-gray-400 cursor-not-allowed'}`}
-                        >
-                            Yes
-                        </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                        <Checkbox
-                            id="railing-no"
-                            checked={isFeatureSelected('railing', 'no')}
-                            onCheckedChange={() => handleFeatureToggle('railing', 'no')}
-                            className={`scale-90 sm:scale-100 ${isFeatureSelected('stairs', 'yes') ? 'cursor-pointer' : 'cursor-not-allowed'}`}
-                            disabled={!isFeatureSelected('stairs', 'yes')}
-                        />
-                        <label
-                            htmlFor="railing-no"
-                            className={`text-xs sm:text-sm ${isFeatureSelected('stairs', 'yes') ? 'text-gray-600 cursor-pointer' : 'text-gray-400 cursor-not-allowed'}`}
-                        >
-                            No
-                        </label>
-                    </div>
-                </div>
-            </div> */}
 
             {/* Railing Section - Enabled only when Stairs = Yes and disabled when Solar = Yes */}
-            <div
-                className={`flex flex-col space-y-1 sm:space-y-2 p-3 rounded-lg border transition-all duration-200 ${(isFeatureSelected('railing', 'yes') || isFeatureSelected('railing', 'no'))
-                        ? 'bg-gradient-to-r from-lime-50 to-green-50 border-lime-300 shadow-sm'
-                        : isFeatureSelected('stairs', 'yes') && !isFeatureSelected('solar', 'yes')
-                            ? 'bg-gray-50 border-gray-200 hover:border-gray-300'
-                            : 'bg-gray-100 border-gray-200'
-                    } ${!isFeatureSelected('stairs', 'yes') || isFeatureSelected('solarPanel', 'yes')
-                        ? 'opacity-60'
-                        : ''
-                    }`}
-            >
-                <span
-                    className={`text-xs sm:text-sm font-semibold flex items-center gap-2 ${isFeatureSelected('stairs', 'yes') && !isFeatureSelected('solarPanel', 'yes')
-                            ? 'text-[#4A4C56]'
-                            : 'text-gray-400'
-                        }`}
-                >
-                    <span
-                        className={`w-1.5 h-1.5 rounded-full ${(isFeatureSelected('railing', 'yes') || isFeatureSelected('railing', 'no'))
-                                ? 'bg-lime-500'
-                                : isFeatureSelected('stairs', 'yes') && !isFeatureSelected('solar', 'yes')
-                                    ? 'bg-gray-400'
-                                    : 'bg-gray-300'
-                            }`}
-                    ></span>
-                    Railing:
-                </span>
 
-                <div className="flex flex-col space-y-1 sm:space-y-2">
-                    <div className="flex items-center space-x-2">
-                        <Checkbox
-                            id="railing-yes"
-                            checked={isFeatureSelected('railing', 'yes')}
-                            onCheckedChange={() => handleFeatureToggle('railing', 'yes')}
-                            className={`scale-90 sm:scale-100 ${isFeatureSelected('stairs', 'yes') && !isFeatureSelected('solar', 'yes')
-                                    ? 'cursor-pointer'
-                                    : 'cursor-not-allowed'
-                                }`}
-                            disabled={!isFeatureSelected('stairs', 'yes') || isFeatureSelected('solar', 'yes')}
-                        />
-                        <label
-                            htmlFor="railing-yes"
-                            className={`text-xs sm:text-sm ${isFeatureSelected('stairs', 'yes') && !isFeatureSelected('solarPanel', 'yes')
-                                    ? 'text-gray-600 cursor-pointer'
-                                    : 'text-gray-400 cursor-not-allowed'
-                                }`}
-                        >
-                            Yes
-                        </label>
-                    </div>
 
-                    <div className="flex items-center space-x-2">
-                        <Checkbox
-                            id="railing-no"
-                            checked={isFeatureSelected('railing', 'no')}
-                            onCheckedChange={() => handleFeatureToggle('railing', 'no')}
-                            className={`scale-90 sm:scale-100 ${isFeatureSelected('stairs', 'yes') && !isFeatureSelected('solarPanel', 'yes')
-                                    ? 'cursor-pointer'
-                                    : 'cursor-not-allowed'
-                                }`}
-                            disabled={!isFeatureSelected('stairs', 'yes') || isFeatureSelected('solarPanel', 'yes')}
-                        />
-                        <label
-                            htmlFor="railing-no"
-                            className={`text-xs sm:text-sm ${isFeatureSelected('stairs', 'yes') && !isFeatureSelected('solarPanel', 'yes')
-                                    ? 'text-gray-600 cursor-pointer'
-                                    : 'text-gray-400 cursor-not-allowed'
-                                }`}
-                        >
-                            No
-                        </label>
+
+
+            {!isRailingDisabled() ? (
+                <div className={getSectionStyling(
+                    isFeatureSelected('railing', 'yes') || isFeatureSelected('railing', 'no'),
+                    'from-lime-50 to-green-50 border-lime-300'
+                )}>
+                    <span className="text-xs sm:text-sm font-semibold flex items-center gap-2">
+                        <span className={getSmallIndicatorStyling(
+                            isFeatureSelected('railing', 'yes') || isFeatureSelected('railing', 'no'),
+                            'bg-lime-500'
+                        )}></span>
+                        Roof Railing:
+                    </span>
+
+                    <div className="flex flex-col space-y-1 sm:space-y-2">
+                        <div className="flex items-center space-x-2">
+                            <Checkbox
+                                checked={isFeatureSelected('railing', 'yes')}
+                                onCheckedChange={() => handleFeatureToggle('railing', 'yes')}
+                            />
+                            <label className="text-xs sm:text-sm text-gray-600">Yes</label>
+                        </div>
+
+                        <div className="flex items-center space-x-2">
+                            <Checkbox
+                                checked={isFeatureSelected('railing', 'no')}
+                                onCheckedChange={() => handleFeatureToggle('railing', 'no')}
+                            />
+                            <label className="text-xs sm:text-sm text-gray-600">No</label>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            ) : (
+                // ⚠️ Disabled state — "No" visibly selected
+
+                <div className="flex flex-col space-y-1 sm:space-y-2 p-3 rounded-lg border transition-all duration-200 bg-gradient-to-r from-lime-50 to-green-50 border-lime-300 shadow-sm opacity-60">
+                    <span className="text-xs sm:text-sm font-semibold flex items-center gap-2 text-gray-400">
+                        <span className="w-1.5 h-1.5 rounded-full bg-lime-500" />Roof Railing:</span>
+                    <div className="flex flex-col space-y-1 sm:space-y-2">
+                        <div className="flex items-center space-x-2">
+                            <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" data-disabled disabled value="on" data-slot="checkbox"
+                                className="peer border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 scale-90 sm:scale-100 cursor-not-allowed" id="railing-yes" />
+                            <label htmlFor="railing-yes" className="text-xs sm:text-sm text-gray-400 cursor-not-allowed">Yes</label>
+                        </div>
+                        <div className="flex items-center space-x-2"><button type="button" role="checkbox" aria-checked="true" data-state="checked" data-disabled disabled value="on" data-slot="checkbox" className="peer border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 scale-90 sm:scale-100 cursor-not-allowed" id="railing-no">
+                            <span data-state="checked" data-disabled data-slot="checkbox-indicator" className="flex items-center justify-center text-current transition-none" style={{ pointerEvents: 'none' }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check size-3.5" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
+                            </span>
+                        </button>
+                            <label htmlFor="railing-no" className="text-xs sm:text-sm text-gray-400 cursor-not-allowed">No</label>
+                        </div>
+                    </div>
+                </div>
+
+            )}
+
+
+
 
 
 

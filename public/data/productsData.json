@@ -107,7 +107,7 @@
                     {
                         "value": "yes",
                         "label": "Slider",
-                        "price": 125
+                        "price": 0
                     },
                     {
                         "value": "no",
@@ -121,7 +121,7 @@
                     {
                         "value": "yes",
                         "label": "French Door",
-                        "price": 125
+                        "price": 0
                     },
                     {
                         "value": "no",

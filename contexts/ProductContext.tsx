@@ -269,9 +269,11 @@ export function ProductProvider({ children }: { children: ReactNode }) {
 
     let total = productData.basePrice;
 
+
     Object.entries(selectedFeatures).forEach(([featureKey, value]) => {
 
       if (featureKey === 'bathroom') return;
+      if (featureKey === 'railing') return; // 🚫 STOP DOUBLE COUNT
 
       if (value === 'yes') {
         const feature = productData.features[featureKey];
@@ -283,7 +285,7 @@ export function ProductProvider({ children }: { children: ReactNode }) {
         }
       }
 
-      // kitchen position (unchanged)
+      // kitchen position
       if (featureKey === 'kitchen_position' && value) {
         const feature = productData.features.kitchen_position;
         if (feature) {
@@ -293,19 +295,14 @@ export function ProductProvider({ children }: { children: ReactNode }) {
           }
         }
       }
-
-      // railing depends on stairs
-      if (featureKey === 'railing' && value && selectedFeatures.stairs === 'yes') {
-        const feature = productData.features[featureKey];
-        if (feature) {
-          const option = feature.options.find(opt => opt.value === value);
-          if (option) {
-            total += option.price;
-          }
-        }
-      }
     });
 
+    // ✅ SINGLE SOURCE for railing
+    if (selectedFeatures.railing === 'yes' && selectedFeatures.stairs === 'yes') {
+      const feature = productData.features.railing;
+      const option = feature?.options.find(opt => opt.value === 'yes');
+      if (option) total += option.price;
+    }
 
     return total;
   };
