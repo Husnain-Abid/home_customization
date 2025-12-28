@@ -67,6 +67,21 @@ export const useInteriorFeatures = () => {
       handleFeatureChange('kitchen_position', 'wall3'); // auto-select Position 1
     }
 
+    // 🧱 NEW RULE:
+    // If Kitchen = Yes AND Bathroom = Yes → kitchen_wall must be "yes"
+    const kitchenYes =
+      featureKey === 'kitchen' ? toggledValue === 'yes' : selectedFeatures.kitchen === 'yes';
+
+    const bathroomYes =
+      featureKey === 'bathroom' ? toggledValue === 'yes' : selectedFeatures.bathroom === 'yes';
+
+    if (kitchenYes && bathroomYes) {
+      handleFeatureChange('kitchen_wall', 'yes');
+      handleFeatureChange('kitchen_position', 'wall4'); // clear position (optional but recommended)
+    }
+
+
+
     // 🚫 NEW RULE: If Kitchen = No → clear kitchen_position
     if (featureKey === 'kitchen' && toggledValue === 'no') {
       handleFeatureChange('kitchen_position', 'no');
@@ -134,15 +149,15 @@ export const useInteriorFeatures = () => {
       handleFeatureChange('toilet', 'no');
     }
 
-  // If shower, sink, toilet all become "no", Bathroom → "no"
-  const allBathroomOff =
-    (key === 'shower' ? toggledValue === 'no' : selectedFeatures.shower === 'no') &&
-    (key === 'sink' ? toggledValue === 'no' : selectedFeatures.sink === 'no') &&
-    (key === 'toilet' ? toggledValue === 'no' : selectedFeatures.toilet === 'no');
+    // If shower, sink, toilet all become "no", Bathroom → "no"
+    const allBathroomOff =
+      (key === 'shower' ? toggledValue === 'no' : selectedFeatures.shower === 'no') &&
+      (key === 'sink' ? toggledValue === 'no' : selectedFeatures.sink === 'no') &&
+      (key === 'toilet' ? toggledValue === 'no' : selectedFeatures.toilet === 'no');
 
-  if (allBathroomOff) {
-    handleFeatureChange('bathroom', 'no');
-  }
+    if (allBathroomOff) {
+      handleFeatureChange('bathroom', 'no');
+    }
 
 
   };

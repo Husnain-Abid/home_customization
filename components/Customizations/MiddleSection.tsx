@@ -56,7 +56,6 @@ export default function MiddleSection() {
     }
 
     // Get images from filtered data with default fallback
-    // Get images from filtered data with default fallback
     const getExteriorImages = () => {
         if (
             filteredExteriorEnergyData &&
@@ -69,6 +68,14 @@ export default function MiddleSection() {
         ) {
 
             // 🔹 Priority 1: Kitchen Wall = No
+            if (selectedFeatures.kitchen_position === 'wall3') {
+                if (
+                    filteredExteriorEnergyData.sections?.exterior_KitchenPosition?.gallery?.length ?? 0 > 0
+                ) {
+                    return filteredExteriorEnergyData.sections.exterior_KitchenPosition.gallery || [];
+                }
+            }
+
             if (selectedFeatures.kitchen_wall === 'no') {
                 if (
                     filteredExteriorEnergyData.sections?.exterior_NoKitchenWall?.gallery?.length ?? 0 > 0
@@ -184,14 +191,8 @@ export default function MiddleSection() {
         return [];
     };
 
-
-
     const exteriorImages = getExteriorImages()
     const interiorImages = getInteriorImages()
-
-
-
-
 
     return (
         <div className=" px-4 py-4 xl:py-0 h-full overflow-y-auto">
@@ -209,11 +210,11 @@ export default function MiddleSection() {
                                                 <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
                                                     {
 
-                                                        imageErrors[image] ? (
-                                                            <div className="flex items-center justify-center h-full text-gray-500">
-                                                                <span>Image not found</span>
-                                                            </div>
-                                                        ) : (
+                                                        // imageErrors[image] ? (
+                                                        //     <div className="flex items-center justify-center h-full text-gray-500">
+                                                        //         <span>Image not found</span>
+                                                        //     </div>
+                                                        // ) : (
                                                             <img
                                                                 src={image}
                                                                 alt={`Interior design ${index + 1}`}
@@ -222,7 +223,7 @@ export default function MiddleSection() {
                                                                 onClick={() => openModal(image, interiorImages, "Interior")}
 
                                                             />
-                                                        )
+                                                        // )
 
 
                                                     }
@@ -266,11 +267,11 @@ export default function MiddleSection() {
                                         <div key={index} className="flex-[0_0_100%] min-w-0">
                                             <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
                                                 {
-                                                    imageErrors[image] ? (
-                                                        <div className="flex items-center justify-center h-full text-gray-500">
-                                                            <span>Image not found</span>
-                                                        </div>
-                                                    ) : (
+                                                    // imageErrors[image] ? (
+                                                    //     <div className="flex items-center justify-center h-full text-gray-500">
+                                                    //         <span>Image not found</span>
+                                                    //     </div>
+                                                    // ) : (
                                                         <img
                                                             src={image}
                                                             alt={`Exterior design ${index + 1}`}
@@ -279,7 +280,7 @@ export default function MiddleSection() {
                                                             onClick={() => openModal(image, exteriorImages, "Exterior")}
 
                                                         />
-                                                    )
+                                                    // )
                                                 }
                                             </div>
                                         </div>
