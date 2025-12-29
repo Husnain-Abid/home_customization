@@ -67,7 +67,40 @@ export default function MiddleSection() {
             )
         ) {
 
-            // 🔹 Priority 1: Kitchen Wall = No
+
+
+            // 🔥 PRIORITY 1: Kitchen = No AND Bathroom = No
+            if (
+                selectedFeatures.kitchen === 'no' &&
+                selectedFeatures.bathroom === 'no' &&
+                (filteredExteriorEnergyData.sections?.exterior_NoKitchenBathroom?.gallery?.length ?? 0) > 0
+            ) {
+                return filteredExteriorEnergyData.sections.exterior_NoKitchenBathroom.gallery || [];
+            }
+
+            // PRIORITY 1: Kitchen Wall = No AND Shower = No
+            if (
+                selectedFeatures.kitchen_wall === 'no' &&
+                selectedFeatures.shower === 'no' &&
+                (filteredExteriorEnergyData.sections?.exterior_NoShower?.gallery?.length ?? 0) > 0
+            ) {
+                return filteredExteriorEnergyData.sections.exterior_NoShower.gallery || [];
+            }
+
+            // 🔹 Priority 2: Kitchen = No AND Kitchen Wall = No
+            if (
+                selectedFeatures.kitchen === 'no' &&
+                selectedFeatures.kitchen_wall === 'no' &&
+                (filteredExteriorEnergyData.sections?.exterior_NoKitchenWall?.gallery?.length ?? 0) > 0
+            ) {
+                return filteredExteriorEnergyData.sections.exterior_NoKitchenWall.gallery || [];
+            }
+
+
+
+
+
+            // 🔹 Priority 2: Kitchen Position = wall3
             if (selectedFeatures.kitchen_position === 'wall3') {
                 if (
                     filteredExteriorEnergyData.sections?.exterior_KitchenPosition?.gallery?.length ?? 0 > 0
@@ -76,15 +109,8 @@ export default function MiddleSection() {
                 }
             }
 
-            if (selectedFeatures.kitchen_wall === 'no') {
-                if (
-                    filteredExteriorEnergyData.sections?.exterior_NoKitchenWall?.gallery?.length ?? 0 > 0
-                ) {
-                    return filteredExteriorEnergyData.sections.exterior_NoKitchenWall.gallery || [];
-                }
-            }
 
-            // 🔹 Priority 2: Kitchen = No
+            // 🔹 Priority 4: Kitchen = No
             if (selectedFeatures.kitchen === 'no') {
                 if (
                     filteredExteriorEnergyData.sections?.exterior_NoKitchen?.gallery?.length ?? 0 > 0
@@ -93,12 +119,15 @@ export default function MiddleSection() {
                 }
             }
 
-            // 🔹 Priority 3: Kitchen = Yes (default exterior)
+            // 🔹 Priority 5: Default exterior
             if (
                 filteredExteriorEnergyData.sections?.exterior?.gallery?.length ?? 0 > 0
             ) {
                 return filteredExteriorEnergyData.sections.exterior.gallery || [];
             }
+
+
+
 
             // 🔹 Fallback: exteriorGallery images
             if (
@@ -108,7 +137,7 @@ export default function MiddleSection() {
             }
         }
 
-        // 🔹 Priority 4: Interior features selected → exterior images from interior data
+        // 🔹  Interior features selected → exterior images from interior data
         const hasInteriorFeatures =
             selectedFeatures.kitchen === 'yes' ||
             selectedFeatures.bathroom === 'yes' ||
@@ -126,7 +155,7 @@ export default function MiddleSection() {
             return filteredInteriorData.sections.exterior.gallery || [];
         }
 
-        // 🔹 Priority 5: Default fallback
+        // 🔹 final fallback
         if (
             productData?.default_images?.exterior?.gallery?.length ?? 0 > 0
         ) {
@@ -215,14 +244,14 @@ export default function MiddleSection() {
                                                         //         <span>Image not found</span>
                                                         //     </div>
                                                         // ) : (
-                                                            <img
-                                                                src={image}
-                                                                alt={`Interior design ${index + 1}`}
-                                                                className="w-full h-full object-cover rounded-lg"
-                                                                onError={() => handleImageError(image)}
-                                                                onClick={() => openModal(image, interiorImages, "Interior")}
+                                                        <img
+                                                            src={image}
+                                                            alt={`Interior design ${index + 1}`}
+                                                            className="w-full h-full object-cover rounded-lg"
+                                                            onError={() => handleImageError(image)}
+                                                            onClick={() => openModal(image, interiorImages, "Interior")}
 
-                                                            />
+                                                        />
                                                         // )
 
 
@@ -272,14 +301,14 @@ export default function MiddleSection() {
                                                     //         <span>Image not found</span>
                                                     //     </div>
                                                     // ) : (
-                                                        <img
-                                                            src={image}
-                                                            alt={`Exterior design ${index + 1}`}
-                                                            className="w-full h-full object-cover rounded-lg"
-                                                            onError={() => handleImageError(image)}
-                                                            onClick={() => openModal(image, exteriorImages, "Exterior")}
+                                                    <img
+                                                        src={image}
+                                                        alt={`Exterior design ${index + 1}`}
+                                                        className="w-full h-full object-cover rounded-lg"
+                                                        onError={() => handleImageError(image)}
+                                                        onClick={() => openModal(image, exteriorImages, "Exterior")}
 
-                                                        />
+                                                    />
                                                     // )
                                                 }
                                             </div>
