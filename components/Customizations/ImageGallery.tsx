@@ -18,8 +18,8 @@ export default function ImageGallery() {
     const { selectedImage, isModalOpen, currentImageIndex, totalImages, sectionTitle, openModal, closeModal, nextImage, prevImage } = useImageModal()
 
     // Get images using utility functions
-    const exteriorImages = getExteriorGalleryImages(selectedFeatures, filteredInteriorData, productData, filteredExteriorEnergyData)
-    const interiorImages = getInteriorGalleryImages(selectedFeatures, filteredInteriorData, productData)
+    const exteriorImages = getExteriorGalleryImages(selectedFeatures as any, filteredInteriorData, productData, filteredExteriorEnergyData)
+    const interiorImages = getInteriorGalleryImages(selectedFeatures as any, filteredInteriorData, productData)
 
 
 

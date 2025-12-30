@@ -1,4 +1,5 @@
 interface ProductFeatures {
+    bathroom: string
     airConditioner?: string
     naturalGas?: string
     solarPanel?: string
@@ -50,8 +51,12 @@ interface ExteriorEnergyData {
         exteriorGallery?: {
             images?: string[]
         }
+        exteriorGallery_NoKitchenBathroom?: {
+            images?: string[]
+        }
     }
 }
+
 
 export const getExteriorGalleryImages = (
     selectedFeatures: ProductFeatures,
@@ -59,41 +64,58 @@ export const getExteriorGalleryImages = (
     productData?: any,
     filteredExteriorEnergyData?: ExteriorEnergyData | null
 ): string[] => {
-    const hasExteriorFeatures = selectedFeatures.stairs !== undefined ||
+
+    // 🔥 PRIORITY 1: EXTERIOR GALLERY - NO KITCHEN + NO BATHROOM
+    const noKitchenBathroom =
+        selectedFeatures.kitchen === 'no' &&
+        selectedFeatures.bathroom === 'no';
+
+    if (
+        filteredExteriorEnergyData &&
+        noKitchenBathroom &&
+        filteredExteriorEnergyData.sections?.exteriorGallery_NoKitchenBathroom?.images?.length
+    ) {
+        return filteredExteriorEnergyData.sections.exteriorGallery_NoKitchenBathroom.images;
+    }
+
+    // 🔹 PRIORITY 2: Exterior feature based gallery
+    const hasExteriorFeatures =
+        selectedFeatures.stairs !== undefined ||
         selectedFeatures.railing !== undefined ||
         selectedFeatures.airConditioner !== undefined ||
         selectedFeatures.solarPanel !== undefined;
 
-    if (filteredExteriorEnergyData && hasExteriorFeatures) {
-        if (filteredExteriorEnergyData.sections?.exteriorGallery?.images?.length ?? 0 > 0) {
-            return filteredExteriorEnergyData.sections?.exteriorGallery?.images || [];
-        }
-    } else {
+    if (
+        filteredExteriorEnergyData &&
+        hasExteriorFeatures &&
+        filteredExteriorEnergyData.sections?.exteriorGallery?.images?.length
+    ) {
+        return filteredExteriorEnergyData.sections.exteriorGallery.images;
     }
 
+    // 🔹 PRIORITY 3: Interior driven exterior gallery
     const hasInteriorFeatures = Object.entries(selectedFeatures).some(([key, value]) => {
-        if (key === 'kitchen' || key === 'bathroom') {
-            return value === 'yes';
-        }
-        if (key === 'kitchen_position' || key === 'kitchen_wall') {
-            return value && value !== '';
-        }
-        if (key === 'shower' || key === 'sink' || key === 'toilet') {
-            return value === 'yes';
-        }
+        if (key === 'kitchen' || key === 'bathroom') return value === 'yes';
+        if (key === 'kitchen_position' || key === 'kitchen_wall') return value && value !== '';
+        if (key === 'shower' || key === 'sink' || key === 'toilet') return value === 'yes';
         return false;
     });
 
-    if (hasInteriorFeatures && filteredInteriorData && (filteredInteriorData.sections.exteriorGallery?.images?.length ?? 0) > 0) {
-        return filteredInteriorData.sections.exteriorGallery?.images || [];
+    if (
+        hasInteriorFeatures &&
+        filteredInteriorData &&
+        filteredInteriorData.sections.exteriorGallery?.images?.length
+    ) {
+        return filteredInteriorData.sections.exteriorGallery.images;
     }
 
-    if (productData?.default_images?.exteriorGallery?.images?.length ?? 0 > 0) {
-        return productData.default_images.exteriorGallery.images || [];
+    // 🔹 PRIORITY 4: Default fallback
+    if (productData?.default_images?.exteriorGallery?.images?.length) {
+        return productData.default_images.exteriorGallery.images;
     }
 
-    return []
-}
+    return [];
+};
 
 
 
