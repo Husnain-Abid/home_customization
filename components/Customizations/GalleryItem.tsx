@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { Spinner } from "@/components/ui/spinner"
 
 interface GalleryItemProps {
     image: string
@@ -11,28 +10,20 @@ interface GalleryItemProps {
 
 export default function GalleryItem({ image, alt, onClick, className = "" }: GalleryItemProps) {
     const [imageError, setImageError] = useState(false)
-    const [loading, setLoading] = useState(true)
 
-
+    const handleImageError = () => {
+        setImageError(true)
+    }
 
     return (
         <div className={`group overflow-hidden rounded-lg transition-all duration-300 transform hover:scale-[1.02] ${className}`}>
             <div className={`relative ${className.includes('aspect-') ? '' : 'h-48 md:h-56 lg:h-64'}`}>
-
-                {/* 🔄 Spinner */}
-                {loading && !imageError && (
-                    <div className="absolute inset-0 z-10 flex items-center justify-center bg-white/60">
-                        <Spinner className="h-6 w-6 text-gray-700" />
-                    </div>
-                )}
-
-
                 {
-                    imageError ? (
-                        <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
-                            <span className="text-xs">Image not found</span>
-                        </div>
-                    ) : (
+                imageError ? (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
+                        <span className="text-xs">Image not found</span>
+                    </div>
+                ) : (
                     <div
                         onClick={() => onClick(image)}
                         className='cursor-pointer'
@@ -44,13 +35,7 @@ export default function GalleryItem({ image, alt, onClick, className = "" }: Gal
                             className="object-cover transition-transform duration-300 group-hover:scale-105"
                             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 20vw"
                             unoptimized
-                            // onError={handleImageError}
-
-                            onLoadingComplete={() => setLoading(false)}
-                            onError={() => {
-                                setLoading(false)
-                                setImageError(true)
-                            }}
+                            onError={handleImageError}
                         />
                         {/* Hover Overlay */}
                         <div className="absolute inset-0 bg-transparent group-hover:bg-black/50 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
@@ -61,8 +46,8 @@ export default function GalleryItem({ image, alt, onClick, className = "" }: Gal
                             </button>
                         </div>
                     </div>
-                    )
-
+                )
+                
                 }
             </div>
         </div>
