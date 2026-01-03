@@ -10,9 +10,6 @@ export const useExteriorFeatures = () => {
   const isNo = (key: string) => selectedFeatures[key] === 'no';
 
 
-console.log("selectedFeatures",selectedFeatures);
-
-
 
   const isStairsYes = () => isYes('stairs');
   const isSolarYes = () => isYes('solarPanel');

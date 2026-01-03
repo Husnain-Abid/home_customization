@@ -78,6 +78,22 @@ export default function MiddleSection() {
                 return filteredExteriorEnergyData.sections.exterior_NoKitchenBathroom.gallery || [];
             }
 
+            // 🔹 Priority 2: Kitchen = No AND Kitchen Wall = No AND Shower = No AND (Toilet = No OR Sink = No)
+            if (
+                selectedFeatures.kitchen === 'no' &&
+                selectedFeatures.kitchen_wall === 'no' &&
+                selectedFeatures.shower === 'no' &&
+                (
+                    selectedFeatures.toilet === 'no' ||
+                    selectedFeatures.sink === 'no'
+                ) &&
+                (filteredExteriorEnergyData.sections?.exterior_NoToilet?.gallery?.length ?? 0) > 0
+            ) {
+                return filteredExteriorEnergyData.sections.exterior_NoToilet.gallery || [];
+            }
+
+
+
             // PRIORITY 1: Kitchen Wall = No AND Shower = No
             if (
                 selectedFeatures.kitchen_wall === 'no' &&
@@ -95,9 +111,6 @@ export default function MiddleSection() {
             ) {
                 return filteredExteriorEnergyData.sections.exterior_NoKitchenWall.gallery || [];
             }
-
-
-
 
 
             // 🔹 Priority 2: Kitchen Position = wall3

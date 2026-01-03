@@ -134,10 +134,6 @@ export function ProductProvider({ children }: { children: ReactNode }) {
           naturalGas: 'no',
         });
 
-
-
-
-
       } catch (error) {
         console.error('Error fetching product data:', error);
       }
@@ -146,7 +142,7 @@ export function ProductProvider({ children }: { children: ReactNode }) {
   }, []);
 
   // console.log("productData" , productData);
-  // console.log("selectedFeatures" , selectedFeatures);
+  console.log("selectedFeatures", selectedFeatures);
 
   const getFilteredInteriorData = () => {
     if (!productData) return null;
@@ -188,7 +184,7 @@ export function ProductProvider({ children }: { children: ReactNode }) {
       // console.log("interior Score:", score, "Valid:", isValidMatch);
     }
 
-    // console.log("✅interior Best Match:", bestMatch?.features || "None");
+    console.log("✅interior Best Match:", bestMatch?.features || "None");
 
     return bestMatch;
   };
@@ -254,10 +250,11 @@ export function ProductProvider({ children }: { children: ReactNode }) {
       }
 
       // --- Debug logs ---
-      // console.log("🟡 exterior Checking Item:", itemFeatures);
+      console.log("🟡 exterior Checking Item:", itemFeatures);
       // console.log("exterior Selected:", selectedFeatures);
-      // console.log("exterior Score:", score, "Valid:", isValidMatch);
+      console.log("exterior Score:", score, "Valid:", isValidMatch);
     }
+    console.log("✅exterior Best Match:", bestMatch?.features || "None");
 
 
     return bestMatch;

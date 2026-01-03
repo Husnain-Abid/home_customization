@@ -1,4 +1,8 @@
 interface ProductFeatures {
+    kitchen_position: string
+    sink: string
+    toilet: string
+    shower: string
     bathroom: string
     airConditioner?: string
     naturalGas?: string
@@ -8,6 +12,7 @@ interface ProductFeatures {
     stairs?: string
     railing?: string
     kitchen?: string
+    kitchen_wall?: string
 }
 
 interface ProductData {
@@ -42,6 +47,9 @@ interface ProductData {
 
 interface ExteriorEnergyData {
     sections: {
+        exteriorGallery_NoShower: any
+        exteriorGallery_NoKitchenWall: any
+        exteriorGallery_NoKitchen: any
         exterior?: {
             gallery?: string[]
         }
@@ -65,11 +73,11 @@ export const getExteriorGalleryImages = (
     filteredExteriorEnergyData?: ExteriorEnergyData | null
 ): string[] => {
 
-    // 🔥 PRIORITY 1: EXTERIOR GALLERY - NO KITCHEN + NO BATHROOM
     const noKitchenBathroom =
         selectedFeatures.kitchen === 'no' &&
         selectedFeatures.bathroom === 'no';
 
+    //  PRIORITY 2: EXTERIOR GALLERY - NO KITCHEN + NO BATHROOM
     if (
         filteredExteriorEnergyData &&
         noKitchenBathroom &&
@@ -77,6 +85,66 @@ export const getExteriorGalleryImages = (
     ) {
         return filteredExteriorEnergyData.sections.exteriorGallery_NoKitchenBathroom.images;
     }
+
+
+
+
+    // 🔥 PRIORITY 1: Kitchen = NO + Kitchen Wall = NO + (Shower OR Toilet OR Sink = NO)
+    if (
+        filteredExteriorEnergyData &&
+        selectedFeatures.kitchen_wall === 'no' &&
+        selectedFeatures.shower === 'no'
+        &&
+        filteredExteriorEnergyData.sections?.exteriorGallery_NoShower?.images?.length
+    ) {
+        return filteredExteriorEnergyData.sections.exteriorGallery_NoShower.images;
+    }
+
+    // 🔥 PRIORITY 1: Kitchen = NO + Kitchen Wall = Yes + (Shower OR Toilet OR Sink = NO)
+    if (
+        filteredExteriorEnergyData &&
+        selectedFeatures.kitchen_wall === 'yes' &&
+        selectedFeatures.shower === 'no'
+        &&
+        filteredExteriorEnergyData.sections?.exteriorGallery_NoShower?.images?.length
+    ) {
+        return filteredExteriorEnergyData.sections.exteriorGallery_NoShower.images;
+    }
+
+    // 🔥 PRIORITY 0: Kitchen YES + Bathroom NO + Kitchen Position = wall3 | wall4 → NO SHOWER GALLERY
+    if (
+        filteredExteriorEnergyData &&
+        selectedFeatures.kitchen === 'yes' &&
+        selectedFeatures.bathroom === 'no' &&
+        (selectedFeatures.kitchen_position === 'wall3' ||
+            selectedFeatures.kitchen_position === 'wall4') &&
+        filteredExteriorEnergyData.sections?.exteriorGallery_NoShower?.images?.length
+    ) {
+        return filteredExteriorEnergyData.sections.exteriorGallery_NoShower.images;
+    }
+
+
+
+
+    //  PRIORITY 3: EXTERIOR GALLERY - NO KITCHEN wWall
+    if (
+        filteredExteriorEnergyData &&
+        (selectedFeatures.kitchen === 'no' && selectedFeatures.kitchen_wall === 'no') &&
+        filteredExteriorEnergyData.sections?.exteriorGallery_NoKitchenWall?.images?.length
+    ) {
+        return filteredExteriorEnergyData.sections.exteriorGallery_NoKitchenWall.images;
+    }
+
+    //  PRIORITY 4: EXTERIOR GALLERY - NO KITCHEN
+    if (
+        filteredExteriorEnergyData &&
+        selectedFeatures.kitchen === 'no' &&
+        filteredExteriorEnergyData.sections?.exteriorGallery_NoKitchen?.images?.length
+    ) {
+        return filteredExteriorEnergyData.sections.exteriorGallery_NoKitchen.images;
+    }
+
+
 
     // 🔹 PRIORITY 2: Exterior feature based gallery
     const hasExteriorFeatures =
