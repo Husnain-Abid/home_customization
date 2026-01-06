@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 interface GalleryItemProps {
@@ -12,6 +12,12 @@ export default function GalleryItem({ image, alt, onClick, className = "" }: Gal
 
     const [loading, setLoading] = useState(true)
     const [imageError, setImageError] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+    setImageError(false)
+  }, [image])
+
 
     const handleImageError = () => {
         setImageError(true)
