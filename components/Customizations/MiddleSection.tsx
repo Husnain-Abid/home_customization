@@ -82,6 +82,7 @@ export default function MiddleSection() {
             if (
                 selectedFeatures.kitchen === 'no' &&
                 selectedFeatures.kitchen_wall === 'no' &&
+                selectedFeatures.bathroom === 'yes' &&
                 selectedFeatures.shower === 'no' &&
                 (
                     selectedFeatures.toilet === 'no' ||
@@ -96,6 +97,8 @@ export default function MiddleSection() {
 
             // PRIORITY 1: Kitchen Wall = No AND Shower = No
             if (
+                selectedFeatures.kitchen === 'no' &&
+                selectedFeatures.bathroom === 'yes' &&
                 selectedFeatures.kitchen_wall === 'no' &&
                 selectedFeatures.shower === 'no' &&
                 (filteredExteriorEnergyData.sections?.exterior_NoShower?.gallery?.length ?? 0) > 0
