@@ -169,14 +169,19 @@ export default function MiddleSection() {
             return filteredInteriorData.sections.exterior.gallery || [];
         }
 
+
+
         // 🔹 final fallback
         if (
-            productData?.default_images?.exterior?.gallery?.length ?? 0 > 0
+            productData &&
+            productData.default_images?.exterior?.gallery &&
+            productData.default_images.exterior.gallery.length > 0
         ) {
-            return productData?.default_images?.exterior?.gallery || [];
+            return productData.default_images.exterior.gallery;
         }
 
         return [];
+
     };
 
     const getInteriorImages = (): string[] => {
@@ -224,17 +229,19 @@ export default function MiddleSection() {
             }
         }
 
-        
-        // 🔹 final fallback
-        if (
-            productData?.default_images?.interior?.gallery?.length ?? 0 > 0
-        ) {
-            return productData?.default_images?.interior?.gallery || [];
-        }
+
+// 🔹 PRIORITY 5: Default fallback
+if (
+    productData &&
+    productData.default_images?.interior?.gallery &&
+    productData.default_images.interior.gallery.length > 0
+) {
+    return productData.default_images.interior.gallery;
+}
+
+return [];
 
 
-
-        return [];
     };
 
     const exteriorImages = getExteriorImages()
