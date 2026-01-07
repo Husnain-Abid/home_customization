@@ -224,12 +224,15 @@ export default function MiddleSection() {
             }
         }
 
-        // 🔹 PRIORITY 5: Default fallback
+        
+        // 🔹 final fallback
         if (
-            (productData?.default_images?.interior?.gallery?.length ?? 0) > 0
+            productData?.default_images?.interior?.gallery?.length ?? 0 > 0
         ) {
-            return productData.default_images!.interior!.gallery || [];
+            return productData?.default_images?.interior?.gallery || [];
         }
+
+
 
         return [];
     };
