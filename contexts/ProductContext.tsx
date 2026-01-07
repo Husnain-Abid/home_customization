@@ -93,6 +93,12 @@ interface ProductContextType {
   filteredInteriorData: ProductData['interior'][0] | null;
   filteredExteriorEnergyData: ProductData['exterior_energySources'][0] | null;
   totalPrice: number;
+
+finalInteriorImages: string[];
+finalExteriorImages: string[];
+setFinalInteriorImages: React.Dispatch<React.SetStateAction<string[]>>;
+setFinalExteriorImages: React.Dispatch<React.SetStateAction<string[]>>;
+
   handleFeatureChange: (featureKey: string, value: string) => void;
   getFeatureOptions: (featureKey: string) => FeatureOption[];
   isFeatureSelected: (featureKey: string, value: string) => boolean;
@@ -106,6 +112,10 @@ const ProductContext = createContext<ProductContextType | undefined>(undefined);
 export function ProductProvider({ children }: { children: ReactNode }) {
   const [productData, setProductData] = useState<ProductData | null>(null);
   const [selectedFeatures, setSelectedFeatures] = useState<{ [key: string]: string }>({});
+
+const [finalInteriorImages, setFinalInteriorImages] = useState<string[]>([]);
+const [finalExteriorImages, setFinalExteriorImages] = useState<string[]>([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -364,6 +374,14 @@ export function ProductProvider({ children }: { children: ReactNode }) {
     filteredInteriorData,
     filteredExteriorEnergyData,
     totalPrice,
+
+finalInteriorImages,
+finalExteriorImages,
+setFinalInteriorImages,
+setFinalExteriorImages,
+
+
+
     handleFeatureChange,
     getFeatureOptions,
     isFeatureSelected,

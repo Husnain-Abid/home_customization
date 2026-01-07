@@ -19,6 +19,8 @@ export default function SendEmailSuccess() {
     filteredInteriorData,
     filteredExteriorEnergyData,
     totalPrice,
+      finalInteriorImages,
+  finalExteriorImages
   } = useProductContext()
 
   /* ---------------------------------------------
@@ -104,6 +106,8 @@ export default function SendEmailSuccess() {
           filteredInteriorData,
           filteredExteriorEnergyData,
           totalPrice,
+            finalInteriorImages,
+  finalExteriorImages
         },
         {
           shouldDownload: true,
@@ -123,10 +127,14 @@ export default function SendEmailSuccess() {
   /* ---------------------------------------------
      Images (same logic as before)
   --------------------------------------------- */
-  const exteriorImage =
-    filteredExteriorEnergyData?.sections?.exterior?.gallery?.[0] || null
-  const interiorImage =
-    filteredInteriorData?.sections?.interior?.gallery?.[0] || null
+  // const exteriorImage =
+  //   filteredExteriorEnergyData?.sections?.exterior?.gallery?.[0] || null
+  // const interiorImage =
+  //   filteredInteriorData?.sections?.interior?.gallery?.[0] || null
+
+const exteriorImage = finalExteriorImages?.[0] || null
+const interiorImage = finalInteriorImages?.[0] || null
+
 
   /* ---------------------------------------------
      UI

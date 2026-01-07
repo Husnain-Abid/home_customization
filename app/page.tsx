@@ -7,7 +7,7 @@ export default function Home() {
       <div className="grid md:grid-cols-2 gap-8 md:gap-20 items-center">
 
         {/* About Section */}
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 order-2 md:order-1">
           <p className="text-[#4A4C56] font-bold text-center text-xl md:text-left">
             The Strongest Home You Can Buy. Custom Built in 10 Days.
           </p>
@@ -35,7 +35,7 @@ export default function Home() {
         </div>
 
         {/* Image Section */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 order-1 md:order-2">
 
           <Image
             src="/images/about/image1.png"

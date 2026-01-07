@@ -16,7 +16,9 @@ export default function PDFGenerator({ onDownload }: PDFGeneratorProps) {
         selectedFeatures,
         filteredInteriorData,
         filteredExteriorEnergyData,
-        totalPrice
+        totalPrice,
+          finalInteriorImages,
+  finalExteriorImages
     } = useProductContext()
 
     const generatePDF = async () => {
@@ -28,7 +30,9 @@ export default function PDFGenerator({ onDownload }: PDFGeneratorProps) {
                 selectedFeatures,
                 filteredInteriorData,
                 filteredExteriorEnergyData,
-                totalPrice
+                totalPrice,
+                  finalInteriorImages,
+  finalExteriorImages
             }
 
             await generateCustomizedHomePDF(config, {

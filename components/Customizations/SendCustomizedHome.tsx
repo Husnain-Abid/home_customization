@@ -31,7 +31,8 @@ export default function SendCustomizedHome() {
         filteredInteriorData,
         filteredExteriorEnergyData,
         totalPrice,
-
+        finalInteriorImages,
+        finalExteriorImages
     } = useProductContext()
 
     const {
@@ -95,7 +96,9 @@ export default function SendCustomizedHome() {
                 selectedFeatures,
                 filteredInteriorData,
                 filteredExteriorEnergyData,
-                totalPrice
+                totalPrice,
+                  finalInteriorImages,
+  finalExteriorImages
             }
 
             const pdfBlob = await generateCustomizedHomePDF(config, {

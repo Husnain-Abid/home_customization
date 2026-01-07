@@ -7,6 +7,8 @@ export interface PDFGeneratorConfig {
   filteredInteriorData: any
   filteredExteriorEnergyData: any
   totalPrice: number
+  finalInteriorImages: string[]
+  finalExteriorImages: string[]
 }
 
 export interface PDFGeneratorOptions {
@@ -124,8 +126,14 @@ export const generateCustomizedHomePDF = async (
     y += 18
 
     /* ---------- IMAGES ---------- */
-    const exteriorImage = getFirstExteriorImage(config)
-    const interiorImage = getFirstInteriorImage(config)
+    // const exteriorImage = getFirstExteriorImage(config)
+    // const interiorImage = getFirstInteriorImage(config)
+
+const exteriorImage = config.finalExteriorImages?.[0] || null
+const interiorImage = config.finalInteriorImages?.[0] || null
+
+
+
 
     if (exteriorImage || interiorImage) {
       pdf.setFont("helvetica", "bold")
