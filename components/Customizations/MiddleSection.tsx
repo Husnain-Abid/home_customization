@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import MiddleSectionSkeleton from './MiddleSectionSkeleton'
@@ -14,9 +14,7 @@ export default function MiddleSection() {
         productData,
         selectedFeatures,
         filteredInteriorData,
-        filteredExteriorEnergyData,
-        setFinalInteriorImages,
-        setFinalExteriorImages
+        filteredExteriorEnergyData
     } = useProductContext()
 
     const {
@@ -53,6 +51,9 @@ export default function MiddleSection() {
     }
 
 
+    if (!productData) {
+        return <MiddleSectionSkeleton />
+    }
 
     // Get images from filtered data with default fallback
     const getExteriorImages = () => {
@@ -238,20 +239,6 @@ export default function MiddleSection() {
     const exteriorImages = getExteriorImages()
     const interiorImages = getInteriorImages()
 
-    useEffect(() => {
-        if (!productData) return
-        setFinalInteriorImages(interiorImages)
-        setFinalExteriorImages(exteriorImages)
-    }, [productData, interiorImages, exteriorImages])
-
-    /* --------------------------------
-       SAFE EARLY UI
-    --------------------------------- */
-    if (!productData) {
-        return <MiddleSectionSkeleton />;
-    }
-
-
     return (
         <div className=" px-4 py-4 xl:py-0 h-full overflow-y-auto">
             <div className="space-y-4 sm:space-y-6 lg:space-y-8">
@@ -273,13 +260,13 @@ export default function MiddleSection() {
                                                                 <span>Image not found</span>
                                                             </div>
                                                         ) : (
-                                                            <img
-                                                                src={image}
-                                                                alt={`Interior design ${index + 1}`}
-                                                                className="w-full h-full object-cover rounded-lg"
-                                                                onError={() => handleImageError(image)}
-                                                                onClick={() => openModal(image, interiorImages, "Interior")}
-                                                            />
+                                                        <img
+                                                            src={image}
+                                                            alt={`Interior design ${index + 1}`}
+                                                            className="w-full h-full object-cover rounded-lg"
+                                                            onError={() => handleImageError(image)}
+                                                            onClick={() => openModal(image, interiorImages, "Interior")}
+                                                        />
                                                         )
 
                                                     }
@@ -328,14 +315,14 @@ export default function MiddleSection() {
                                                             <span>Image not found</span>
                                                         </div>
                                                     ) : (
-                                                        <img
-                                                            src={image}
-                                                            alt={`Exterior design ${index + 1}`}
-                                                            className="w-full h-full object-cover rounded-lg"
-                                                            onError={() => handleImageError(image)}
-                                                            onClick={() => openModal(image, exteriorImages, "Exterior")}
+                                                    <img
+                                                        src={image}
+                                                        alt={`Exterior design ${index + 1}`}
+                                                        className="w-full h-full object-cover rounded-lg"
+                                                        onError={() => handleImageError(image)}
+                                                        onClick={() => openModal(image, exteriorImages, "Exterior")}
 
-                                                        />
+                                                    />
                                                     )
                                                 }
                                             </div>
