@@ -53,9 +53,6 @@ export default function MiddleSection() {
     }
 
 
-    // if (!productData) {
-    //     return <MiddleSectionSkeleton />
-    // }
 
     // Get images from filtered data with default fallback
     const getExteriorImages = () => {
@@ -241,16 +238,15 @@ export default function MiddleSection() {
     const exteriorImages = getExteriorImages()
     const interiorImages = getInteriorImages()
 
-
     useEffect(() => {
-        if (!productData) return;
+        if (!productData) return
+        setFinalInteriorImages(interiorImages)
+        setFinalExteriorImages(exteriorImages)
+    }, [productData, interiorImages, exteriorImages])
 
-        setFinalInteriorImages(interiorImages);
-        setFinalExteriorImages(exteriorImages);
-    }, [productData, interiorImages, exteriorImages]);
-
-    /* ---------------- SKELETON AFTER HOOKS ---------------- */
-
+    /* --------------------------------
+       SAFE EARLY UI
+    --------------------------------- */
     if (!productData) {
         return <MiddleSectionSkeleton />;
     }
