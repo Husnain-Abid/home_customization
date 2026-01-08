@@ -11,8 +11,8 @@ export default function CustomizationsPage() {
 
             <div className='flex flex-col justify-center items-center max-w-3xl mx-auto mb-8 gap-4 px-4'>
 
-                <h1 className='text-xl sm:text-3xl md:text-4xl font-bold text-center whitespace-nowrap'>
-                    Customize Every Corner of Your Future Home
+                <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold text-center whitespace-nowrap'>
+                    Customize Every Corner of <br className='block md:hidden' /> Your Future Home
                 </h1>
 
                 <p className='text-gray-500 text-center max-w-2xl leading-relaxed'>
