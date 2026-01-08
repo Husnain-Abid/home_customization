@@ -4,11 +4,16 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="max-w-7xl mx-auto px-4 ">
+
+      <p className="block md:hidden text-[#4A4C56] font-bold text-center text-xl md:text-left mb-8">
+        The Strongest Home You Can Buy. Custom Built in 10 Days.
+      </p>
+
       <div className="grid md:grid-cols-2 gap-8 md:gap-20 items-center">
 
         {/* About Section */}
         <div className="flex flex-col gap-8 order-2 md:order-1">
-          <p className="text-[#4A4C56] font-bold text-center text-xl md:text-left">
+          <p className="hidden md:block text-[#4A4C56] font-bold text-center text-xl md:text-left">
             The Strongest Home You Can Buy. Custom Built in 10 Days.
           </p>
 
