@@ -94,10 +94,10 @@ interface ProductContextType {
   filteredExteriorEnergyData: ProductData['exterior_energySources'][0] | null;
   totalPrice: number;
 
-finalInteriorImages: string[];
-finalExteriorImages: string[];
-setFinalInteriorImages: React.Dispatch<React.SetStateAction<string[]>>;
-setFinalExteriorImages: React.Dispatch<React.SetStateAction<string[]>>;
+  finalInteriorImages: string[];
+  finalExteriorImages: string[];
+  setFinalInteriorImages: React.Dispatch<React.SetStateAction<string[]>>;
+  setFinalExteriorImages: React.Dispatch<React.SetStateAction<string[]>>;
 
   handleFeatureChange: (featureKey: string, value: string) => void;
   getFeatureOptions: (featureKey: string) => FeatureOption[];
@@ -113,8 +113,8 @@ export function ProductProvider({ children }: { children: ReactNode }) {
   const [productData, setProductData] = useState<ProductData | null>(null);
   const [selectedFeatures, setSelectedFeatures] = useState<{ [key: string]: string }>({});
 
-const [finalInteriorImages, setFinalInteriorImages] = useState<string[]>([]);
-const [finalExteriorImages, setFinalExteriorImages] = useState<string[]>([]);
+  const [finalInteriorImages, setFinalInteriorImages] = useState<string[]>([]);
+  const [finalExteriorImages, setFinalExteriorImages] = useState<string[]>([]);
 
 
   useEffect(() => {
@@ -154,50 +154,47 @@ const [finalExteriorImages, setFinalExteriorImages] = useState<string[]>([]);
   // console.log("productData" , productData);
   console.log("selectedFeatures", selectedFeatures);
 
-  const getFilteredInteriorData = () => {
-    if (!productData) return null;
+ const getFilteredInteriorData = () => {
+  if (!productData) return null;
 
-    let bestMatch = null;
-    let bestScore = -1;
+  const derivedBathroom =
+    selectedFeatures.shower === 'no' &&
+    selectedFeatures.toilet === 'no' &&
+    selectedFeatures.sink === 'no'
+      ? 'no'
+      : 'yes';
 
-    for (const item of productData.interior) {
-      const itemFeatures = item.features;
-      let score = 0;
-      let isValidMatch = true;
+  let bestMatch = null;
+  let bestScore = -1;
 
-      const match = (sel: string, val: string) => sel && sel === val;
+  for (const item of productData.interior) {
+    const itemFeatures = item.features;
+    let score = 0;
 
-      // Kitchen & Bathroom are primary
-      if (!match(selectedFeatures.kitchen, itemFeatures.kitchen)) continue;
-      if (selectedFeatures.bathroom && selectedFeatures.bathroom !== itemFeatures.bathroom) continue;
+    // Kitchen MUST match
+    if (selectedFeatures.kitchen !== itemFeatures.kitchen) continue;
 
-      // Optional
-      if (match(selectedFeatures.shower, itemFeatures.shower)) score += 5;
-      if (match(selectedFeatures.toilet, itemFeatures.toilet)) score += 5;
-      if (match(selectedFeatures.sink, itemFeatures.sink)) score += 5;
+    // Bathroom MUST follow derived rule
+    if (itemFeatures.bathroom !== derivedBathroom) continue;
 
-      // Wall mapping fix
-      if (match(selectedFeatures.kitchen_wall, itemFeatures.kitchen_wall)) score += 5;
+    // Sub-features MUST match exactly
+    if (selectedFeatures.shower !== itemFeatures.shower) continue;
+    if (selectedFeatures.toilet !== itemFeatures.toilet) continue;
+    if (selectedFeatures.sink !== itemFeatures.sink) continue;
 
-      // Kitchen position mapping fix
-      if (match(selectedFeatures.kitchen_position, itemFeatures.kitchen_position)) score += 10;
+    // Optional scoring
+    if (selectedFeatures.kitchen_wall === itemFeatures.kitchen_wall) score += 5;
+    if (selectedFeatures.kitchen_position === itemFeatures.kitchen_position) score += 10;
 
-      if (score > bestScore && isValidMatch) {
-        bestScore = score;
-        bestMatch = item;
-      }
-
-
-      // --- Debug logs ---
-      // console.log("🟡 interior Checking Item:", itemFeatures);
-      // console.log("interior Selected:", selectedFeatures);
-      // console.log("interior Score:", score, "Valid:", isValidMatch);
+    if (score > bestScore) {
+      bestScore = score;
+      bestMatch = item;
     }
+  }
 
-    console.log("✅interior Best Match:", bestMatch?.features || "None");
+  return bestMatch;
+};
 
-    return bestMatch;
-  };
 
 
   const getFilteredExteriorEnergyData = () => {
@@ -375,10 +372,10 @@ const [finalExteriorImages, setFinalExteriorImages] = useState<string[]>([]);
     filteredExteriorEnergyData,
     totalPrice,
 
-finalInteriorImages,
-finalExteriorImages,
-setFinalInteriorImages,
-setFinalExteriorImages,
+    finalInteriorImages,
+    finalExteriorImages,
+    setFinalInteriorImages,
+    setFinalExteriorImages,
 
 
 
