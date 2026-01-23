@@ -226,7 +226,8 @@ app.post('/send-email-base64', async (req, res) => {
         };
 
         // Send email
-        const info = transporter.sendMail(mailOptions);
+        const info = await transporter.sendMail(mailOptions);
+
 
         console.log('Email sent successfully:', info.messageId);
 
