@@ -130,7 +130,7 @@ app.get('/', (req, res) => {
 });
 
 // Send email with PDF attachment
-app.post('/api/send-email', upload.single('pdf'), async (req, res) => {
+app.post('/send-email', upload.single('pdf'), async (req, res) => {
     try {
         const { firstName, lastName, email, phone, message, totalPrice } = req.body;
 
@@ -188,7 +188,7 @@ app.post('/api/send-email', upload.single('pdf'), async (req, res) => {
 });
 
 // Send email with base64 PDF 
-app.post('/api/send-email-base64', async (req, res) => {
+app.post('/send-email-base64', async (req, res) => {
     try {
         const { firstName, lastName, email, phone, message, totalPrice, pdfBase64 } = req.body;
 
@@ -247,7 +247,7 @@ app.post('/api/send-email-base64', async (req, res) => {
 });
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get('/health', (req, res) => {
     res.json({
         status: 'OK',
         timestamp: new Date().toISOString(),
