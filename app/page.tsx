@@ -68,11 +68,11 @@ export default function Home() {
         <p className="text-gray-600 mb-6">
           Ready to see what your Freepoint Home can become?
         </p>
-        <a href="/customizations">
+        <Link href="/customizations">
           <button className="bg-[#C2A45C] hover:bg-[#C2A45C]/80 transition-all duration-300 text-white px-10 py-4 rounded-md font-semibold">
             Customize Your Home
           </button>
-        </a>
+        </Link>
       </div>
 
 

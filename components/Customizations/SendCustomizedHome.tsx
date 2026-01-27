@@ -146,7 +146,7 @@ export default function SendCustomizedHome() {
         <div className="max-w-7xl w-full mx-auto ">
             <div className="bg-[#F8F8F8] border border-[#F0EBFF] rounded-lg p-4">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                    Send Customized Home
+                    Save and Email Custom Home to Yourself
                 </h2>
 
                 {/* Warning message only after submit attempt with no selections */}

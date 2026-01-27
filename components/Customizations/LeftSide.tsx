@@ -56,7 +56,7 @@ export default function LeftSide() {
             onClick={resetAllSelections}
             className="text-sm text-gray-600 font-semibold hover:text-gray-800 cursor-pointer"
           >
-            Clear All
+            Reset All
           </button>
         )}
       </div>

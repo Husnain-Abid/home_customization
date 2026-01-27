@@ -10,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import Link from "next/link"
 
 const detailsData = [
   {
@@ -140,21 +141,16 @@ export default function DetailsPage() {
         <DetailsContent />
       </Suspense>
 
-
-
-
-
-
       {/* CTA */}
       <div className="text-center mt-16">
         <p className="text-gray-600 mb-6">
           Ready to see what your Freepoint Home can become?
         </p>
-        <a href="/customizations">
+        <Link href="/customizations">
           <button className="bg-[#C2A45C] hover:bg-[#C2A45C]/80 transition-all duration-300 text-white px-10 py-4 rounded-md font-semibold">
             Customize Your Home
           </button>
-        </a>
+        </Link>
       </div>
 
     </div>
