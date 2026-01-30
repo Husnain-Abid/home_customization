@@ -83,9 +83,11 @@ export const generateCustomizedHomePDF = async (
     const margin = 20
     const contentWidth = pageWidth - margin * 2
 
-    
+
     // Color tuples
-    const primaryColor: [number, number, number] = [194, 164, 92]
+    // const primaryColor: [number, number, number] = [194, 164, 92]
+    // const primaryColor: [number, number, number] = [243, 244, 246]
+    const primaryColor: [number, number, number] = [0, 0, 0]
     const darkColor: [number, number, number] = [51, 51, 51]
     const grayColor: [number, number, number] = [120, 120, 120]
     const lightGray: [number, number, number] = [248, 248, 248]
@@ -99,15 +101,15 @@ export const generateCustomizedHomePDF = async (
 
     pdf.setFont("helvetica", "bold")
     pdf.setFontSize(20)
-    pdf.setTextColor(255, 255, 255)
-    pdf.text("Freepoint Homes", pageWidth / 2, 16, { align: "center" })
+    pdf.setTextColor(243, 244, 246)
+    pdf.text("Freepoint Homes, LLC", pageWidth / 2, 16, { align: "center" })
 
     y = 38
 
     /* ---------- TITLE ---------- */
     pdf.setFontSize(18)
     pdf.setTextColor(...darkColor)
-    pdf.text("Customized Home Configuration", pageWidth / 2, y, {
+    pdf.text("Your Customized Home Configuration", pageWidth / 2, y, {
       align: "center",
     })
     y += 14
@@ -129,8 +131,8 @@ export const generateCustomizedHomePDF = async (
     // const exteriorImage = getFirstExteriorImage(config)
     // const interiorImage = getFirstInteriorImage(config)
 
-const exteriorImage = config.finalExteriorImages?.[0] || null
-const interiorImage = config.finalInteriorImages?.[0] || null
+    const exteriorImage = config.finalExteriorImages?.[0] || null
+    const interiorImage = config.finalInteriorImages?.[0] || null
 
 
 
@@ -256,8 +258,8 @@ const interiorImage = config.finalInteriorImages?.[0] || null
 
     pdf.setFont("helvetica", "bold")
     pdf.setFontSize(12)
-    pdf.setTextColor(255, 255, 255)
-    pdf.text("Total Estimate", margin + 10, totalY + 8)
+    pdf.setTextColor(243, 244, 246)
+    pdf.text("Total Estimated Price", margin + 10, totalY + 8)
     pdf.text(
       `$${totalPrice.toLocaleString()}`,
       pageWidth - margin - 10,
@@ -265,25 +267,24 @@ const interiorImage = config.finalInteriorImages?.[0] || null
       { align: "right" }
     )
 
-    /* ---------- FOOTER ---------- */
-    const footerY = pageHeight - 18
-    pdf.setFillColor(...primaryColor)
-    pdf.rect(0, footerY, pageWidth, 18, "F")
 
+
+    /* ---------- FOOTER ---------- */
+    const footerHeight = 22 // height increased from 18 to 25mm
+    const footerY = pageHeight - footerHeight
+    pdf.setFillColor(...primaryColor)
+    pdf.rect(0, footerY, pageWidth, footerHeight, "F")
+
+    pdf.setTextColor(243, 244, 246)
+
+    // Adjusted Y positions for better spacing
+    pdf.setFont("helvetica", "bold")
+    pdf.setFontSize(10) // increased from 9 to 10
+    pdf.text("Freepoint Homes, LLC", pageWidth / 2, footerY + 7, { align: "center" })
     pdf.setFontSize(9)
-    pdf.setTextColor(255, 255, 255)
-    pdf.text(
-      "Thank you for choosing Freepoint Homes",
-      pageWidth / 2,
-      footerY + 7,
-      { align: "center" }
-    )
-    pdf.text(
-      "contact@freepointhomes.com",
-      pageWidth / 2,
-      footerY + 13,
-      { align: "center" }
-    )
+    pdf.text("Call or Text: 206-855-3192", pageWidth / 2, footerY + 13, { align: "center" })
+    pdf.text("Email: contact@freepointhomes.com", pageWidth / 2, footerY + 19, { align: "center" })
+
 
     const blob = pdf.output("blob")
     if (shouldDownload) pdf.save(fileName)
