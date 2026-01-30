@@ -151,9 +151,9 @@ const interiorImage = finalInteriorImages?.[0] || null
         </h2>
         <p className="text-gray-600 mt-2">
           We’ll be in touch shortly. You can email us anytime at{" "}
-          <span className="text-[#C2A45C]">
+          <a href="mailto:contact@freepointhomes.com" className="text-[#C2A45C]">
             contact@freepointhomes.com
-          </span>
+          </a>
         </p>
       </div>
 
