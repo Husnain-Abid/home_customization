@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Freepoint Homes",
   description: "Home Builder",
   icons: {
-    icon: "/images/logo/favicon.ico",
+    icon: "/images/logo/favicon.png",
   },
 };
 
