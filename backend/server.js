@@ -365,10 +365,11 @@ app.post('/send-email-base64', async (req, res) => {
                 message,
                 totalPrice
             }),
-            attachments: req.file ? [
+            attachments: pdfBase64 ? [
                 {
-                    filename: req.file.originalname || 'customized-home-configuration.pdf',
-                    path: req.file.path,
+                    filename: 'customized-home-configuration.pdf',
+                    content: pdfBase64,
+                    encoding: 'base64',
                     contentType: 'application/pdf'
                 }
             ] : []
