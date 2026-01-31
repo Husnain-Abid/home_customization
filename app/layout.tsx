@@ -16,6 +16,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Freepoint Homes",
   description: "Home Builder",
+  icons: {
+    icon: "/images/logo/favicon.ico",
+  },
 };
 
 export default function RootLayout({
