@@ -13,10 +13,10 @@ app.use(cors({
     origin: function (origin, callback) {
         if (!origin) return callback(null, true);
         const allowedOrigins = [
-            // 'http://160.153.186.37',          // ✅ server IP
-            // 'http://freepointhomes.com',      // future
-            // 'https://freepointhomes.com'      // future SSL
-            'http://localhost:3000',
+            'http://160.153.186.37',          // ✅ server IP
+            'http://freepointhomes.com',      // future
+            'https://freepointhomes.com'      // future SSL
+            // 'http://localhost:3000',
 
         ];
 

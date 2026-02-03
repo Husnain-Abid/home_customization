@@ -150,9 +150,7 @@ export const generateCustomizedHomePDF = async (
 
 
 
-
-
-
+    
 
     /* ---------- TITLE ---------- */
     pdf.setFontSize(18)

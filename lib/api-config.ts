@@ -1,19 +1,19 @@
 // API Configuration for Backend Server
 export const API_CONFIG = {
     // Backend server URL
-    // BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'http://160.153.186.37',
-    BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000',
+    BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'http://160.153.186.37',
+    // BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000',
     
     // API Endpoints
     ENDPOINTS: {
         // Send email with PDF attachment (file upload)
-        SEND_EMAIL: '/send-email',
+        SEND_EMAIL: '/api/send-email',
         
         // Send email with base64 PDF
-        SEND_EMAIL_BASE64: '/send-email-base64',
+        SEND_EMAIL_BASE64: '/api/send-email-base64',
         
         // Health check
-        HEALTH: '/health'
+        HEALTH: '/api/health'
     },
     
     // Get full URL for endpoint
