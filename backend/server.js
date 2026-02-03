@@ -13,10 +13,10 @@ app.use(cors({
     origin: function (origin, callback) {
         if (!origin) return callback(null, true);
         const allowedOrigins = [
-            'http://160.153.186.37',          // ✅ server IP
-            'http://freepointhomes.com',      // future
-            'https://freepointhomes.com'      // future SSL
-            // 'http://localhost:3000',
+            // 'http://160.153.186.37',          // ✅ server IP
+            // 'http://freepointhomes.com',      // future
+            // 'https://freepointhomes.com'      // future SSL
+            'http://localhost:3000',
 
         ];
 
@@ -93,16 +93,25 @@ const createEmailTemplate = (data) => {
         <tr>
 
           <!-- LEFT: Company Name / Logo -->
-          <td align="left" style="
-            padding:16px 24px;
-            font-family:Arial, sans-serif;
-            font-size:20px;
-            font-weight:bold;
-            color:#fff;
-          ">
-            Freepoint Homes
-           
-          </td>
+
+<td align="left" style="padding:16px 24px;">
+  <img 
+    src="https://res.cloudinary.com/dlg1yfbtu/image/upload/v1770099303/logo_dnpfju.png"
+    alt="Freepoint Homes"
+    width="180"
+    style="
+      display:block;
+      max-width:180px;
+      height:auto;
+    "
+  />
+</td>
+
+
+
+
+
+
 
           <!-- RIGHT: Contact Info -->
           <td align="right" style="

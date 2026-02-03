@@ -95,16 +95,64 @@ export const generateCustomizedHomePDF = async (
 
     let y = margin
 
-    /* ---------- HEADER ---------- */
+
+
+
+    // HEADER BG
     pdf.setFillColor(...primaryColor)
     pdf.rect(0, 0, pageWidth, 25, "F")
+
+    const logoUrl =
+      "https://res.cloudinary.com/dlg1yfbtu/image/upload/v1770101445/favicon_muaail.png"
+
+    const logoImg = new Image()
+    logoImg.crossOrigin = "anonymous"
+    logoImg.src = logoUrl
+
+    await new Promise((res, rej) => {
+      logoImg.onload = res
+      logoImg.onerror = rej
+    })
+
+    // Text + logo settings
+    const text = "Freepoint Homes, LLC"
+    const gap = 2 // single-space jaisa gap
 
     pdf.setFont("helvetica", "bold")
     pdf.setFontSize(20)
     pdf.setTextColor(243, 244, 246)
-    pdf.text("Freepoint Homes, LLC", pageWidth / 2, 16, { align: "center" })
+
+    // Measure text width
+    const textWidth = pdf.getTextWidth(text)
+
+    // Logo size
+    const logoWidth = 18
+    const logoHeight = 11
+
+    // Total width (logo + gap + text)
+    const totalWidth = logoWidth + gap + textWidth
+
+    // Start X so whole group is centered
+    const startX = pageWidth / 2 - totalWidth / 2
+
+    const logoY = 6
+    const textY = logoY + logoHeight - 2.5
+
+    // Draw logo
+    pdf.addImage(logoImg, "PNG", startX, logoY, logoWidth, logoHeight)
+
+    // Draw text right after logo
+    pdf.text(text, startX + logoWidth + gap, textY)
 
     y = 38
+
+
+
+
+
+
+
+
 
     /* ---------- TITLE ---------- */
     pdf.setFontSize(18)
