@@ -1,7 +1,7 @@
 // API Configuration for Backend Server
 export const API_CONFIG = {
     // Backend server URL
-    BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'http://160.153.186.37',
+    BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'freepointhomes.com',
     // BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000',
     
     // API Endpoints
