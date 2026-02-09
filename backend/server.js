@@ -53,20 +53,21 @@ const upload = multer({
     storage: storage,
 });
 
+
 // Create Nodemailer transporter
 const createTransporter = () => {
-    return nodemailer.createTransport({
-        host: process.env.EMAIL_HOST,
-        port: process.env.EMAIL_PORT,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
-    });
+  return nodemailer.createTransport({
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
+    secure: false, // MUST be false for 587
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    }
+  });
 };
+
+
 
 // Email template function
 const createEmailTemplate = (data) => {
@@ -258,8 +259,6 @@ const createEmailTemplate = (data) => {
         </html>
     `;
 };
-
-
 
 
 
