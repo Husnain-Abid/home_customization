@@ -10,23 +10,31 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin) return callback(null, true);
-        const allowedOrigins = [
-            'https://freepointhomes.com'      // future SSL
-            // 'http://localhost:3000',
+  origin: function (origin, callback) {
 
-        ];
+    // Allow server-to-server & preflight requests
+    if (!origin) return callback(null, true);
 
+    const allowedOrigins = [
+      'https://freepointhomes.com',
+      'https://www.freepointhomes.com'
+    ];
 
-        if (allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    // ❗ DO NOT throw error — just reject silently
+    return callback(null, false);
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
+
+// 🔥 VERY IMPORTANT: handle preflight
+app.options('*', cors());
+
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
@@ -257,12 +265,12 @@ const createEmailTemplate = (data) => {
 
 
 // Routes
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
     res.json({ message: 'Freepoint Homes Backend API is running!' });
 });
 
 // Send email with PDF attachment
-app.post('/send-email', upload.single('pdf'), async (req, res) => {
+app.post('/api/send-email', upload.single('pdf'), async (req, res) => {
     try {
         const { firstName, lastName, email, phone, message, totalPrice } = req.body;
 
@@ -344,7 +352,7 @@ app.post('/send-email', upload.single('pdf'), async (req, res) => {
 });
 
 // Send email with base64 PDF 
-app.post('/send-email-base64', async (req, res) => {
+app.post('/api/send-email-base64', async (req, res) => {
     try {
         const { firstName, lastName, email, phone, message, totalPrice, pdfBase64 } = req.body;
 
@@ -405,7 +413,7 @@ app.post('/send-email-base64', async (req, res) => {
 });
 
 // Health check endpoint
-app.get('/health', (req, res) => {
+app.get('/api/health', (req, res) => {
     res.json({
         status: 'OK',
         timestamp: new Date().toISOString(),
