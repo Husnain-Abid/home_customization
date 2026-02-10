@@ -401,7 +401,7 @@ app.get('/api/test-email', async (req, res) => {
 
   await transporter.sendMail({
     from: `"Freepoint Homes" <contact@freepointhomes.com>`,
-    to: 'YOUR_PERSONAL_GMAIL@gmail.com',
+    to: 'nainiphp603@gmail.com',
     subject: 'SMTP TEST',
     text: 'If you receive this, SMTP works.'
   });
