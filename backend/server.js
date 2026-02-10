@@ -55,26 +55,17 @@ const upload = multer({
 
 
 // Create Nodemailer transporter
-
-export const createTransporter = () => {
+const createTransporter = () => {
   return nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
-    port: Number(process.env.EMAIL_PORT),
+    port: process.env.EMAIL_PORT,
     secure: false, // MUST be false for 587
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
-    },
-    tls: {
-      ciphers: 'SSLv3',
-      rejectUnauthorized: false
-    },
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 10000
+    }
   });
 };
-
 
 
 
@@ -294,10 +285,11 @@ app.post('/api/send-email', upload.single('pdf'), async (req, res) => {
 
     const mailOptions = {
       from: `"Freepoint Homes" <contact@freepointhomes.com>`,
-      to: email,
-      cc: 'contact@freepointhomes.com',
-      replyTo: email,
+      to: email, // customer email
+      cc: 'contact@freepointhomes.com', // admin
+      replyTo: email, // reply directly 
       subject: 'Your Customized Home Configuration - Freepoint Homes',
+
       html: createEmailTemplate({
         firstName,
         lastName,
@@ -356,12 +348,11 @@ app.post('/api/send-email-base64', async (req, res) => {
     // Email options
     const mailOptions = {
       from: `"Freepoint Homes" <contact@freepointhomes.com>`,
-      to: email,
-      cc: 'contact@freepointhomes.com',
-      replyTo: email,
+      to: email, // customer email
+      cc: 'contact@freepointhomes.com', // admin
+      replyTo: email, // reply directly 
       subject: 'Your Customized Home Configuration - Freepoint Homes',
       html: createEmailTemplate({
-
         firstName,
         lastName,
         email,
@@ -402,30 +393,23 @@ app.post('/api/send-email-base64', async (req, res) => {
 });
 
 app.get('/api/test-email', async (req, res) => {
-  try {
-    const transporter = createTransporter();
+  const transporter = createTransporter();
 
+  try {
     const info = await transporter.sendMail({
       from: `"Freepoint Homes" <contact@freepointhomes.com>`,
       to: 'nainiphp603@gmail.com',
       subject: 'SMTP TEST',
-      text: 'If you receive this, GoDaddy SMTP works.'
+      text: 'If you receive this, SMTP works.'
     });
 
-    return res.json({
-      ok: true,
-      messageId: info.messageId
-    });
-  } catch (error) {
-    console.error('SMTP ERROR:', error);
-    return res.status(500).json({
-      ok: false,
-      error: error.message
-    });
+    console.log('Test email sent:', info.messageId);
+    res.json({ ok: true, messageId: info.messageId });
+  } catch (err) {
+    console.error('SMTP test failed:', err);
+    res.status(500).json({ ok: false, error: err.message });
   }
 });
-
-
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
