@@ -399,15 +399,22 @@ app.post('/api/send-email-base64', async (req, res) => {
 app.get('/api/test-email', async (req, res) => {
   const transporter = createTransporter();
 
-  await transporter.sendMail({
-    from: `"Freepoint Homes" <contact@freepointhomes.com>`,
-    to: 'nainiphp603@gmail.com',
-    subject: 'SMTP TEST',
-    text: 'If you receive this, SMTP works.'
-  });
+  try {
+    const info = await transporter.sendMail({
+      from: `"Freepoint Homes" <contact@freepointhomes.com>`,
+      to: 'nainiphp603@gmail.com',
+      subject: 'SMTP TEST',
+      text: 'If you receive this, SMTP works.'
+    });
 
-  res.json({ ok: true });
+    console.log('Test email sent:', info.messageId);
+    res.json({ ok: true, messageId: info.messageId });
+  } catch (err) {
+    console.error('SMTP test failed:', err);
+    res.status(500).json({ ok: false, error: err.message });
+  }
 });
+
 
 
 
