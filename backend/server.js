@@ -59,18 +59,21 @@ const upload = multer({
 export const createTransporter = () => {
   return nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT,
-    secure: true, // IMPORTANT for 465
+    port: Number(process.env.EMAIL_PORT),
+    secure: false, // MUST be false for 587
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
     },
     tls: {
-      rejectUnauthorized: false // GoDaddy ke liye safe workaround
-    }
+      ciphers: 'SSLv3',
+      rejectUnauthorized: false
+    },
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 10000
   });
 };
-
 
 
 
@@ -399,24 +402,28 @@ app.post('/api/send-email-base64', async (req, res) => {
 });
 
 app.get('/api/test-email', async (req, res) => {
-  const transporter = createTransporter();
-
   try {
+    const transporter = createTransporter();
+
     const info = await transporter.sendMail({
       from: `"Freepoint Homes" <contact@freepointhomes.com>`,
       to: 'nainiphp603@gmail.com',
       subject: 'SMTP TEST',
-      text: 'If you receive this, SMTP works.'
+      text: 'If you receive this, GoDaddy SMTP works.'
     });
 
-    console.log('Test email sent:', info.messageId);
-    res.json({ ok: true, messageId: info.messageId });
-  } catch (err) {
-    console.error('SMTP test failed:', err);
-    res.status(500).json({ ok: false, error: err.message });
+    return res.json({
+      ok: true,
+      messageId: info.messageId
+    });
+  } catch (error) {
+    console.error('SMTP ERROR:', error);
+    return res.status(500).json({
+      ok: false,
+      error: error.message
+    });
   }
 });
-
 
 
 
