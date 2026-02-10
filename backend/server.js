@@ -288,28 +288,6 @@ app.post('/api/send-email', upload.single('pdf'), async (req, res) => {
     // Create transporter
     const transporter = createTransporter();
 
-    // Email options
-    // const mailOptions = {
-    //     from: `"Freepoint Homes" <${process.env.EMAIL_FROM}>`,
-    //     to: email,
-    //     subject: 'Your Customized Home Configuration - Freepoint Homes',
-    //     html: createEmailTemplate({
-    //         firstName,
-    //         lastName,
-    //         email,
-    //         phone,
-    //         message,
-    //         totalPrice
-    //     }),
-    //     attachments: req.file ? [
-    //         {
-    //             filename: req.file.originalname || 'customized-home-configuration.pdf',
-    //             path: req.file.path,
-    //             contentType: 'application/pdf'
-    //         }
-    //     ] : []
-    // };
-
     const mailOptions = {
       from: `"Freepoint Homes" <contact@freepointhomes.com>`,
       to: email, // customer email
@@ -417,6 +395,21 @@ app.post('/api/send-email-base64', async (req, res) => {
     });
   }
 });
+
+app.get('/api/test-email', async (req, res) => {
+  const transporter = createTransporter();
+
+  await transporter.sendMail({
+    from: `"Freepoint Homes" <contact@freepointhomes.com>`,
+    to: 'YOUR_PERSONAL_GMAIL@gmail.com',
+    subject: 'SMTP TEST',
+    text: 'If you receive this, SMTP works.'
+  });
+
+  res.json({ ok: true });
+});
+
+
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
