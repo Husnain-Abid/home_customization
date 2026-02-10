@@ -56,20 +56,21 @@ const upload = multer({
 
 // Create Nodemailer transporter
 
-const createTransporter = () => {
+export const createTransporter = () => {
   return nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
-    secure: false, // MUST be false for 587
+    secure: true, // IMPORTANT for 465
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
     },
     tls: {
-      rejectUnauthorized: false
+      rejectUnauthorized: false // GoDaddy ke liye safe workaround
     }
   });
 };
+
 
 
 
@@ -290,11 +291,10 @@ app.post('/api/send-email', upload.single('pdf'), async (req, res) => {
 
     const mailOptions = {
       from: `"Freepoint Homes" <contact@freepointhomes.com>`,
-      to: email, // customer email
-      cc: 'contact@freepointhomes.com', // admin copy
-      replyTo: email, //  directly 
+      to: email,
+      cc: 'contact@freepointhomes.com',
+      replyTo: email,
       subject: 'Your Customized Home Configuration - Freepoint Homes',
-
       html: createEmailTemplate({
         firstName,
         lastName,
@@ -352,11 +352,13 @@ app.post('/api/send-email-base64', async (req, res) => {
 
     // Email options
     const mailOptions = {
-      from: `"Freepoint Homes" <contact@freepointhomes.com>`, // FIXED FROM
-      to: email, // customer email
-      cc: 'contact@freepointhomes.com', // ✅ ALWAYS CC
+      from: `"Freepoint Homes" <contact@freepointhomes.com>`,
+      to: email,
+      cc: 'contact@freepointhomes.com',
+      replyTo: email,
       subject: 'Your Customized Home Configuration - Freepoint Homes',
       html: createEmailTemplate({
+
         firstName,
         lastName,
         email,
