@@ -287,7 +287,6 @@ app.post('/api/send-email', upload.single('pdf'), async (req, res) => {
       from: `"Freepoint Homes" <contact@freepointhomes.com>`,
       to: email, // customer email
       cc: 'contact@freepointhomes.com', // admin
-      replyTo: email, // reply directly 
       subject: 'Your Customized Home Configuration - Freepoint Homes',
 
       html: createEmailTemplate({
@@ -350,7 +349,6 @@ app.post('/api/send-email-base64', async (req, res) => {
       from: `"Freepoint Homes" <contact@freepointhomes.com>`,
       to: email, // customer email
       cc: 'contact@freepointhomes.com', // admin
-      replyTo: email, // reply directly 
       subject: 'Your Customized Home Configuration - Freepoint Homes',
       html: createEmailTemplate({
         firstName,
